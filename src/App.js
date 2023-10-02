@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        AHoj
         <img src={CakeIcon} alt="icon" />
         <Stack direction="row" spacing={2}>
           <Button color="secondary">Secondary</Button>
