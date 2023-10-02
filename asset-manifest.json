@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fit-body/static/css/main.cdd0ea60.css",
+    "main.js": "/fit-body/static/js/main.94387bd1.js",
+    "static/js/787.c8f8ac30.chunk.js": "/fit-body/static/js/787.c8f8ac30.chunk.js",
+    "index.html": "/fit-body/index.html",
+    "main.cdd0ea60.css.map": "/fit-body/static/css/main.cdd0ea60.css.map",
+    "main.94387bd1.js.map": "/fit-body/static/js/main.94387bd1.js.map",
+    "787.c8f8ac30.chunk.js.map": "/fit-body/static/js/787.c8f8ac30.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cdd0ea60.css",
+    "static/js/main.94387bd1.js"
+  ]
+}
