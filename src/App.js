@@ -1,19 +1,32 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Menu from './Menu/Menu';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import MyMenu from './component/MyMenu';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Plans from './component/Plans';
+import Form from './component/Form';
+import Exercise from './component/Exercise';
+import Home from './component/Home';
 
 function App() {
   return (
-    <Router>
-      <Menu />
-      <Routes>
-        <Route path="/tranings">Trainings</Route>
-        <Route path="/exercises">Exercises</Route>
-        <Route path="/form">Form</Route>
-        <Route path="/">Home</Route>
-      </Routes>{' '}
-    </Router>
+    <BrowserRouter>
+      <CssBaseline />
+      <MyMenu />
+      <Container>
+        <Routes>
+          <Route path="/Plans" element={<Plans />} />
+          <Route path="/Form" element={<Form />} />
+          <Route path="/Exercise" element={<Exercise />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Container>
+    </BrowserRouter>
   );
 }
 
