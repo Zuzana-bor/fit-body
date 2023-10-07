@@ -24,6 +24,22 @@ export const items = [
     id: 1,
   },
   {
+    name: 'výpady',
+    keys: 'výpady',
+    description: 'Lorem ipsum ',
+    media: '.',
+    category: 'Dolní část těla',
+    id: 1,
+  },
+  {
+    name: 'švihadlo',
+    keys: 'švihadlo',
+    description: 'Lorem ipsum ',
+    media: '.',
+    category: 'cardio',
+    id: 2,
+  },
+  {
     name: 'angličák',
     keys: 'angličák',
     description: 'Lorem ipsum ',

@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import MyCard from './MyCard';
 import { items } from '../data';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,8 +52,18 @@ const Exercise = ({ name, keys, description, media, category }) => {
     setValue(newValue);
   };
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
   return (
     <Box sx={{ width: '100%' }}>
+      <img src="../assets/dite.jpg" alt="cvičete s dítětem" />
+
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}
@@ -63,19 +76,34 @@ const Exercise = ({ name, keys, description, media, category }) => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        {relatedExercise.map((item) => (
-          <MyCard key={item.name} exercise={item} />
-        ))}
+        <Stack direction="row" spacing={2}>
+          {' '}
+          {relatedExercise.map((item) => (
+            <Item>
+              <MyCard key={item.name} exercise={item} />
+            </Item>
+          ))}{' '}
+        </Stack>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        {relatedExercise.map((item) => (
-          <MyCard key={item.name} exercise={item} />
-        ))}
+        <Stack direction="row" spacing={2}>
+          {' '}
+          {relatedExercise.map((item) => (
+            <Item>
+              <MyCard key={item.name} exercise={item} />
+            </Item>
+          ))}{' '}
+        </Stack>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        {relatedExercise.map((item) => (
-          <MyCard key={item.name} exercise={item} />
-        ))}
+        <Stack direction="row" spacing={2}>
+          {' '}
+          {relatedExercise.map((item) => (
+            <Item>
+              <MyCard key={item.name} exercise={item} />
+            </Item>
+          ))}{' '}
+        </Stack>
       </CustomTabPanel>
     </Box>
   );
