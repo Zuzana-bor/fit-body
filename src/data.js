@@ -5,7 +5,15 @@ export const items = [
     description: 'Lorem ipsum ',
     media: '.',
     category: 'Horní část těla',
-    id: '0',
+    id: 0,
+  },
+  {
+    name: 'přítahy',
+    keys: 'pritahy',
+    description: 'Lorem ipsum ',
+    media: '.',
+    category: 'Horní část těla',
+    id: 0,
   },
   {
     name: 'dřep',
@@ -13,7 +21,7 @@ export const items = [
     description: 'Lorem ipsum ',
     media: '.',
     category: 'Dolní část těla',
-    id: '1',
+    id: 1,
   },
   {
     name: 'angličák',
@@ -21,6 +29,6 @@ export const items = [
     description: 'Lorem ipsum ',
     media: '.',
     category: 'cardio',
-    id: '2',
+    id: 2,
   },
 ];

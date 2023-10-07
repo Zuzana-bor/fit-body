@@ -6,7 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const MyCard = ({ name, description }) => {
+const MyCard = ({ exercise }) => {
+  console.log(exercise.name);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -17,10 +18,10 @@ const MyCard = ({ name, description }) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {name}
+          {exercise.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {description}
+          {exercise.description}
         </Typography>
       </CardContent>
       <CardActions>

@@ -40,18 +40,14 @@ function a11yProps(index) {
   };
 }
 
-const Exercise = () => {
+const Exercise = ({ name, keys, description, media, category }) => {
   const [value, setValue] = React.useState(0);
 
-  // const [changeIndex, setChangeIndex] = React.useState('0');
-
-  const relatedExercise = items.filter((item) => value === items.id);
-
+  const relatedExercise = items.filter((item) => value === item.id);
+  console.log(relatedExercise);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  // const relatedExercise = items.filter((item) => item.id === changeIndex);
 
   return (
     <Box sx={{ width: '100%' }}>
