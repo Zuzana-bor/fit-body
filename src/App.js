@@ -11,22 +11,37 @@ import Plans from './component/Plans';
 import Form from './component/Form';
 import Exercise from './component/Exercise';
 import Home from './component/Home';
+import { green } from '@mui/material/colors';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: green[300],
+    },
+  },
+});
+
+// function App() {
+//   return <ThemeProvider theme={theme}>...</ThemeProvider>;
 
 function App() {
   return (
-    <BrowserRouter>
-      <CssBaseline />
-      <MyMenu />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <CssBaseline />
+        <MyMenu />
 
-      <Container>
-        <Routes>
-          <Route path="/Plans" element={<Plans />} />
-          <Route path="/Form" element={<Form />} />
-          <Route path="/Exercise" element={<Exercise />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Container>
-    </BrowserRouter>
+        <Container>
+          <Routes>
+            <Route path="/Plans" element={<Plans />} />
+            <Route path="/Form" element={<Form />} />
+            <Route path="/Exercise" element={<Exercise />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Container>
+      </BrowserRouter>{' '}
+    </ThemeProvider>
   );
 }
 

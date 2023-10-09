@@ -9,6 +9,7 @@ import { items } from '../data';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import dite from '../assets/dite.jpg';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,51 +62,58 @@ const Exercise = ({ name, keys, description, media, category }) => {
   }));
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <img src="../assets/dite.jpg" alt="cvičete s dítětem" />
-
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Horní část těla" {...a11yProps(0)} />
-          <Tab label="Dolní část těla" {...a11yProps(1)} />
-          <Tab label="Cardio" {...a11yProps(2)} />
-        </Tabs>
+    <Stack
+      direction="row"
+      spacing={4}
+      my={4}
+      justifyContent="space-around"
+      alignItems="centre"
+    >
+      <img src={dite} alt="cvičete s dítětem" />
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="Horní část těla" {...a11yProps(0)} />
+            <Tab label="Dolní část těla" {...a11yProps(1)} />
+            <Tab label="Cardio" {...a11yProps(2)} />
+          </Tabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+          <Stack direction="row" spacing={2}>
+            {' '}
+            {relatedExercise.map((item) => (
+              <Item>
+                <MyCard key={item.name} exercise={item} />
+              </Item>
+            ))}{' '}
+          </Stack>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          <Stack direction="row" spacing={2}>
+            {' '}
+            {relatedExercise.map((item) => (
+              <Item>
+                <MyCard key={item.name} exercise={item} />
+              </Item>
+            ))}{' '}
+          </Stack>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          <Stack direction="row" spacing={2}>
+            {' '}
+            {relatedExercise.map((item) => (
+              <Item>
+                <MyCard key={item.name} exercise={item} />
+              </Item>
+            ))}{' '}
+          </Stack>
+        </CustomTabPanel>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        <Stack direction="row" spacing={2}>
-          {' '}
-          {relatedExercise.map((item) => (
-            <Item>
-              <MyCard key={item.name} exercise={item} />
-            </Item>
-          ))}{' '}
-        </Stack>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <Stack direction="row" spacing={2}>
-          {' '}
-          {relatedExercise.map((item) => (
-            <Item>
-              <MyCard key={item.name} exercise={item} />
-            </Item>
-          ))}{' '}
-        </Stack>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        <Stack direction="row" spacing={2}>
-          {' '}
-          {relatedExercise.map((item) => (
-            <Item>
-              <MyCard key={item.name} exercise={item} />
-            </Item>
-          ))}{' '}
-        </Stack>
-      </CustomTabPanel>
-    </Box>
+    </Stack>
   );
 };
 
