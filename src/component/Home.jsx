@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import cinky from '../assets/cinky.jpg';
+import women from '../assets/women.jpg';
 
 const images = [
   {
@@ -80,7 +81,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 const Home = () => {
   return (
-    <>
+    <Typography ImageBackdrop={women}>
       <Stack
         direction="column"
         justifyContent="space-between"
@@ -132,7 +133,7 @@ const Home = () => {
           </ImageButton>
         ))}
       </Box>
-    </>
+    </Typography>
   );
 };
 
