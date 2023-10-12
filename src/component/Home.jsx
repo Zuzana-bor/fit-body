@@ -4,16 +4,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
-import cinky from '../assets/cinky.jpg';
-import women from '../assets/women.jpg';
-
-const images = [
-  {
-    url: { cinky },
-    title: 'Cinky',
-    width: '20%',
-  },
-];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
@@ -81,7 +71,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 const Home = () => {
   return (
-    <Typography ImageBackdrop={women}>
+    <Box sx={{ backgroundImage: 'url(/assets/women.jpg)' }}>
       <Stack
         direction="column"
         justifyContent="space-between"
@@ -89,7 +79,7 @@ const Home = () => {
         my={10}
       >
         <Typography variant="h2">
-          <div> Mysli na sebe i na mateřské dovolené.</div>
+          <div>Mysli na sebe i na mateřské dovolené.</div>
           <div> Buď v kondici. </div>
           <div> Buď svá. </div>
         </Typography>
@@ -104,36 +94,33 @@ const Home = () => {
       <Box
         sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}
       >
-        {images.map((image) => (
-          <ImageButton
-            focusRipple
-            key={image.title}
-            style={{
-              width: image.width,
-            }}
-          >
-            <ImageSrc style={{ backgroundImage: { src: image.url } }} />
-            <ImageBackdrop className="MuiImageBackdrop-root" />
-            <Image>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
-                sx={{
-                  position: 'relative',
-                  p: 4,
-                  pt: 2,
-                  pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                }}
-              >
-                {image.title}
-                <ImageMarked className="MuiImageMarked-root" />
-              </Typography>
-            </Image>
-          </ImageButton>
-        ))}
+        <ImageButton
+          focusRipple
+          style={{
+            width: '20%',
+          }}
+        >
+          <ImageSrc style={{ backgroundImage: 'url(/assets/cinky.jpg)' }} />
+          <ImageBackdrop className="MuiImageBackdrop-root" />
+          <Image>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              sx={{
+                position: 'relative',
+                p: 4,
+                pt: 2,
+                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+              }}
+            >
+              Pojď na to
+              <ImageMarked className="MuiImageMarked-root" />
+            </Typography>
+          </Image>
+        </ImageButton>
       </Box>
-    </Typography>
+    </Box>
   );
 };
 

@@ -9,7 +9,6 @@ import { items } from '../data';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import dite from '../assets/dite.jpg';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -69,7 +68,7 @@ const Exercise = ({ name, keys, description, media, category }) => {
       justifyContent="space-around"
       alignItems="centre"
     >
-      <img src={dite} alt="cvičete s dítětem" />
+      <img src="/assets/dite.jpg" alt="cvičete s dítětem" />
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs
