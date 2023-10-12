@@ -56,7 +56,7 @@ const MyMenu = () => {
           >
             <Link style={{ textDecoration: 'none', color: 'white' }} to={'/'}>
               {' '}
-              LOGO{' '}
+              AHOJ{' '}
             </Link>
           </Typography>
 
