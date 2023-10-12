@@ -1,118 +1,114 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import MyCard from './MyCard';
+import { Box } from '@mui/material';
 import { items } from '../data';
 import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
 
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body3,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
+const Exercise = ({
+  name,
+  keys,
+  description,
+  media,
+  category,
+  musclesTargeted,
+}) => {
+  const upperBody = items.filter((item) => 'Horní část těla' === item.category);
+  const lowerBody = items.filter((item) => 'Dolní část těla' === item.category);
+  const cardio = items.filter((item) => 'cardio' === item.category);
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-CustomTabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const Exercise = ({ name, keys, description, media, category }) => {
-  const [value, setValue] = React.useState(0);
-
-  const relatedExercise = items.filter((item) => value === item.id);
-  console.log(relatedExercise);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
-  return (
-    <Stack
-      direction="row"
-      spacing={4}
-      my={4}
-      justifyContent="space-around"
-      alignItems="centre"
-    >
-      <img src="/assets/dite.jpg" alt="cvičete s dítětem" />
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab label="Horní část těla" {...a11yProps(0)} />
-            <Tab label="Dolní část těla" {...a11yProps(1)} />
-            <Tab label="Cardio" {...a11yProps(2)} />
-          </Tabs>
-        </Box>
-        <CustomTabPanel value={value} index={0}>
-          <Stack direction="row" spacing={2}>
-            {' '}
-            {relatedExercise.map((item) => (
-              <Item>
-                <MyCard key={item.name} exercise={item} />
+    <>
+      <Box>
+        <h3>Horní část těla</h3>
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="space-evenly"
+          flexWrap="wrap"
+        >
+          {upperBody.map((item) => (
+            <Box>
+              <Item sx={{ my: 1 }}>
+                <Card sx={{ maxWidth: 345, height: 330 }}>
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    image="/assets/dite.jpg"
+                    title={item.name}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h7" component="div">
+                      {item.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      <h4> Cílové svalstvo: </h4> {item.musclesTargeted}
+                    </Typography>
+                  </CardContent>
+                </Card>
               </Item>
-            ))}{' '}
-          </Stack>
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          <Stack direction="row" spacing={2}>
-            {' '}
-            {relatedExercise.map((item) => (
-              <Item>
-                <MyCard key={item.name} exercise={item} />
-              </Item>
-            ))}{' '}
-          </Stack>
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
-          <Stack direction="row" spacing={2}>
-            {' '}
-            {relatedExercise.map((item) => (
-              <Item>
-                <MyCard key={item.name} exercise={item} />
-              </Item>
-            ))}{' '}
-          </Stack>
-        </CustomTabPanel>
+            </Box>
+          ))}
+        </Stack>
       </Box>
-    </Stack>
+      <Box>
+        <h3>Dolní část těla</h3>
+        {lowerBody.map((item) => (
+          <Box>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                sx={{ height: 140 }}
+                image="/static/images/cards/contemplative-reptile.jpg"
+                title="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        ))}
+      </Box>
+      <Box>
+        <h3>Kardio</h3>
+        {cardio.map((item) => (
+          <Box>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                sx={{ height: 140 }}
+                image="/static/images/cards/contemplative-reptile.jpg"
+                title="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+        ))}
+      </Box>
+    </>
   );
 };
 
