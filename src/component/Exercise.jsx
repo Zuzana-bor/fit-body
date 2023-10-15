@@ -41,20 +41,25 @@ const Exercise = ({
           {upperBody.map((item) => (
             <Box>
               <Item sx={{ my: 1 }}>
-                <Card sx={{ maxWidth: 345, height: 330 }}>
+                <Card sx={{ maxWidth: 345, height: 300 }}>
                   <CardMedia
                     sx={{ height: 140 }}
                     image="/assets/dite.jpg"
                     title={item.name}
                   />
-                  <CardContent>
+                  <CardContent sx={{ overflowX: 'scroll' }}>
                     <Typography gutterBottom variant="h7" component="div">
                       {item.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {item.description}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      backgroundColor="green"
+                      sx={{ px: '0' }}
+                    >
                       <h4> Cílové svalstvo: </h4> {item.musclesTargeted}
                     </Typography>
                   </CardContent>
