@@ -71,24 +71,33 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 const Home = () => {
   return (
-    <Box sx={{ backgroundImage: 'url(/assets/women.jpg)' }}>
+    <Box sx={{ backgroundImage: 'url(/assets/women.jpg)', p: 4 }}>
       <Stack
         direction="column"
         justifyContent="space-between"
         spacing={8}
-        my={10}
+        my={4}
       >
-        <Typography variant="h2">
+        <Typography variant="h2" color="white">
           <div>Mysli na sebe i na mateřské dovolené.</div>
           <div> Buď v kondici. </div>
           <div> Buď svá. </div>
         </Typography>
       </Stack>
-      <Box sx={{ width: 500, backgroundColor: 'primary.dark' }}>
-        <p>
+      <Box
+        sx={{
+          width: 500,
+          backgroundColor: 'primary.dark',
+          '.motivace': {
+            background: (0, 0, 0, 0.4),
+          },
+          color: 'white',
+        }}
+      >
+        <p className="motivace">
           Cvič tam, kde ti to vyhovuje a co tvé tělo potřebuje. Stravuj se tak,
           aby Ti tvé tělo bylo vděčné a dosáhla jsi svých cílů. Vyplň krátký
-          dotazník a zjisti jak na to.
+          dotazník a zjisti, jak na to.
         </p>
       </Box>
       <Box
