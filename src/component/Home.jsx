@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
+import Button from '@mui/material/Button';
+import Form from './Form';
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
@@ -71,14 +73,14 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 const Home = () => {
   return (
-    <Box sx={{ backgroundImage: 'url(/assets/women.jpg)', p: 4 }}>
+    <Box sx={{ backgroundImage: 'url(/assets/women.jpg)', p: 4, m: 0 }}>
       <Stack
         direction="column"
         justifyContent="space-between"
         spacing={8}
         my={4}
       >
-        <Typography variant="h2" color="white">
+        <Typography variant="h4" color="white">
           <div>Mysli na sebe i na mateřské dovolené.</div>
           <div> Buď v kondici. </div>
           <div> Buď svá. </div>
@@ -86,12 +88,12 @@ const Home = () => {
       </Stack>
       <Box
         sx={{
-          width: 500,
-          backgroundColor: 'primary.dark',
-          '.motivace': {
-            background: (0, 0, 0, 0.4),
-          },
+          width: 350,
+          backgroundColor: 'primary',
           color: 'white',
+          mt: 5,
+
+          p: 1,
         }}
       >
         <p className="motivace">
@@ -100,35 +102,11 @@ const Home = () => {
           dotazník a zjisti, jak na to.
         </p>
       </Box>
-      <Box
-        sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}
-      >
-        <ImageButton
-          focusRipple
-          style={{
-            width: '20%',
-          }}
-        >
-          <ImageSrc style={{ backgroundImage: 'url(/assets/cinky.jpg)' }} />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: 'relative',
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              Pojď na to
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
-        </ImageButton>
-      </Box>
+      <Stack spacing={2} alignItems="center" my={8}>
+        <Button variant="contained" href={<Form />}>
+          Pojď na to
+        </Button>
+      </Stack>
     </Box>
   );
 };
