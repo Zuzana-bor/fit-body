@@ -4,11 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import { items } from '../../data';
-import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import { groupBy } from 'lodash';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
