@@ -7,33 +7,9 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
-
-const pages = [
-  {
-    cs: 'Tréningové plány',
-    en: 'Plans',
-  },
-  {
-    cs: 'Databáze cviků',
-    en: 'Exercise',
-  },
-  {
-    cs: 'Dotazník',
-    en: 'Form',
-  },
-];
+import { Pages, Urls } from '../config';
 
 const MyMenu = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -63,17 +39,16 @@ const MyMenu = () => {
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {Object.entries(Pages).map(([url, name]) => (
               <Button
-                key={page.en}
-                onClick={handleCloseNavMenu}
+                key={url}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <Link
                   style={{ textDecoration: 'none', color: 'white' }}
-                  to={`/${page.en}`}
+                  to={Urls[url]}
                 >
-                  {page.cs}
+                  {name}
                 </Link>
               </Button>
             ))}
