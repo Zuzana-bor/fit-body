@@ -9,10 +9,11 @@ import '@fontsource/roboto/700.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Plans from './component/Plans';
 import Form from './component/Form';
-import Exercise from './component/Exercise';
+import Exercise from './pages/exercise/Exercise';
 import Home from './component/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Urls } from './config';
 
 const theme = createTheme({
   palette: {
@@ -34,10 +35,10 @@ function App() {
 
         <Container>
           <Routes>
-            <Route path="/Plans" element={<Plans />} />
-            <Route path="/Form" element={<Form />} />
-            <Route path="/Exercise" element={<Exercise />} />
-            <Route path="/" element={<Home />} theme={theme} />
+            <Route path={Urls.Plans} element={<Plans />} />
+            <Route path={Urls.Form} element={<Form />} />
+            <Route path={Urls.Exercise} element={<Exercise />} />
+            <Route path={Urls.Home} element={<Home />} theme={theme} />
           </Routes>
         </Container>
       </BrowserRouter>{' '}
