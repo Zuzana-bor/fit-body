@@ -37,7 +37,7 @@ function App() {
             <Route path="/Plans" element={<Plans />} />
             <Route path="/Form" element={<Form />} />
             <Route path="/Exercise" element={<Exercise />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} theme={theme} />
           </Routes>
         </Container>
       </BrowserRouter>{' '}
