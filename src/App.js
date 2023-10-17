@@ -8,7 +8,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Plans from './component/Plans';
-import Form from './component/Form';
+import Form from './pages/form/Form';
 import Exercise from './pages/exercise/Exercise';
 import Home from './component/Home';
 import { green } from '@mui/material/colors';
