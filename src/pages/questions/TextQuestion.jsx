@@ -2,8 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-const TextQuestion = ({ ask, answer1 }) => {
-  console.log(ask);
+const TextQuestion = ({ ask: [ask, answer1] }) => {
   return (
     <>
       <Box
@@ -14,7 +13,7 @@ const TextQuestion = ({ ask, answer1 }) => {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label={ask[1]} variant="outlined" />
+        <TextField id="outlined-basic" label={ask.ask} variant="outlined" />
       </Box>
     </>
   );
