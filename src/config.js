@@ -1,12 +1,12 @@
 export const Urls = {
   Plans: '/plans',
-  Form: '/form',
+  Questions: '/questions',
   Exercise: '/exercise',
   Home: '/',
 };
 
 export const Pages = {
   Plans: 'tréningové plány',
-  Form: 'dotazník',
+  Questions: 'dotazník',
   Exercise: 'databáze cviků',
 };

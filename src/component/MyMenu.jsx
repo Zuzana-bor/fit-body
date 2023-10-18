@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { Pages, Urls } from '../config';
 
 const MyMenu = () => {
+  console.log(Urls.Questions);
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
