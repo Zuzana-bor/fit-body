@@ -8,7 +8,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Plans from './component/Plans';
-import Form from './pages/form/Form';
+import Questions from './pages/questions/Questions';
 import Exercise from './pages/exercise/Exercise';
 import Home from './component/Home';
 import { green } from '@mui/material/colors';
@@ -36,7 +36,7 @@ function App() {
         <Container>
           <Routes>
             <Route path={Urls.Plans} element={<Plans />} />
-            <Route path={Urls.Form} element={<Form />} />
+            <Route path={Urls.Questions} element={<Questions />} />
             <Route path={Urls.Exercise} element={<Exercise />} />
             <Route path={Urls.Home} element={<Home />} theme={theme} />
           </Routes>
