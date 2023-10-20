@@ -13,7 +13,7 @@ export const asksText = [
   },
 ];
 
-export const askVyb = [
+export const selectAsk = [
   {
     ask: 'Pohlaví',
     answer1: 'muž',
@@ -34,9 +34,9 @@ export const askVyb = [
       'Manuální těžké zaměstnání ě trénink vyšší intenzity 6x týdně a více (profesionální sportovci, trenéři a podobně)',
   },
   {
-  ask: 'Cíl',
-  answer1: 'hubnutí',
-  answer2: 'udržování váhy',
-  answer3:"přibírání"
-},
+    ask: 'Cíl',
+    answer1: 'hubnutí',
+    answer2: 'udržování váhy',
+    answer3: 'přibírání',
+  },
 ];
