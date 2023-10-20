@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-const TextQuestion = ({ ask: [ask, answer1] }) => {
+const TextQuestion = ({ ask: [ask, answer1], onAnswer }) => {
   return (
     <>
       <Box
@@ -17,7 +17,11 @@ const TextQuestion = ({ ask: [ask, answer1] }) => {
           inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           id="outlined-basic"
           label={ask.ask}
+          name={ask.ask}
           variant="outlined"
+          onChange={(event) => {
+            onAnswer(event);
+          }}
         />
       </Box>
     </>
