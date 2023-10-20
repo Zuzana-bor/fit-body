@@ -39,4 +39,20 @@ export const selectAsk = [
     answer2: 'udržování váhy',
     answer3: 'přibírání',
   },
+  {
+    ask: 'Jak často chceš cvičit?',
+    answer1: '1x týdně',
+    answer2: '2x týdně',
+    answer3: '3x týdně',
+    answer4: '4x týdně',
+    answer5: '5x týdně',
+    answer6: '6x týdně',
+    answer7: '7x týdně',
+  },
+  {
+    ask: 'Kolik hodin denně spíš?',
+    answer1: '5 a méně hodin',
+    answer2: '6-7 hodin',
+    answer3: '8 a více hodin',
+  },
 ];
