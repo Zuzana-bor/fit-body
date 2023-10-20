@@ -13,7 +13,12 @@ const TextQuestion = ({ ask: [ask, answer1] }) => {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label={ask.ask} variant="outlined" />
+        <TextField
+          inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+          id="outlined-basic"
+          label={ask.ask}
+          variant="outlined"
+        />
       </Box>
     </>
   );
