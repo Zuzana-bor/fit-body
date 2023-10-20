@@ -42,15 +42,12 @@ const Questions = () => {
       </Box>
       <Stack direction="row" spacing={2}>
         {Object.values(values) ? (
-          <Button variant="contained">Odeslat</Button>
-        ) : (
           <Button variant="contained" disabled>
             Odeslat
           </Button>
+        ) : (
+          <Button variant="contained">Odeslat</Button>
         )}
-        <Button variant="contained" disabled>
-          Odeslat
-        </Button>
       </Stack>
     </>
   );
