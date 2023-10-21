@@ -37,7 +37,7 @@ const Home = () => {
         </p>
       </Box>
       <Stack spacing={2} alignItems="center" my={8}>
-        <Button variant="contained" href={<Questions />}>
+        <Button variant="contained" href="/Questions">
           Pojď na to
         </Button>
       </Stack>
