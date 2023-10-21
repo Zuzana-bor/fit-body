@@ -11,6 +11,7 @@ import { Typography } from '@mui/material';
 import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
 import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
+import Result from '../../component/Result';
 
 const Questions = () => {
   const [values, setValues] = React.useState({});
@@ -58,6 +59,7 @@ const Questions = () => {
           </Button>
         )}
       </Stack>
+      <Result values={[values]} />
     </>
   );
 };
