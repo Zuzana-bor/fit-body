@@ -20,6 +20,8 @@ const Questions = () => {
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
+  const handleCLick = () => {};
+
   return (
     <>
       <Typography variant="h4" m={3}>
@@ -50,16 +52,19 @@ const Questions = () => {
         </Paper>
       </Box>
 
-      <Stack direction="row" spacing={2}>
-        {Object.values(values) !== '' ? (
-          <Button variant="contained">Odeslat</Button>
-        ) : (
-          <Button variant="contained" disabled>
-            Odeslat
-          </Button>
-        )}
-      </Stack>
-      <Result values={[values]} />
+      {Object.values(values).length === 8 ? (
+        <Button variant="contained" onClick={handleCLick}>
+          Odeslat
+        </Button>
+      ) : (
+        <Button variant="contained" disabled>
+          Odeslat
+        </Button>
+      )}
+
+      <Box>
+        <Result values={[values]} />
+      </Box>
     </>
   );
 };
