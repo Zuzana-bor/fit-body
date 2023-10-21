@@ -1,4 +1,5 @@
 import React from 'react';
+import { Typography } from '@mui/material';
 
 const Result = ({ values: [key] }) => {
   const weight = key['Váha'];
@@ -49,8 +50,9 @@ const Result = ({ values: [key] }) => {
 
   return (
     <>
-      tady bude tabulka s výsledkem, která se zobrazí po kliknutí na Odeslat
-      <p>Tvůj denní příjem kalorií- {kcl}</p>
+      <Typography variant="h4" m={3}>
+        Tvůj denní příjem kalorií- {kcl} Kcal
+      </Typography>
     </>
   );
 };
