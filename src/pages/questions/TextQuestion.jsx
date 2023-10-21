@@ -16,6 +16,7 @@ const TextQuestion = ({ ask: [ask, answer1], onAnswer }) => {
         <TextField
           inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           id="outlined-basic"
+          type="number"
           label={ask.ask}
           name={ask.ask}
           variant="outlined"
