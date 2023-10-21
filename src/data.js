@@ -1,23 +1,24 @@
 export const items = [
   {
-    name: 'Kliky',
-    keys: 'kliky',
+    name: 'Bicepsové zdvihy s rotací',
+    keys: 'Bicepsové zdvihy s rotací',
     description:
-      'Zaujměte pozici prkna.Ohýbáním loktů přibližujte hrudník k podlaze a zpet do pozice prkna. ',
+      'Stůjte s činkama podél těla, dlaň směřuje také k tělu.Zpevněte střed těla. S výdechem zvedněte činky směrem k hrudníku. Lokty se nehnou. Držíme až 2 sekundy a s nádechem se vracíme zpět. ',
     media: '.',
+    pomucky: 'jednoručky (petlahev s vodou)',
     category: 'Horní část těla',
-    musclesTargeted: 'Prsní, ramenní, (triceps, břišní svalstvo)',
-    mainMuscleGroupe: 'prsa',
+    mainMuscleGroupe: 'biceps',
     id: 0,
   },
   {
-    name: 'Hindu kliky',
-    keys: 'hindu klik',
+    name: 'Tricepsové tlaky',
+    keys: 'Tricepsové tlaky',
     description:
-      'Zaujměte pozici střecha. Pokrčte lokty a mezi rukama spusťte nos dopředu k zemi, držte hrudník těsně nad podlahou a poté pohyb otočte hrudníkem nahoru. Najděte rytmus a plynule ho držte. ',
+      'Stůjte s činkou uchopenou oběma rukama nad hlavou. Činku spouštějte s nádechem za hlavu do pravého úhlu lokte. S výdechem zpět.',
     media: '.',
+    pomucky: 'jednoručky (petlahev s vodou)',
     category: 'Horní část těla',
-    mainMuscleGroupe: 'ruce',
+    mainMuscleGroupe: 'triceps',
     id: 0,
   },
   {
@@ -26,8 +27,9 @@ export const items = [
     description:
       'Posaďte se zády k židli, ruce dejte za sebe na židli a pokrčte v loktech. Nohy jsou natažené nebo lehce pokrčené. Zvedejte se narovnáním rukou v lokti.',
     media: '.',
+    pomucky: 'jednoručky (petlahev s vodou)',
     category: 'Horní část těla',
-    mainMuscleGroupe: 'ruce',
+    mainMuscleGroupe: 'triceps',
     id: 0,
   },
   {
@@ -38,6 +40,28 @@ export const items = [
     media: '.',
     category: 'Horní část těla',
     mainMuscleGroupe: 'ruce',
+    id: 0,
+  },
+  {
+    name: 'Tricepsové kick-backy',
+    keys: 'Tricepsové kick-backy',
+    description:
+      'Stůjte v pozici výpadu (jednoha vpřed), protilehlá ruka drží činku, loket u těla. Předloktí je kolmo k zemi. Paže s činkou jde nahoru tak, aby v konečné pozici byla rovnoběžně s tupem. Následuje chvilková výdrž a vrátíme se do výchozí pozice. ',
+    media: '.',
+    pomucky: 'jednoručky (petlahev s vodou)',
+    category: 'Horní část těla',
+    mainMuscleGroupe: 'triceps',
+    id: 0,
+  },
+  {
+    name: 'Arnoldovy tlaky',
+    keys: 'Arnoldovy tlaky',
+    description:
+      'Stůjte v pozici výpadu (jednoha vpřed), protilehlá ruka drží činku, loket u těla. Předloktí je kolmo k zemi. Paže s činkou jde nahoru tak, aby v konečné pozici byla rovnoběžně s tupem. Následuje chvilková výdrž a vrátíme se do výchozí pozice. ',
+    media: '.',
+    category: 'Horní část těla',
+    pomucky: 'jednoručky (petlahev s vodou)',
+    mainMuscleGroupe: 'triceps',
     id: 0,
   },
   {
@@ -55,6 +79,39 @@ export const items = [
     keys: 'krabí chůze',
     description:
       ' Sedněte si na zem s pokrčenými koleny, chodidly na šířku ramen a dlaněmi na podlaze za vámi s prsty směřujícími dopředu. Zapojte hýžďové svaly a zvedněte boky z podlahy. Kráčejte vpřed levou nohou a pravou rukou, poté pravou nohou a levou rukou. Jděte vpřed o stanovený počet kroků a poté zpět.',
+
+    media: '.',
+    category: 'Horní část těla',
+    mainMuscleGroupe: 'břicho',
+    id: 0,
+  },
+  {
+    name: 'Sedy-lehy s dotekem',
+    keys: 'Sedy-lehy s dotekem',
+    description:
+      'Výchozí pozice- leh na zádach, nohy pokrčené s patama u sebe, ruce natažené za hlavou. Zvedáme se do sedu a dotkneme se jednou rukou špiček bot. Vracíme se zpět. Ruky střídáme',
+
+    media: '.',
+    category: 'Horní část těla',
+    mainMuscleGroupe: 'břicho',
+    id: 0,
+  },
+  {
+    name: 'Pokládání natažených nohou',
+    keys: 'Pokládání natažených nohou',
+    description:
+      'Výchozí pozice- leh na zádach. Kříž tlačíme do podložky, ruce podél těla. Hlava nad zemí. Nohy natažené kolmo k zemi, pomalu pohybujeme dolů, nad zemí nohy skrčíme a opět narovnáme kolmo k zemi. Pohyb provádíme plynule. ',
+
+    media: '.',
+    category: 'Horní část těla',
+    mainMuscleGroupe: 'břicho',
+    id: 0,
+  },
+  {
+    name: 'Přítahy kolen v obráceném vzporu.',
+    keys: 'Přítahy kolen v obráceném vzporu.',
+    description:
+      'Začínáme v pozici obráceného prkna. pánev směřujeme nahoru. Kolenem pohybujeme směrem k hrudi a zpět. Kolena střídáme. ',
 
     media: '.',
     category: 'Horní část těla',
