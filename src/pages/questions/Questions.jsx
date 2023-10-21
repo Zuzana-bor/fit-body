@@ -11,7 +11,7 @@ import { Typography } from '@mui/material';
 import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
 import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
-import Result from '../../component/Result';
+import Result from './Result';
 
 const Questions = () => {
   const [values, setValues] = React.useState({});
@@ -30,7 +30,7 @@ const Questions = () => {
       <Stack direction="row" justifyContent="space-around">
         <Stack alignItems="center">
           <FitnessCenterTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak si tréninkgy nakombinovat.</Typography>
+          <Typography variant="h6">Jak si tréninky nakombinovat.</Typography>
         </Stack>
         <Stack alignItems="center">
           <EggAltTwoToneIcon fontSize="large" color="primary" />
