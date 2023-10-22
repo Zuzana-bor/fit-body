@@ -1,7 +1,8 @@
 import React from 'react';
 
-const Plan = ({ muscles }) => {
-  return <></>;
+const Plan = ({ key, exercise }) => {
+  console.log(exercise);
+  return <>{exercise}</>;
 };
 
 export default Plan;
