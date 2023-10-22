@@ -4,34 +4,69 @@ import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import { Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { items } from '../data';
 import Plan from '../pages/plans/Plan';
 
 const Plans = () => {
-  const [muscles, setMuscles] = React.useState('');
-  const handleClick = (event) => {
-    setMuscles(event.target.outerText);
-  };
+  const { category } = useParams();
+
+  const relatedExercises = items.filter(
+    (item) => item.category.toLowerCase() === category,
+  );
+  console.log(relatedExercises);
   return (
     <>
       <Stack direction="row" my={8} spacing={2}>
         <Paper sx={{ width: 320, maxWidth: '100%' }}>
           <MenuList>
             <MenuItem>
-              <ListItemText onClick={handleClick}>Full body</ListItemText>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/fullbody'}
+                >
+                  Full body
+                </Link>
+              </ListItemText>
             </MenuItem>
             <MenuItem>
-              <ListItemText onClick={handleClick}>Horní část těla</ListItemText>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/hornicasttela'}
+                >
+                  Horní část těla
+                </Link>
+              </ListItemText>
             </MenuItem>
             <MenuItem>
-              <ListItemText onClick={handleClick}>Dolní část těla</ListItemText>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/dolnicasttela'}
+                >
+                  Dolní část těla
+                </Link>
+              </ListItemText>
             </MenuItem>
             <MenuItem>
-              <ListItemText onClick={handleClick}>Kardio</ListItemText>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/kardio'}
+                >
+                  Kardio
+                </Link>
+              </ListItemText>
             </MenuItem>
           </MenuList>
         </Paper>
       </Stack>
-      <Plan muscles={muscles} />
+      {relatedExercises.map((exercise) => (
+        <Plan key={exercise.keys} exercise={exercise} />
+      ))}
     </>
   );
 };

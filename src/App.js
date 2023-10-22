@@ -14,6 +14,7 @@ import Home from './component/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
+import Plan from './pages/plans/Plan';
 
 const theme = createTheme({
   palette: {
@@ -39,6 +40,11 @@ function App() {
             <Route path={Urls.Questions} element={<Questions />} />
             <Route path={Urls.Exercise} element={<Exercise />} />
             <Route path={Urls.Home} element={<Home />} theme={theme} />
+          </Routes>
+        </Container>
+        <Container>
+          <Routes>
+            <Route path="/plans/:category" element={<Plan />} />
           </Routes>
         </Container>
       </BrowserRouter>{' '}
