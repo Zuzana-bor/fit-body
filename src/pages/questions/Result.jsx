@@ -2,43 +2,31 @@ import React from 'react';
 import { Typography } from '@mui/material';
 
 const Result = ({ values: [key] }) => {
-  const weight = key['Váha'];
-  const height = key['Výška'];
-  const age = key['Věk'];
-  const aktivita = key['Aktivita'];
-  const target = key['Cíl'];
+  const weight = key.weight;
+  const height = key.height;
+  const age = key.age;
+  const aktivita = key.activity;
+  const target = key.target;
   let af = '';
   let koefTarget = '';
 
-  if (target === 'hubnutí') {
+  if (target === 'weightloss') {
     koefTarget = 0.8;
-  } else if (target === 'udržování váhy') {
+  } else if (target === 'maintenance') {
     koefTarget = 1;
   } else {
     koefTarget = 1.2;
   }
 
-  if (aktivita === 'Sedavé zaměstnání + žádný trénink') {
+  if (aktivita === 'answer1') {
     af = 1.2;
-  } else if (
-    aktivita ===
-    'Sedavé zaměstnání + trénink vyšší intenzity (posilování, funkční trénink, kruhový trénink, běh, plavání apod.) 2x týdně, případně vícekrát týdně o nižší intenzitě (jóga, pilates)'
-  ) {
+  } else if (aktivita === 'answer2') {
     af = 1.4;
-  } else if (
-    aktivita ===
-    'Sedavé zaměstnání + trénink vyšší intenzity 3x- 4x týdně; nebo manuální těžké zaměstnání'
-  ) {
+  } else if (aktivita === 'answer3') {
     af = 1.6;
-  } else if (
-    aktivita ===
-    'Sedavé zaměstnání + trénink vyšší intenzity 6x týdně a více; nebo manuální těžké zaměstnání + trénink vyšší intenzity 2x týdně'
-  ) {
+  } else if (aktivita === 'answer4') {
     af = 1.8;
-  } else if (
-    aktivita ===
-    'Manuální těžké zaměstnání + trénink vyšší intenzity 3x – 4x týdně'
-  ) {
+  } else if (aktivita === 'answer5') {
     af = 2;
   } else {
     af = 2.2;
