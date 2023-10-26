@@ -58,7 +58,7 @@ const Questions = () => {
         <>
           <Box m={10}>
             <Paper elevation={3} sx={{ p: 5 }}>
-              <Stack>
+              <Stack gap={4}>
                 <TextField
                   inputProps={{
                     inputMode: 'numeric',
@@ -178,74 +178,61 @@ const Questions = () => {
                     />
                   </RadioGroup>
                 </FormControl>
-                <FormControl>
-                  <Stack spacing={1}>
-                    <InputLabel id="demo-simple-select-label">
-                      Aktivita
-                    </InputLabel>
 
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      name="activity"
-                      label="activity"
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="answer1">
-                        'Sedavé zaměstnání + žádný trénink'
-                      </MenuItem>
-                      <MenuItem value="answer2">
-                        {' '}
-                        'Sedavé zaměstnání + trénink vyšší intenzity
-                        (posilování, funkční trénink, kruhový trénink, běh,
-                        plavání apod.) 2x týdně, případně vícekrát týdně o nižší
-                        intenzitě (jóga, pilates)'
-                      </MenuItem>
-                      <MenuItem value="answer3">
-                        'Sedavé zaměstnání + trénink vyšší intenzity 3x- 4x
-                        týdně; nebo manuální těžké zaměstnání',
-                      </MenuItem>
-                      <MenuItem value="answer4">
-                        'Sedavé zaměstnání + trénink vyšší intenzity 6x týdně a
-                        více; nebo manuální těžké zaměstnání + trénink vyšší
-                        intenzity 2x týdně'
-                      </MenuItem>
-                      <MenuItem value="answer5">
-                        'Manuální těžké zaměstnání + trénink vyšší intenzity 3x
-                        – 4x týdně'
-                      </MenuItem>
-                      <MenuItem value="answer6">
-                        {' '}
-                        'Manuální těžké zaměstnání ě trénink vyšší intenzity 6x
-                        týdně a více (profesionální sportovci, trenéři a
-                        podobně)'
-                      </MenuItem>
-                    </Select>
-                  </Stack>
-                </FormControl>
-                <FormControl>
-                  <Stack spacing={1}>
-                    <InputLabel id="demo-simple-select-label">
-                      Jak často chceš cvičit
-                    </InputLabel>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Aktivita"
+                  name="activity"
+                  defaultValue=""
+                  onChange={handleChange}
+                >
+                  <MenuItem value="answer1">
+                    'Sedavé zaměstnání + žádný trénink'
+                  </MenuItem>
+                  <MenuItem value="answer2">
+                    {' '}
+                    'Sedavé zaměstnání + trénink vyšší intenzity (posilování,
+                    funkční trénink, kruhový trénink, běh, plavání apod.) 2x
+                    týdně, případně vícekrát týdně o nižší intenzitě (jóga,
+                    pilates)'
+                  </MenuItem>
+                  <MenuItem value="answer3">
+                    'Sedavé zaměstnání + trénink vyšší intenzity 3x- 4x týdně;
+                    nebo manuální těžké zaměstnání',
+                  </MenuItem>
+                  <MenuItem value="answer4">
+                    'Sedavé zaměstnání + trénink vyšší intenzity 6x týdně a
+                    více; nebo manuální těžké zaměstnání + trénink vyšší
+                    intenzity 2x týdně'
+                  </MenuItem>
+                  <MenuItem value="answer5">
+                    'Manuální těžké zaměstnání + trénink vyšší intenzity 3x – 4x
+                    týdně'
+                  </MenuItem>
+                  <MenuItem value="answer6">
+                    {' '}
+                    'Manuální těžké zaměstnání ě trénink vyšší intenzity 6x
+                    týdně a více (profesionální sportovci, trenéři a podobně)'
+                  </MenuItem>
+                </TextField>
 
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      name="intensity"
-                      label="intensity"
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="1">1</MenuItem>
-                      <MenuItem value="2">2</MenuItem>
-                      <MenuItem value="3">3</MenuItem>
-                      <MenuItem value="4">4</MenuItem>
-                      <MenuItem value="5">5</MenuItem>
-                      <MenuItem value="6">6</MenuItem>
-                      <MenuItem value="7">7</MenuItem>
-                    </Select>
-                  </Stack>
-                </FormControl>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Jak často chceš cvičit"
+                  name="intensity"
+                  defaultValue=""
+                  onChange={handleChange}
+                >
+                  <MenuItem value="1">1</MenuItem>
+                  <MenuItem value="2">2</MenuItem>
+                  <MenuItem value="3">3</MenuItem>
+                  <MenuItem value="4">4</MenuItem>
+                  <MenuItem value="5">5</MenuItem>
+                  <MenuItem value="6">6</MenuItem>
+                  <MenuItem value="7">7</MenuItem>
+                </TextField>
               </Stack>
             </Paper>
           </Box>
