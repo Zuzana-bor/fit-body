@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Box, Typography } from '@mui/material';
-import { items } from '../../data';
+import { exercises } from '../../data/exercises';
 import Stack from '@mui/material/Stack';
 import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
 
 const Exercise = () => {
-  const groupItems = groupBy(items, 'category');
+  const groupItems = groupBy(exercises, 'category');
 
   return (
     <>

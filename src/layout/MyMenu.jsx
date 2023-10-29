@@ -31,8 +31,7 @@ const MyMenu = () => {
             }}
           >
             <Link style={{ textDecoration: 'none', color: 'white' }} to={'/'}>
-              {' '}
-              LOGO{' '}
+              LOGO
             </Link>
           </Typography>
 
