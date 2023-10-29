@@ -12,8 +12,16 @@ import Exercise from './pages/exercise/Exercise';
 import Home from './pages/home/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Urls } from './config';
-import Plan from './pages/plans/Plan';
+import { Urls, TrainingUrls } from './config';
+
+import PropTypes from 'prop-types';
+import { Link, MemoryRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
+
+import UpperBody from './pages/plans/UpperBody';
+import FullBody from './pages/plans/FullBody';
+import LowerBody from './pages/plans/LowerBody';
+import Cardio from './pages/plans/Cardio';
 
 const theme = createTheme({
   palette: {
@@ -22,6 +30,18 @@ const theme = createTheme({
     },
   },
 });
+function Router(props) {
+  const { children } = props;
+  if (typeof window === 'undefined') {
+    return <StaticRouter location="/">{children}</StaticRouter>;
+  }
+
+  return <MemoryRouter>{children}</MemoryRouter>;
+}
+
+Router.propTypes = {
+  children: PropTypes.node,
+};
 
 // function App() {
 //   return <ThemeProvider theme={theme}>...</ThemeProvider>;
@@ -29,7 +49,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <Router>
         <CssBaseline />
         <MyMenu />
 
@@ -43,10 +63,13 @@ function App() {
         </Container>
         <Container>
           <Routes>
-            <Route path="/plans/:category" element={<Plan />} />
+            <Route path={TrainingUrls.FullBody} element={<FullBody />} />
+            <Route path={TrainingUrls.UpperBody} element={<UpperBody />} />
+            <Route path={TrainingUrls.LowerBody} element={<LowerBody />} />
+            <Route path={TrainingUrls.Cardio} element={<Cardio />} />
           </Routes>
         </Container>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }
