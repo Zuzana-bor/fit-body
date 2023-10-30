@@ -1,17 +1,13 @@
 import * as React from 'react';
 import { Box, Typography } from '@mui/material';
-<<<<<<< Updated upstream
-import { items } from '../../data';
-import Stack from '@mui/material/Stack';
-=======
-import { exercises } from '../../data/exercises';
->>>>>>> Stashed changes
 import { groupBy } from 'lodash';
+import { exercises } from '../../data/exercises';
+
 import ExerciseCard from './ExerciseCard';
 import Grid from '@mui/material/Grid';
 
 const Exercise = () => {
-  const groupItems = groupBy(items, 'category');
+  const groupItems = groupBy(exercises, 'category');
 
   return (
     <>
