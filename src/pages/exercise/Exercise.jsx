@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { Box, Typography } from '@mui/material';
+<<<<<<< Updated upstream
 import { items } from '../../data';
 import Stack from '@mui/material/Stack';
+=======
+import { exercises } from '../../data/exercises';
+>>>>>>> Stashed changes
 import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
+import Grid from '@mui/material/Grid';
 
 const Exercise = () => {
   const groupItems = groupBy(items, 'category');
@@ -11,18 +16,15 @@ const Exercise = () => {
   return (
     <>
       {Object.entries(groupItems).map(([category, exercises]) => (
-        <Box key={category}>
+        <Box key={category} sx={{ flexGrow: 1 }}>
           <Typography variant="h4">{category}</Typography>
-          <Stack
-            direction="row"
-            spacing={2}
-            justifyContent="space-evenly"
-            flexWrap="wrap"
-          >
+          <Grid container spacing={2}>
             {exercises.map((item) => (
-              <ExerciseCard item={item} />
+              <Grid item xs={3}>
+                <ExerciseCard item={item} />
+              </Grid>
             ))}
-          </Stack>
+          </Grid>
         </Box>
       ))}
     </>
