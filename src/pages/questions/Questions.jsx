@@ -31,7 +31,6 @@ const Questions = () => {
 
   const isFilled = Object.values(values).length === 8;
 
-  console.log(values);
   return (
     <>
       <Typography variant="h4" m={3}>

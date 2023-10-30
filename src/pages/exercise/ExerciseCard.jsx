@@ -28,7 +28,7 @@ const ExerciseCard = ({
             title={name}
           />
           <CardContent sx={{ overflowX: 'scroll' }}>
-            <Typography gutterBottom variant="h7" component="div">
+            <Typography gutterBottom variant="h7">
               {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -40,7 +40,7 @@ const ExerciseCard = ({
               backgroundColor="green"
               sx={{ px: '0' }}
             >
-              <h4> Cílové svalstvo: </h4> {musclesTargeted}
+              Cílové svalstvo:{musclesTargeted}
             </Typography>
           </CardContent>
         </Card>
