@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { StaticRouter } from 'react-router-dom/server';
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import Link from '@mui/material/Link';
-import { Training, TrainingUrls } from '../../config';
+import { Training, TrainingUrls } from '../config';
 
 function Router(props) {
   const { children } = props;
@@ -21,7 +21,7 @@ Router.propTypes = {
   children: PropTypes.node,
 };
 
-const Plans = () => {
+const MenuPlans = () => {
   return (
     <>
       <Stack direction="row" my={8} spacing={2}>
@@ -42,4 +42,4 @@ const Plans = () => {
   );
 };
 
-export default Plans;
+export default MenuPlans;

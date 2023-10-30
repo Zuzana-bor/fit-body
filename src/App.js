@@ -6,7 +6,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Route, Routes } from 'react-router-dom';
-import Plans from './pages/plans/Plans';
+import Plans from './layout/MenuPlans';
 import Questions from './pages/questions/Questions';
 import Exercise from './pages/exercise/Exercise';
 import Home from './pages/home/Home';

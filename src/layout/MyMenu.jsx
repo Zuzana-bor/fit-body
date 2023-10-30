@@ -9,7 +9,6 @@ import { Pages, Urls } from '../config';
 import PropTypes from 'prop-types';
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
-import Home from '../pages/home/Home';
 
 function Router(props) {
   const { children } = props;
@@ -32,7 +31,7 @@ const MyMenu = () => {
           <Link
             component={RouterLink}
             style={{ textDecoration: 'none', color: 'white' }}
-            to={Urls[Home]}
+            to="/"
           >
             HOME
           </Link>

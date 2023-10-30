@@ -1,7 +1,23 @@
 import React from 'react';
+import MenuPlans from '../../layout/MenuPlans';
+import { exercises } from '../../data/exercises';
 
 const UpperBody = () => {
-  return <>tady je tréningový plán na Horní část těla</>;
+  const relatedExercises = exercises.filter(
+    (exercise) => exercise.category === 'Horní část těla',
+  );
+
+  console.log(relatedExercises);
+
+  return (
+    <>
+      <MenuPlans />
+
+      {relatedExercises.map((name) => (
+        <li>{name.name} </li>
+      ))}
+    </>
+  );
 };
 
 export default UpperBody;
