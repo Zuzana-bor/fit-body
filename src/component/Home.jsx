@@ -3,6 +3,23 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import PropTypes from 'prop-types';
+import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
+import Plans from '../plans/Plans';
+
+function Router(props) {
+  const { children } = props;
+  if (typeof window === 'undefined') {
+    return <StaticRouter location="/">{children}</StaticRouter>;
+  }
+
+  return <MemoryRouter>{children}</MemoryRouter>;
+}
+
+Router.propTypes = {
+  children: PropTypes.node,
+};
 
 const Home = () => {
   return (
@@ -36,7 +53,7 @@ const Home = () => {
         </p>
       </Box>
       <Stack spacing={2} alignItems="center" my={8}>
-        <Button variant="contained" href="/Questions">
+        <Button variant="contained" component={RouterLink} to="/plans">
           Pojď na to
         </Button>
       </Stack>
