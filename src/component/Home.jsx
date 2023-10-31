@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
-import Plans from '../plans/Plans';
+import Plan from '../pages/plans/Plan';
 
 function Router(props) {
   const { children } = props;
@@ -53,7 +53,7 @@ const Home = () => {
         </p>
       </Box>
       <Stack spacing={2} alignItems="center" my={8}>
-        <Button variant="contained" component={RouterLink} to="/plans">
+        <Button variant="contained" component={RouterLink} to="/plan">
           Pojď na to
         </Button>
       </Stack>
