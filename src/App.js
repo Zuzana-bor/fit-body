@@ -1,12 +1,12 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import MyMenu from './layout/MyMenu';
+import MyMenu from './layout/TopMenu';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Route, Routes } from 'react-router-dom';
-import Plans from './layout/MenuPlans';
+import Plans from './pages/plans/MenuPlans';
 import Questions from './pages/questions/Questions';
 import Exercise from './pages/exercise/Exercise';
 import Home from './pages/home/Home';

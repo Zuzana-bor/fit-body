@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuPlans from '../../layout/MenuPlans';
+import MenuPlans from './MenuPlans';
 import { exercises } from '../../data/exercises';
 
 const UpperBody = () => {

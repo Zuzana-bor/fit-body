@@ -23,7 +23,7 @@ Router.propTypes = {
   children: PropTypes.node,
 };
 
-const MyMenu = () => {
+const TopMenu = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -53,4 +53,4 @@ const MyMenu = () => {
     </AppBar>
   );
 };
-export default MyMenu;
+export default TopMenu;
