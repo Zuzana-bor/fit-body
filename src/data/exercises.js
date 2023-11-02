@@ -1,4 +1,4 @@
-export const items = [
+export const exercises = [
   {
     name: 'Bicepsové zdvihy s rotací',
     keys: 'Bicepsové zdvihy s rotací',

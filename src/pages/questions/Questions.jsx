@@ -1,10 +1,5 @@
 import * as React from 'react';
-import TextQuestion from './TextQuestion';
-import { asksText } from '../../questions';
-import { selectAsk } from '../../questions';
-import SelectQuestion from './SelectQuestion';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { Typography } from '@mui/material';
@@ -12,16 +7,23 @@ import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
 import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import Result from './Result';
+import QuestionsForm from './QuestionsForm';
 
 const Questions = () => {
   const [values, setValues] = React.useState({});
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
 
-  const handleAnswer = (event) => {
+  const handleChange = (event) => {
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
-  const handleCLick = () => {};
+  const handleSubmit = () => {
+    setIsSubmitted(true);
+  };
 
+  const isFilled = Object.values(values).length === 8;
+
+  console.log(values);
   return (
     <>
       <Typography variant="h4" m={3}>
@@ -41,30 +43,23 @@ const Questions = () => {
           <Typography variant="h6">Jak být v pohodě a šťastná</Typography>
         </Stack>
       </Stack>
-      <Box m={10}>
-        <Paper elevation={3} sx={{ p: 5 }}>
-          {Object.entries(asksText).map(([key, value]) => (
-            <TextQuestion ask={[value]} onAnswer={handleAnswer} />
-          ))}
-          {selectAsk.map((ask) => (
-            <SelectQuestion ask={[ask]} onAnswer={handleAnswer} />
-          ))}
-        </Paper>
-      </Box>
+      {!isSubmitted ? (
+        <>
+          <QuestionsForm handleChange={handleChange} />
 
-      {Object.values(values).length === 8 ? (
-        <Button variant="contained" onClick={handleCLick}>
-          Odeslat
-        </Button>
+          <Button
+            variant="contained"
+            disabled={!isFilled}
+            onClick={handleSubmit}
+          >
+            Odeslat
+          </Button>
+        </>
       ) : (
-        <Button variant="contained" disabled>
-          Odeslat
-        </Button>
+        <Box>
+          <Result values={values} />
+        </Box>
       )}
-
-      <Box>
-        <Result values={[values]} />
-      </Box>
     </>
   );
 };
