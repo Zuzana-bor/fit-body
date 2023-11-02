@@ -4,7 +4,7 @@ export const getKoefTarget = (target) => {
       return 0.8;
     case 'maintenance':
       return 1;
-    case 'gaining':
+    default:
       return 1.2;
   }
 };
@@ -26,7 +26,7 @@ export const getAf = (activity) => {
     case 'activLevel5':
       return 2;
 
-    case 'activLevel6':
+    default:
       return 2;
   }
 };
