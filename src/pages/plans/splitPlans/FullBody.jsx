@@ -1,13 +1,7 @@
 import React from 'react';
-import MenuPlans from '../MenuPlans';
 
 const FullBody = () => {
-  return (
-    <>
-      <MenuPlans />
-      FullBody
-    </>
-  );
+  return <>FullBody</>;
 };
 
 export default FullBody;

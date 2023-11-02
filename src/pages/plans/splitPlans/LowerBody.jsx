@@ -1,13 +1,7 @@
 import React from 'react';
-import MenuPlans from '../MenuPlans';
 
 const LowerBody = () => {
-  return (
-    <>
-      <MenuPlans />
-      LowerBody
-    </>
-  );
+  return <>LowerBody</>;
 };
 
 export default LowerBody;

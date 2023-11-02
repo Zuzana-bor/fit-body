@@ -6,7 +6,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Route, Routes } from 'react-router-dom';
-import Plans from './pages/plans/MenuPlans';
+import Plans from './pages/plans/Plans';
 import Questions from './pages/questions/Questions';
 import Exercise from './pages/exercise/Exercise';
 import Home from './pages/home/Home';
@@ -56,11 +56,6 @@ function App() {
             <Route path={Urls.Questions} element={<Questions />} />
             <Route path={Urls.Exercise} element={<Exercise />} />
             <Route path={Urls.Home} element={<Home />} theme={theme} />
-
-            <Route path={TrainingUrls.FullBody} element={<FullBody />} />
-            <Route path={TrainingUrls.UpperBody} element={<UpperBody />} />
-            <Route path={TrainingUrls.LowerBody} element={<LowerBody />} />
-            <Route path={TrainingUrls.Cardio} element={<Cardio />} />
           </Routes>
         </Container>
       </Router>

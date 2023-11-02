@@ -1,5 +1,4 @@
 import React from 'react';
-import MenuPlans from '../MenuPlans';
 import { exercises } from '../../../data/exercises';
 
 const UpperBody = () => {
@@ -11,8 +10,6 @@ const UpperBody = () => {
 
   return (
     <>
-      <MenuPlans />
-
       {relatedExercises.map((name) => (
         <li>{name.name} </li>
       ))}
