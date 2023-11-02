@@ -27,6 +27,6 @@ export const getAf = (activity) => {
       return 2;
 
     default:
-      return 2;
+      return 2.2;
   }
 };

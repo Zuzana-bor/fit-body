@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { Typography } from '@mui/material';
@@ -8,14 +7,6 @@ import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
 import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import Result from './Result';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import MenuItem from '@mui/material/MenuItem';
 import QuestionsForm from './QuestionsForm';
 
 const Questions = () => {
