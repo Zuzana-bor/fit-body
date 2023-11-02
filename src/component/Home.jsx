@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { Urls } from '../config';
 
 const Home = () => {
   return (
@@ -36,7 +37,7 @@ const Home = () => {
         </p>
       </Box>
       <Stack spacing={2} alignItems="center" my={8}>
-        <Button variant="contained" href="/Questions">
+        <Button variant="contained" href={Urls.Questions}>
           Pojď na to
         </Button>
       </Stack>
