@@ -6,6 +6,7 @@ export const Urls = {
 };
 
 export const Pages = {
+  Home: 'home',
   Plans: 'tréningové plány',
   Questions: 'dotazník',
   Exercise: 'databáze cviků',

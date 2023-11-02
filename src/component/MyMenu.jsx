@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
 import { Pages, Urls } from '../config';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -13,14 +12,6 @@ const MyMenu = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link
-            component={RouterLink}
-            style={{ textDecoration: 'none', color: 'white' }}
-            to="/"
-          >
-            HOME
-          </Link>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {Object.entries(Pages).map(([url, name]) => (
               <Button
