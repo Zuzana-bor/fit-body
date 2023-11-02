@@ -20,8 +20,8 @@ const ExerciseCard = ({
 }) => {
   return (
     <Box>
-      <Item sx={{ my: 1 }}>
-        <Card sx={{ maxWidth: 345, height: 300 }}>
+      <Item>
+        <Card sx={{ height: 300 }}>
           <CardMedia
             sx={{ height: 140 }}
             image="/assets/dite.jpg"
