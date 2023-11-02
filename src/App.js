@@ -1,16 +1,15 @@
-import './App.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import MyMenu from './component/MyMenu';
+import MyMenu from './layout/MyMenu';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Plans from './component/Plans';
+import Plans from './pages/plans/Plans';
 import Questions from './pages/questions/Questions';
 import Exercise from './pages/exercise/Exercise';
-import Home from './component/Home';
+import Home from './pages/home/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
@@ -47,7 +46,7 @@ function App() {
             <Route path="/plans/:category" element={<Plan />} />
           </Routes>
         </Container>
-      </BrowserRouter>{' '}
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

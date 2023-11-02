@@ -10,15 +10,12 @@ import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import Result from './Result';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 
 const Questions = () => {
   const [values, setValues] = React.useState({});
@@ -191,7 +188,6 @@ const Questions = () => {
                     'Sedavé zaměstnání + žádný trénink'
                   </MenuItem>
                   <MenuItem value="answer2">
-                    {' '}
                     'Sedavé zaměstnání + trénink vyšší intenzity (posilování,
                     funkční trénink, kruhový trénink, běh, plavání apod.) 2x
                     týdně, případně vícekrát týdně o nižší intenzitě (jóga,
@@ -211,7 +207,6 @@ const Questions = () => {
                     týdně'
                   </MenuItem>
                   <MenuItem value="answer6">
-                    {' '}
                     'Manuální těžké zaměstnání ě trénink vyšší intenzity 6x
                     týdně a více (profesionální sportovci, trenéři a podobně)'
                   </MenuItem>

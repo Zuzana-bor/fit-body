@@ -6,13 +6,13 @@ import ListItemText from '@mui/material/ListItemText';
 import { Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { items } from '../data';
-import Plan from '../pages/plans/Plan';
+import { exercises } from '../../data/exercises';
+import Plan from './Plan';
 
 const Plans = () => {
   const { category } = useParams();
 
-  const relatedExercises = items.filter(
+  const relatedExercises = exercises.filter(
     (item) => item.category.toLowerCase() === category,
   );
   console.log(relatedExercises);
