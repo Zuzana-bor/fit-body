@@ -1,13 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { Typography } from '@mui/material';
-import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
-import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
-import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
-import Result from './Result';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Radio from '@mui/material/Radio';
@@ -138,27 +132,27 @@ const QuestionsForm = ({ handleChange }) => {
             defaultValue=""
             onChange={handleChange}
           >
-            <MenuItem value="answer1">
+            <MenuItem value="activLevel1">
               'Sedavé zaměstnání + žádný trénink'
             </MenuItem>
-            <MenuItem value="answer2">
+            <MenuItem value="activLevel2">
               'Sedavé zaměstnání + trénink vyšší intenzity (posilování, funkční
               trénink, kruhový trénink, běh, plavání apod.) 2x týdně, případně
               vícekrát týdně o nižší intenzitě (jóga, pilates)'
             </MenuItem>
-            <MenuItem value="answer3">
+            <MenuItem value="activLevel3">
               'Sedavé zaměstnání + trénink vyšší intenzity 3x- 4x týdně; nebo
               manuální těžké zaměstnání',
             </MenuItem>
-            <MenuItem value="answer4">
+            <MenuItem value="activLevel4">
               'Sedavé zaměstnání + trénink vyšší intenzity 6x týdně a více; nebo
               manuální těžké zaměstnání + trénink vyšší intenzity 2x týdně'
             </MenuItem>
-            <MenuItem value="answer5">
+            <MenuItem value="activLevel5">
               'Manuální těžké zaměstnání + trénink vyšší intenzity 3x – 4x
               týdně'
             </MenuItem>
-            <MenuItem value="answer6">
+            <MenuItem value="activLevel6">
               'Manuální těžké zaměstnání ě trénink vyšší intenzity 6x týdně a
               více (profesionální sportovci, trenéři a podobně)'
             </MenuItem>
