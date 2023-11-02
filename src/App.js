@@ -18,10 +18,10 @@ import PropTypes from 'prop-types';
 import { MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 
-import UpperBody from './pages/plans/UpperBody';
-import FullBody from './pages/plans/FullBody';
-import LowerBody from './pages/plans/LowerBody';
-import Cardio from './pages/plans/Cardio';
+import UpperBody from './pages/plans/splitPlans/UpperBody';
+import FullBody from './pages/plans/splitPlans/FullBody';
+import LowerBody from './pages/plans/splitPlans/LowerBody';
+import Cardio from './pages/plans/splitPlans/Cardio';
 
 const theme = createTheme({
   palette: {

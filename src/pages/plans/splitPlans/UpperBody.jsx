@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuPlans from './MenuPlans';
-import { exercises } from '../../data/exercises';
+import MenuPlans from '../MenuPlans';
+import { exercises } from '../../../data/exercises';
 
 const UpperBody = () => {
   const relatedExercises = exercises.filter(
