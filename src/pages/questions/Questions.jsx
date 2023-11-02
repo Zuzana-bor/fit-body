@@ -60,12 +60,12 @@ const Questions = () => {
             <Paper elevation={3} sx={{ p: 5 }}>
               <Stack gap={4}>
                 <TextField
-                  inputProps={{
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">kg</InputAdornment>
+                    ),
                     inputMode: 'numeric',
                     pattern: '[0-9]*',
-                    startAdornment: (
-                      <InputAdornment position="start">kg</InputAdornment>
-                    ),
                   }}
                   id="outlined-basic"
                   type="number"
@@ -75,12 +75,12 @@ const Questions = () => {
                   onChange={handleChange}
                 />
                 <TextField
-                  inputProps={{
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">cm</InputAdornment>
+                    ),
                     inputMode: 'numeric',
                     pattern: '[0-9]*',
-                    startAdornment: (
-                      <InputAdornment position="start">cm</InputAdornment>
-                    ),
                   }}
                   id="outlined-basic"
                   type="number"
@@ -90,12 +90,12 @@ const Questions = () => {
                   onChange={handleChange}
                 />
                 <TextField
-                  inputProps={{
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">let</InputAdornment>
+                    ),
                     inputMode: 'numeric',
                     pattern: '[0-9]*',
-                    startAdornment: (
-                      <InputAdornment position="start">cm</InputAdornment>
-                    ),
                   }}
                   id="outlined-basic"
                   type="number"
