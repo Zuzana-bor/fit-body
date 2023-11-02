@@ -27,7 +27,6 @@ const MenuPlans = () => {
       <Stack direction="row" my={8} spacing={2}>
         <Paper sx={{ width: 320, maxWidth: '100%' }}>
           <MenuList>
-            {' '}
             <Stack direction="column">
               {Object.entries(Training).map(([url, name]) => (
                 <Link component={RouterLink} to={TrainingUrls[url]} key={url}>

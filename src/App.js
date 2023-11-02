@@ -1,6 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import MyMenu from './layout/TopMenu';
+import TopMenu from './layout/TopMenu';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -48,7 +48,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline />
-        <MyMenu />
+        <TopMenu />
 
         <Container>
           <Routes>
