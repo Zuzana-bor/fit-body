@@ -1,73 +1,48 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
 import { Stack } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { exercises } from '../../data/exercises';
-import Plan from './Plan';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import UpperBody from './splitPlans/UpperBody';
+import TransferWithinAStationIcon from '@mui/icons-material/TransferWithinAStation';
 
 const Plans = () => {
-  const { category } = useParams();
-
-  const relatedExercises = exercises.filter(
-    (item) => item.category.toLowerCase() === category,
-  );
-  console.log(relatedExercises);
+  const [training, setTraining] = React.useState(<UpperBody />);
+  const handleCLick = () => {
+    setTraining();
+  };
   return (
-    <>
-      <Stack direction="row" my={8} spacing={2}>
-        <Paper sx={{ width: 320, maxWidth: '100%' }}>
-          <MenuList>
-            <MenuItem>
-              <ListItemText>
-                <Link
-                  style={{ textDecoration: 'none', color: 'green' }}
-                  to={'/plans/fullbody'}
-                >
-                  Full body
-                </Link>
-              </ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemText>
-                <Link
-                  style={{ textDecoration: 'none', color: 'green' }}
-                  to={'/plans/hornicasttela'}
-                >
-                  Horní část těla
-                </Link>
-              </ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemText>
-                <Link
-                  style={{ textDecoration: 'none', color: 'green' }}
-                  to={'/plans/dolnicasttela'}
-                >
-                  Dolní část těla
-                </Link>
-              </ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemText>
-                <Link
-                  style={{ textDecoration: 'none', color: 'green' }}
-                  to={'/plans/kardio'}
-                >
-                  Kardio
-                </Link>
-              </ListItemText>
-            </MenuItem>
-          </MenuList>
-        </Paper>
-      </Stack>
-      {relatedExercises.map((exercise) => (
-        <Plan key={exercise.keys} exercise={exercise} />
-      ))}
-    </>
+    <Stack direction="row">
+      <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        <nav aria-label="main mailbox folders">
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon onCLick={handleCLick}>
+                  <AccessibilityNewIcon />
+                </ListItemIcon>
+                <ListItemText primary="Horní část těla" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <TransferWithinAStationIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dolní část těla" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </nav>
+        <Divider />
+      </Box>
+      <Box>{training}</Box>
+    </Stack>
   );
 };
 

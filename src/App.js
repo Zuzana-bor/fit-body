@@ -1,19 +1,27 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import MyMenu from './layout/MyMenu';
+import TopMenu from './layout/TopMenu';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Plans from './pages/plans/Plans';
 import Questions from './pages/questions/Questions';
 import Exercise from './pages/exercise/Exercise';
 import Home from './pages/home/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Urls } from './config';
-import Plan from './pages/plans/Plan';
+import { Urls, TrainingUrls } from './config';
+
+import PropTypes from 'prop-types';
+import { MemoryRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
+
+import UpperBody from './pages/plans/splitPlans/UpperBody';
+import FullBody from './pages/plans/splitPlans/FullBody';
+import LowerBody from './pages/plans/splitPlans/LowerBody';
+import Cardio from './pages/plans/splitPlans/Cardio';
 
 const theme = createTheme({
   palette: {
@@ -22,16 +30,25 @@ const theme = createTheme({
     },
   },
 });
+function Router(props) {
+  const { children } = props;
+  if (typeof window === 'undefined') {
+    return <StaticRouter location="/">{children}</StaticRouter>;
+  }
 
-// function App() {
-//   return <ThemeProvider theme={theme}>...</ThemeProvider>;
+  return <MemoryRouter>{children}</MemoryRouter>;
+}
+
+Router.propTypes = {
+  children: PropTypes.node,
+};
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <Router>
         <CssBaseline />
-        <MyMenu />
+        <TopMenu />
 
         <Container>
           <Routes>
@@ -41,12 +58,7 @@ function App() {
             <Route path={Urls.Home} element={<Home />} theme={theme} />
           </Routes>
         </Container>
-        <Container>
-          <Routes>
-            <Route path="/plans/:category" element={<Plan />} />
-          </Routes>
-        </Container>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }

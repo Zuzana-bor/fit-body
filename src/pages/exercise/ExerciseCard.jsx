@@ -20,15 +20,15 @@ const ExerciseCard = ({
 }) => {
   return (
     <Box>
-      <Item sx={{ my: 1 }}>
-        <Card sx={{ maxWidth: 345, height: 300 }}>
+      <Item>
+        <Card sx={{ height: 300 }}>
           <CardMedia
             sx={{ height: 140 }}
             image="/assets/dite.jpg"
             title={name}
           />
           <CardContent sx={{ overflowX: 'scroll' }}>
-            <Typography gutterBottom variant="h7" component="div">
+            <Typography gutterBottom variant="h7">
               {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -40,7 +40,7 @@ const ExerciseCard = ({
               backgroundColor="green"
               sx={{ px: '0' }}
             >
-              <h4> Cílové svalstvo: </h4> {musclesTargeted}
+              Cílové svalstvo:{musclesTargeted}
             </Typography>
           </CardContent>
         </Card>
