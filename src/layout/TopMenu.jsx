@@ -9,13 +9,6 @@ import { Pages, Urls } from '../config';
 import PropTypes from 'prop-types';
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
-<<<<<<< HEAD:src/layout/TopMenu.jsx
-<<<<<<< HEAD:src/layout/TopMenu.jsx
-=======
-import Home from '../pages/home/Home';
->>>>>>> 8acf112 (opraveny chyby):src/layout/MyMenu.jsx
-=======
->>>>>>> d6e049f (Uprava Plans, UpperBody- spolupracuje s exercise.js):src/layout/MyMenu.jsx
 
 function Router(props) {
   const { children } = props;
@@ -38,15 +31,7 @@ const TopMenu = () => {
           <Link
             component={RouterLink}
             style={{ textDecoration: 'none', color: 'white' }}
-<<<<<<< HEAD:src/layout/TopMenu.jsx
-<<<<<<< HEAD:src/layout/TopMenu.jsx
             to="/"
-=======
-            to={Urls[Home]}
->>>>>>> 8acf112 (opraveny chyby):src/layout/MyMenu.jsx
-=======
-            to="/"
->>>>>>> d6e049f (Uprava Plans, UpperBody- spolupracuje s exercise.js):src/layout/MyMenu.jsx
           >
             HOME
           </Link>
