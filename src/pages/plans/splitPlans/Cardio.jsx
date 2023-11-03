@@ -1,7 +1,13 @@
 import React from 'react';
+import MenuPlans from '../MenuPlans';
 
 const Cardio = () => {
-  return <>Cardio</>;
+  return (
+    <>
+      <MenuPlans />
+      Cardio
+    </>
+  );
 };
 
 export default Cardio;
