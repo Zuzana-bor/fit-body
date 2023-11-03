@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { exercises } from '../../data/exercises';
 import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
@@ -32,10 +32,10 @@ const Exercise = ({
     <>
       {Object.entries(groupItems).map(([category, exercises]) => (
         <Box key={category} sx={{ flexGrow: 1 }}>
-          <Typography variant="h4">{category}</Typography>
+          {category}
           <Grid container spacing={2}>
             {exercises.map((item) => (
-              <Grid item xs={3}>
+              <Grid item xs={3} key={item.name}>
                 <ExerciseCard item={item} />
               </Grid>
             ))}
