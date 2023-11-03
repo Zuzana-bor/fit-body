@@ -1,13 +1,9 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
+import { Box, Typography } from '@mui/material';
 import { exercises } from '../../data/exercises';
+import { groupBy } from 'lodash';
+import ExerciseCard from './ExerciseCard';
+import Grid from '@mui/material/Grid';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,89 +30,18 @@ const Exercise = ({
   const cardio = exercises.filter((item) => 'cardio' === item.category);
   return (
     <>
-      <Box>
-        <h3>Horní část těla</h3>
-        <Stack
-          direction="row"
-          spacing={2}
-          justifyContent="space-evenly"
-          flexWrap="wrap"
-        >
-          {upperBody.map((item) => (
-            <Box>
-              <Item sx={{ my: 1 }}>
-                <Card sx={{ maxWidth: 345, height: 300 }}>
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image="/assets/dite.jpg"
-                    title={item.name}
-                  />
-                  <CardContent sx={{ overflowX: 'scroll' }}>
-                    <Typography gutterBottom variant="h7" component="div">
-                      {item.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {item.description}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      backgroundColor="green"
-                      sx={{ px: '0' }}
-                    >
-                      <h4> Cílové svalstvo: </h4> {item.musclesTargeted}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Item>
-            </Box>
-          ))}
-        </Stack>
-      </Box>
-      <Box>
-        <h3>Dolní část těla</h3>
-        {lowerBody.map((item) => (
-          <Box>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                sx={{ height: 140 }}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {item.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-        ))}
-      </Box>
-      <Box>
-        <h3>Kardio</h3>
-        {cardio.map((item) => (
-          <Box>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                sx={{ height: 140 }}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {item.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-        ))}
-      </Box>
+      {Object.entries(groupItems).map(([category, exercises]) => (
+        <Box key={category} sx={{ flexGrow: 1 }}>
+          <Typography variant="h4">{category}</Typography>
+          <Grid container spacing={2}>
+            {exercises.map((item) => (
+              <Grid item xs={3}>
+                <ExerciseCard item={item} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      ))}
     </>
   );
 };
