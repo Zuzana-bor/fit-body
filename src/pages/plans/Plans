@@ -1,7 +1,0 @@
-import MenuPlans from './MenuPlans';
-
-const Plans = () => {
-  return <MenuPlans />;
-};
-
-export default Plans;
