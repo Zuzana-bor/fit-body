@@ -18,31 +18,37 @@ const Item = styled(Paper)(({ theme }) => ({
 const ExerciseCard = ({
   item: { name, keys, description, media, category, musclesTargeted },
 }) => {
+  const [expend, setExpend] = React.useState(false);
+
   return (
     <Box>
       <Item>
         <Card sx={{ height: 300 }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image="/assets/dite.jpg"
-            title={name}
-          />
-          <CardContent sx={{ overflowX: 'scroll' }}>
-            <Typography gutterBottom variant="h7" component="div">
-              {name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {description}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              backgroundColor="green"
-              sx={{ px: '0' }}
-            >
-              <h4> Cílové svalstvo: </h4> {musclesTargeted}
-            </Typography>
-          </CardContent>
+          {!expend ? (
+            <>
+              <CardMedia
+                component="img"
+                image={media}
+                title={name}
+                onClick={() => setExpend(!expend)}
+              />{' '}
+            </>
+          ) : (
+            <CardContent sx={{ overflowX: 'scroll' }}>
+              <Typography gutterBottom variant="h8">
+                {name}
+              </Typography>
+
+              <Typography
+                width="100%"
+                variant="body2"
+                color="text.secondary"
+                p={0.5}
+              >
+                {expend ? description : description.slice(0, 65)}
+              </Typography>
+            </CardContent>
+          )}
         </Card>
       </Item>
     </Box>

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import { exercises } from '../../data/exercises';
 import { groupBy } from 'lodash';
-
 import ExerciseCard from './ExerciseCard';
 import Grid from '@mui/material/Grid';
 
