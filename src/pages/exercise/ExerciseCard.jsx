@@ -31,22 +31,26 @@ const ExerciseCard = ({
                 image={media}
                 title={name}
                 onClick={() => setExpend(!expend)}
-              />{' '}
-            </>
-          ) : (
-            <CardContent sx={{ overflowX: 'scroll' }}>
+              />
               <Typography gutterBottom variant="h8">
                 {name}
               </Typography>
-
+            </>
+          ) : (
+            <CardContent
+              sx={{ overflowX: 'scroll' }}
+              onClick={() => setExpend(!expend)}
+            >
+              <Typography gutterBottom variant="h6">
+                {name}
+              </Typography>
+              {description}
               <Typography
                 width="100%"
                 variant="body2"
                 color="text.secondary"
                 p={0.5}
-              >
-                {expend ? description : description.slice(0, 65)}
-              </Typography>
+              ></Typography>
             </CardContent>
           )}
         </Card>
