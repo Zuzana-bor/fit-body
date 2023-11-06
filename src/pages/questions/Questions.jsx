@@ -1,13 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import { Typography } from '@mui/material';
-import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
-import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
-import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
+
 import Result from './Result';
 import QuestionsForm from './QuestionsForm';
+import { Container } from '@mui/material';
 
 const Questions = () => {
   const [values, setValues] = React.useState({});
@@ -25,42 +22,28 @@ const Questions = () => {
 
   console.log(values);
   return (
-    <>
-      <Typography variant="h4" m={3}>
-        Zjisti:
-      </Typography>
-      <Stack direction="row" justifyContent="space-around">
-        <Stack alignItems="center">
-          <FitnessCenterTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak si tréninky nakombinovat.</Typography>
-        </Stack>
-        <Stack alignItems="center">
-          <EggAltTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak se stravovat</Typography>
-        </Stack>
-        <Stack alignItems="center">
-          <MoodTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak být v pohodě a šťastná</Typography>
-        </Stack>
-      </Stack>
-      {!isSubmitted ? (
-        <>
-          <QuestionsForm handleChange={handleChange} />
+    <Container maxWidth="sm">
+      <Box pt={4}>
+        {!isSubmitted ? (
+          <>
+            <QuestionsForm handleChange={handleChange} />
 
-          <Button
-            variant="contained"
-            disabled={!isFilled}
-            onClick={handleSubmit}
-          >
-            Odeslat
-          </Button>
-        </>
-      ) : (
-        <Box>
-          <Result values={values} />
-        </Box>
-      )}
-    </>
+            <Button
+              variant="contained"
+              disabled={!isFilled}
+              onClick={handleSubmit}
+              size="large"
+            >
+              Odeslat
+            </Button>
+          </>
+        ) : (
+          <Box>
+            <Result values={values} />
+          </Box>
+        )}
+      </Box>
+    </Container>
   );
 };
 
