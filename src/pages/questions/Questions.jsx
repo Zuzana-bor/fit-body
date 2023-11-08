@@ -23,7 +23,7 @@ const Questions = () => {
   console.log(values);
   return (
     <>
-      <Container maxWidth="sm" mb={10}>
+      <Container maxWidth="sm" sx={{ mb: 10 }}>
         <Box pt={4}>
           {!isSubmitted ? (
             <>
