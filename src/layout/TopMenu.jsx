@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { Pages, Urls } from '../config';
 import { Link as RouterLink } from 'react-router-dom';
 
-const MyMenu = () => {
+const TopMenu = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -29,4 +29,4 @@ const MyMenu = () => {
     </AppBar>
   );
 };
-export default MyMenu;
+export default TopMenu;
