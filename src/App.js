@@ -12,8 +12,7 @@ import Home from './pages/home/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
-import { Stack } from '@mui/material';
-import { Box } from '@material-ui/core';
+import { Stack, Box } from '@mui/material';
 import Footer from './layout/Footer';
 
 const theme = createTheme({
@@ -27,12 +26,10 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Stack sx={{ minHeight: '100vh' }}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Stack sx={{ minHeight: '100vh' }}>
           <CssBaseline />
-
           <TopMenu />
-
           <Box flexGrow={1}>
             <Routes>
               <Route path={Urls.Plans} element={<Plans />} />
@@ -41,9 +38,9 @@ function App() {
               <Route path={Urls.Home} element={<Home />} theme={theme} />
             </Routes>
           </Box>
-        </BrowserRouter>
-        <Footer />
-      </Stack>
+          <Footer />
+        </Stack>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

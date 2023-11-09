@@ -11,11 +11,9 @@ const Result = ({ values: { weight, height, age, activity, target } }) => {
   const kcl = tdee * koefTarget;
 
   return (
-    <>
-      <Typography variant="h4" m={3}>
-        Tvůj denní příjem kalorií- {kcl} Kcal
-      </Typography>
-    </>
+    <Typography variant="h4" m={3}>
+      Tvůj denní příjem kalorií- {kcl} Kcal
+    </Typography>
   );
 };
 

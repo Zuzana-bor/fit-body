@@ -18,60 +18,57 @@ const Plans = () => {
   );
   console.log(relatedExercises);
   return (
-    <>
-      {' '}
-      <Container sx={{ mb: 10 }}>
-        <Stack direction="row" my={8} spacing={2}>
-          <Paper sx={{ width: 320, maxWidth: '100%' }}>
-            <MenuList>
-              <MenuItem>
-                <ListItemText>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'green' }}
-                    to={'/plans/fullbody'}
-                  >
-                    Full body
-                  </Link>
-                </ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemText>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'green' }}
-                    to={'/plans/hornicasttela'}
-                  >
-                    Horní část těla
-                  </Link>
-                </ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemText>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'green' }}
-                    to={'/plans/dolnicasttela'}
-                  >
-                    Dolní část těla
-                  </Link>
-                </ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemText>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'green' }}
-                    to={'/plans/kardio'}
-                  >
-                    Kardio
-                  </Link>
-                </ListItemText>
-              </MenuItem>
-            </MenuList>
-          </Paper>
-        </Stack>
-        {relatedExercises.map((exercise) => (
-          <Plan key={exercise.keys} exercise={exercise} />
-        ))}
-      </Container>
-    </>
+    <Container sx={{ mb: 10 }}>
+      <Stack direction="row" my={8} spacing={2}>
+        <Paper sx={{ width: 320, maxWidth: '100%' }}>
+          <MenuList>
+            <MenuItem>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/fullbody'}
+                >
+                  Full body
+                </Link>
+              </ListItemText>
+            </MenuItem>
+            <MenuItem>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/hornicasttela'}
+                >
+                  Horní část těla
+                </Link>
+              </ListItemText>
+            </MenuItem>
+            <MenuItem>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/dolnicasttela'}
+                >
+                  Dolní část těla
+                </Link>
+              </ListItemText>
+            </MenuItem>
+            <MenuItem>
+              <ListItemText>
+                <Link
+                  style={{ textDecoration: 'none', color: 'green' }}
+                  to={'/plans/kardio'}
+                >
+                  Kardio
+                </Link>
+              </ListItemText>
+            </MenuItem>
+          </MenuList>
+        </Paper>
+      </Stack>
+      {relatedExercises.map((exercise) => (
+        <Plan key={exercise.keys} exercise={exercise} />
+      ))}
+    </Container>
   );
 };
 

@@ -22,30 +22,28 @@ const Questions = () => {
 
   console.log(values);
   return (
-    <>
-      <Container maxWidth="sm" sx={{ mb: 10 }}>
-        <Box pt={4}>
-          {!isSubmitted ? (
-            <>
-              <QuestionsForm handleChange={handleChange} />
+    <Container maxWidth="sm" sx={{ mb: 10 }}>
+      <Box pt={4}>
+        {!isSubmitted ? (
+          <>
+            <QuestionsForm handleChange={handleChange} />
 
-              <Button
-                variant="contained"
-                disabled={!isFilled}
-                onClick={handleSubmit}
-                size="large"
-              >
-                Odeslat
-              </Button>
-            </>
-          ) : (
-            <Box>
-              <Result values={values} />
-            </Box>
-          )}
-        </Box>
-      </Container>
-    </>
+            <Button
+              variant="contained"
+              disabled={!isFilled}
+              onClick={handleSubmit}
+              size="large"
+            >
+              Odeslat
+            </Button>
+          </>
+        ) : (
+          <Box>
+            <Result values={values} />
+          </Box>
+        )}
+      </Box>
+    </Container>
   );
 };
 
