@@ -6,9 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { upperBody } from '../../../data/trainings';
+import CardMedia from '@mui/material/CardMedia';
 
-const UpperBody = () => {
+const Training = ({ training }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -17,19 +17,28 @@ const UpperBody = () => {
             <TableCell>Cvik</TableCell>
             <TableCell align="right">Počet opakování/ sérií</TableCell>
             <TableCell align="right">Svalová partie</TableCell>
+            <TableCell align="right">Jak na to</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {upperBody.map((row) => (
+          {training.map(({ name, number, muscle, media }) => (
             <TableRow
-              key={row.name}
+              key={name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {name}
               </TableCell>
-              <TableCell align="right">{row.number}</TableCell>
-              <TableCell align="right">{row.muscle}</TableCell>
+              <TableCell align="right">{number}</TableCell>
+              <TableCell align="right">{muscle}</TableCell>
+              <TableCell align="right">
+                <CardMedia
+                  sx={{ height: 100, objectFit: 'contain' }}
+                  component="img"
+                  image={media}
+                  title={name}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -38,4 +47,4 @@ const UpperBody = () => {
   );
 };
 
-export default UpperBody;
+export default Training;
