@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { exercises } from '../../data/exercises';
 import Plan from './Plan';
+import { Container } from '@mui/material';
 
 const Plans = () => {
   const { category } = useParams();
@@ -17,7 +18,7 @@ const Plans = () => {
   );
   console.log(relatedExercises);
   return (
-    <>
+    <Container sx={{ mb: 10 }}>
       <Stack direction="row" my={8} spacing={2}>
         <Paper sx={{ width: 320, maxWidth: '100%' }}>
           <MenuList>
@@ -67,7 +68,7 @@ const Plans = () => {
       {relatedExercises.map((exercise) => (
         <Plan key={exercise.keys} exercise={exercise} />
       ))}
-    </>
+    </Container>
   );
 };
 

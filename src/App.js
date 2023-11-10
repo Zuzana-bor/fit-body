@@ -1,6 +1,5 @@
 import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import MyMenu from './layout/MyMenu';
+import TopMenu from './layout/TopMenu';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -13,7 +12,8 @@ import Home from './pages/home/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
-import Plan from './pages/plans/Plan';
+import { Stack, Box } from '@mui/material';
+import Footer from './layout/Footer';
 
 const theme = createTheme({
   palette: {
@@ -23,29 +23,23 @@ const theme = createTheme({
   },
 });
 
-// function App() {
-//   return <ThemeProvider theme={theme}>...</ThemeProvider>;
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <CssBaseline />
-        <MyMenu />
-
-        <Container>
-          <Routes>
-            <Route path={Urls.Plans} element={<Plans />} />
-            <Route path={Urls.Questions} element={<Questions />} />
-            <Route path={Urls.Exercise} element={<Exercise />} />
-            <Route path={Urls.Home} element={<Home />} theme={theme} />
-          </Routes>
-        </Container>
-        <Container>
-          <Routes>
-            <Route path="/plans/:category" element={<Plan />} />
-          </Routes>
-        </Container>
+        <Stack sx={{ minHeight: '100vh' }}>
+          <CssBaseline />
+          <TopMenu />
+          <Box flexGrow={1}>
+            <Routes>
+              <Route path={Urls.Plans} element={<Plans />} />
+              <Route path={Urls.Questions} element={<Questions />} />
+              <Route path={Urls.Exercise} element={<Exercise />} />
+              <Route path={Urls.Home} element={<Home />} theme={theme} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Stack>
       </BrowserRouter>
     </ThemeProvider>
   );

@@ -7,10 +7,11 @@ import { Urls } from '../../config';
 import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
 import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
+import { Container } from '@mui/material';
 
 const Home = () => {
   return (
-    <>
+    <Container sx={{ mb: 10 }}>
       <Box sx={{ backgroundImage: 'url(/assets/women.jpg)', p: 4, m: 0 }}>
         <Stack
           direction="column"
@@ -64,7 +65,7 @@ const Home = () => {
           <Typography variant="h6">Jak být v pohodě a šťastná</Typography>
         </Stack>
       </Stack>
-    </>
+    </Container>
   );
 };
 
