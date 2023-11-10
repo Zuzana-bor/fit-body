@@ -1,5 +1,27 @@
 export const exercises = [
   {
+    name: 'Bicepsový zdvih s jednoručkami',
+    keys: 'Bicepsový zdvih s jednoručkami',
+    description:
+      'S výdechem zvedáme ohýbáním lokte střídavě jednoručky na úroven ramene',
+    media: '/assets/single-arm-dumbbell-row.gif',
+    pomucky: 'jednoručky (petlahev s vodou)',
+    category: 'Horní část těla',
+    mainMuscleGroupe: 'biceps',
+    id: 0,
+  },
+  {
+    name: 'Přítahy jednoruček v předklonu',
+    keys: 'Přítahy jednoruček v předklonu',
+    description:
+      'Podepřete se jednou paží o židli. V druhé ruce máte činku, kterou přitahujete k tělu. Zatínáte svaly okoolo lopatky a zpět. ',
+    media: '/assets/single-arm-dumbbell-row.gif',
+    pomucky: 'jednoručky (petlahev s vodou)',
+    category: 'Horní část těla',
+    mainMuscleGroupe: 'záda',
+    id: 0,
+  },
+  {
     name: 'Bicepsové zdvihy s rotací',
     keys: 'Bicepsové zdvihy s rotací',
     description:
