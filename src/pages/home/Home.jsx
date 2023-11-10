@@ -12,7 +12,15 @@ import { Container } from '@mui/material';
 const Home = () => {
   return (
     <Container sx={{ mb: 10 }}>
-      <Box sx={{ backgroundImage: 'url(/assets/women.jpg)', p: 4, m: 0 }}>
+      <Box
+        sx={{
+          backgroundImage: 'url(/assets/home.jpg)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          p: 10,
+          m: 0,
+        }}
+      >
         <Stack
           direction="column"
           justifyContent="space-between"
