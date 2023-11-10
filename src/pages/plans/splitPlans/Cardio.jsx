@@ -1,7 +1,3 @@
-import React from 'react';
-
-const Cardio = () => {
-  return <>Cardio</>;
-};
+const Cardio = () => {};
 
 export default Cardio;

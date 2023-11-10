@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { upperBody } from '../../../data/trainings';
+import CardMedia from '@mui/material/CardMedia';
 
 const UpperBody = () => {
   return (
@@ -17,6 +18,7 @@ const UpperBody = () => {
             <TableCell>Cvik</TableCell>
             <TableCell align="right">Počet opakování/ sérií</TableCell>
             <TableCell align="right">Svalová partie</TableCell>
+            <TableCell align="right">Jak na to</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -30,6 +32,14 @@ const UpperBody = () => {
               </TableCell>
               <TableCell align="right">{row.number}</TableCell>
               <TableCell align="right">{row.muscle}</TableCell>
+              <TableCell align="right">
+                <CardMedia
+                  sx={{ height: 100, objectFit: 'contain' }}
+                  component="img"
+                  image={row.media}
+                  title={row.name}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

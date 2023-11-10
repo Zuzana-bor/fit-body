@@ -1,7 +1,5 @@
-import React from 'react';
-
 const FullBody = () => {
-  return <>FullBody</>;
+  return;
 };
 
 export default FullBody;
