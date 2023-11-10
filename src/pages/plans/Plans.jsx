@@ -7,11 +7,13 @@ import { plansTabs } from '../../config';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import Box from '@mui/material/Box';
+import UpperBody from './Training';
 
 const Plans = () => {
   const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
 
-  const ActiveTabComponent = plansTabs.find(
+  const activeTraining = plansTabs.find(
     (item) => item.id === activeTab,
   )?.content;
 
@@ -21,29 +23,34 @@ const Plans = () => {
 
   return (
     <Container sx={{ mb: 10 }}>
-      <Stack direction="row">
-        <Grid container>
-          <Grid item xs={4}>
-            <List>
-              {plansTabs.map(({ name, icon: Icon, id }) => {
-                return (
-                  <ListItem disablePadding>
-                    <ListItemButton onClick={() => handleClick(id)}>
-                      <ListItemIcon>
-                        <Icon />
-                      </ListItemIcon>
-                      {name}
-                    </ListItemButton>
-                  </ListItem>
-                );
-              })}
-            </List>
+      <Box pt={4}>
+        <Stack direction="row">
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              <List>
+                {plansTabs.map(({ name, icon: Icon, id }) => {
+                  return (
+                    <ListItem disablePadding>
+                      <ListItemButton
+                        selected={id === activeTab}
+                        onClick={() => handleClick(id)}
+                      >
+                        <ListItemIcon>
+                          <Icon />
+                        </ListItemIcon>
+                        {name}
+                      </ListItemButton>
+                    </ListItem>
+                  );
+                })}
+              </List>
+            </Grid>
+            <Grid item xs={9}>
+              <UpperBody training={activeTraining} />
+            </Grid>
           </Grid>
-          <Grid item xs={8}>
-            <ActiveTabComponent />
-          </Grid>
-        </Grid>
-      </Stack>
+        </Stack>
+      </Box>
     </Container>
   );
 };
