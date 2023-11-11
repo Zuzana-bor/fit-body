@@ -43,7 +43,7 @@ const Home = () => {
             height: '100%',
           }}
           image="/assets/home.jpg"
-          title="green iguana"
+          title="home"
           component="img"
         />
         <Container sx={{ mb: 10 }}>
