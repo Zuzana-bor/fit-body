@@ -51,10 +51,9 @@ const Home = () => {
             direction="column"
             justifyContent="space-between"
             spacing={8}
-            my={8}
             sx={{
               position: 'relative',
-
+              top: 80,
               zIndex: 2,
             }}
           >
@@ -67,12 +66,10 @@ const Home = () => {
           <Box
             sx={{
               width: 450,
-              backgroundColor: 'primary',
               color: 'white',
-              mt: 15,
               p: 2,
               position: 'relative',
-
+              top: 155,
               zIndex: 2,
               backgroundColor: 'rgba(193,255,200,0.2)',
             }}
