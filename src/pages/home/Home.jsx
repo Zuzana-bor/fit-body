@@ -16,7 +16,7 @@ const Home = () => {
       <Box
         sx={{
           overflow: 'hidden',
-          height: 500,
+          height: 600,
           position: 'relative',
           '&:after': {
             content: '""',
@@ -38,26 +38,27 @@ const Home = () => {
             left: 0,
             right: 0,
             objectFit: 'cover',
-            objectPosition: 'center center',
+            objectPosition: 'center 25%',
             zIndex: 0,
+            height: '100%',
           }}
           image="/assets/home.jpg"
           title="green iguana"
           component="img"
-        />{' '}
+        />
         <Container sx={{ mb: 10 }}>
           <Stack
             direction="column"
             justifyContent="space-between"
             spacing={8}
-            my={4}
+            my={8}
             sx={{
               position: 'relative',
 
               zIndex: 2,
             }}
           >
-            <Typography variant="h4" color="white">
+            <Typography variant="h3" color="white">
               <div>Mysli na sebe i na mateřské dovolené.</div>
               <div> Buď v kondici. </div>
               <div> Buď svá. </div>
@@ -65,15 +66,15 @@ const Home = () => {
           </Stack>
           <Box
             sx={{
-              width: 350,
+              width: 450,
               backgroundColor: 'primary',
               color: 'white',
-              mt: 5,
-
-              p: 1,
+              mt: 15,
+              p: 2,
               position: 'relative',
 
               zIndex: 2,
+              backgroundColor: 'rgba(193,255,200,0.2)',
             }}
           >
             <p className="motivace">
