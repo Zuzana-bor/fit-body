@@ -46,14 +46,34 @@ export const upperBody = [
 ];
 
 export const fullBody = [
-  createData('švihadlo', '1 minuta', 'kardio', ''),
+  createData('švihadlo', '1 minuta', 'kardio', '/assets/jump-rope.gif'),
 
-  createData('dřep s jednuručkama', '30 / 3', 'hýždě', ''),
-  createData('výpady vzad/vpřed', '20 / 3', 'hýždě,stehna', ''),
-  createData('Unožování ve stoje s expanderem', '20 / 3', 'hýždě', ''),
+  createData(
+    'dřep s jednuručkama',
+    '30 / 3',
+    'hýždě',
+    '/assets/dumbbell-squat.gif',
+  ),
+  createData(
+    'výpady vzad/vpřed',
+    '20 / 3',
+    'hýždě,stehna',
+    '/assets/pendulum-lunge.gif',
+  ),
+  createData(
+    'Unožování ve stoje s expanderem',
+    '20 / 3',
+    'hýždě',
+    '/assets/side-leg-lift.png',
+  ),
   createData('Kliky (dámské)', '15 / 2', 'prsa', '/assets/push-up.gif'),
 
-  createData('Upažování ve stoje', '15 / 2', 'ramena', ''),
+  createData(
+    'Upažování ve stoje',
+    '15 / 2',
+    'ramena',
+    '/assets/Dumbbell-Standing-Lateral-Raise.gif',
+  ),
   createData(
     'Bicepsové zdvihy s rotací',
     '15 / 3',
@@ -66,26 +86,61 @@ export const fullBody = [
     'triceps',
     '/assets/tricep-overhead-extensions.gif',
   ),
-  createData('reverse snow angel', '10 / 3', 'záda', '/assets/sit-ups.gif'),
+  createData(
+    'obrácený sněhulák',
+    '10 / 3',
+    'záda',
+    '/assets/reverse-snow-angle.png',
+  ),
 
-  createData('Zkracovačky', '30/3', 'břicho', ''),
-  createData('Plank', '50 sekund/2', 'břicho', ''),
+  createData(
+    'Zkracovačky do kříže',
+    '30/3',
+    'břicho',
+    '/assets/Cross-Crunch.gif',
+  ),
+  createData('Plank', '50 sekund/2', 'břicho', '/assets/plank.gif'),
 ];
 
 export const lowerBody = [
   createData('jumping jack', '1 minuta', 'kardio', '/assets/jumping-jacks.gif'),
-  createData('Mrtvý tah', '20 / 3', 'stehna,hýždě,záda', ''),
-  createData('sumo dřep', '20 / 3', 'hýždě,stehna', ''),
-  createData('dřep s výskokem', '20 / 3', 'hýždě,stehna', ''),
-  createData('Výpady do strany', '20 / 3', 'stehna', ''),
-  createData('Výpady s výskokem', '30 / 3', 'stehna', ''),
+  createData(
+    'Mrtvý tah',
+    '20 / 3',
+    'stehna,hýždě,záda',
+    '/assets/dumbbell-deadlifts.gif',
+  ),
+  createData(
+    'sumo dřep s jednoručkama',
+    '20 / 3',
+    'hýždě,stehna',
+    '/assets/dumbbell-sumo-deadlift.gif',
+  ),
+  createData(
+    'dřep s výskokem',
+    '20 / 3',
+    'hýždě,stehna',
+    '/assets/jump-Squat.gif',
+  ),
+  createData('Výpady do strany', '20 / 3', 'stehna', '/assets/side-Lunge.gif'),
+  createData(
+    'Výpady s výskokem',
+    '30 / 3',
+    'stehna',
+    '/assets/power-lunge.gif',
+  ),
   createData('Angličáky', '10 / 2', 'kardio', '/assets/Burpees.gif'),
 
-  createData('Zvedání pánve v leže', '15 / 2', 'hýždě', ''),
+  createData(
+    'Zvedání pánve v leže',
+    '15 / 2',
+    'hýždě',
+    '/assets/pelvic-tilt.gif',
+  ),
 ];
 
 export const cardio = [
-  createData('švihadlo', '1 minuta', 'kardio', ''),
+  createData('švihadlo', '1 minuta', 'kardio', '/assets/jump-rope.gif'),
   createData(
     'Jumping jack',
     '50 sekund+10 pauza/3',
@@ -95,9 +150,24 @@ export const cardio = [
   createData('Sedy-lehy', '30 / 3', 'břicho', '/assets/sit-ups.gif'),
   createData('Angličáky', '10 / 2', 'kardio', '/assets/Burpees.gif'),
 
-  createData('dřep s výskokem', '20 / 3', 'hýždě,stehna', ''),
-  createData('výpady vzad', '20 / 3', 'hýždě,stehna', ''),
+  createData(
+    'dřep s výskokem',
+    '20 / 3',
+    'hýždě,stehna',
+    '/assets/jump-Squat.gif',
+  ),
+  createData(
+    'výpady s jednoručkama',
+    '20 / 3',
+    'hýždě,stehna',
+    '/assets/dumbbell-Lunge.gif',
+  ),
 
-  createData('Výpady s výskokem', '30 / 3', 'stehna', ''),
+  createData(
+    'Výpady s výskokem',
+    '30 / 3',
+    'stehna',
+    '/assets/power-lunge.gif',
+  ),
   createData('Kliky (dámské)', '15/3', 'prsa', '/assets/push-up.gif'),
 ];
