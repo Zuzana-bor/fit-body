@@ -9,6 +9,7 @@ import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import { Container } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
+import { alpha } from '@mui/material';
 
 const Home = () => {
   return (
@@ -46,11 +47,11 @@ const Home = () => {
           title="home"
           component="img"
         />
-        <Container sx={{ mb: 10 }}>
+        <Container>
           <Stack
             direction="column"
             justifyContent="space-between"
-            spacing={8}
+            spacing={4}
             sx={{
               position: 'relative',
               top: 80,
@@ -58,35 +59,37 @@ const Home = () => {
             }}
           >
             <Typography variant="h3" color="white">
-              <div>Mysli na sebe i na mateřské dovolené.</div>
-              <div> Buď v kondici. </div>
-              <div> Buď svá. </div>
+              Mysli na sebe i na mateřské dovolené.
+            </Typography>
+            <Typography variant="h3" color="white">
+              Buď v kondici.
+            </Typography>
+            <Typography variant="h3" color="white">
+              Buď svá.
             </Typography>
           </Stack>
           <Box
-            sx={{
+            sx={(theme) => ({
               width: 450,
               color: 'white',
               p: 2,
               position: 'relative',
               top: 155,
               zIndex: 2,
-              backgroundColor: 'rgba(193,255,200,0.2)',
-            }}
+              backgroundColor: alpha(theme.palette.primary.main, 0.6),
+            })}
           >
-            <p className="motivace">
+            <Typography>
               Cvič tam, kde ti to vyhovuje a co tvé tělo potřebuje. Stravuj se
               tak, aby Ti tvé tělo bylo vděčné a dosáhla jsi svých cílů. Vyplň
               krátký dotazník a zjisti, jak na to.
-            </p>
+            </Typography>
           </Box>
 
           <Stack
-            spacing={2}
             alignItems="center"
-            my={8}
             position="absolute"
-            bottom={5}
+            bottom={30}
             width="100%"
             left={0}
             right={0}
@@ -98,10 +101,9 @@ const Home = () => {
           </Stack>
         </Container>
       </Box>
-
       <Container>
-        <Typography variant="h4" m={3}>
-          Zjisti:
+        <Typography variant="h4" my={4}>
+          Co zjistíš vyplněním dotazníku?
         </Typography>
         <Stack direction="row" justifyContent="space-around">
           <Stack alignItems="center">
@@ -116,6 +118,11 @@ const Home = () => {
             <MoodTwoToneIcon fontSize="large" color="primary" />
             <Typography variant="h6">Jak být v pohodě a šťastná</Typography>
           </Stack>
+        </Stack>
+        <Stack alignItems="center" m={5}>
+          <Button variant="contained" href={Urls.Questions} size="large">
+            Dotazník
+          </Button>
         </Stack>
       </Container>
     </>
