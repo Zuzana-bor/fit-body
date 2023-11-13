@@ -10,6 +10,7 @@ import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import { Container } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import { alpha } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -95,14 +96,20 @@ const Home = () => {
             right={0}
             zIndex={2}
           >
-            <Button variant="contained" href={Urls.Questions} size="large">
+            <Button
+              variant="contained"
+              to={Urls.Questions}
+              size="large"
+              component={RouterLink}
+              key={Urls.Questions}
+            >
               Pojď na to
             </Button>
           </Stack>
         </Container>
       </Box>
-      <Container>
-        <Typography variant="h4" my={4}>
+      <Container sx={{ mb: 10 }}>
+        <Typography variant="h4" my={4} textAlign="center">
           Co zjistíš vyplněním dotazníku?
         </Typography>
         <Stack direction="row" justifyContent="space-around">
@@ -120,7 +127,13 @@ const Home = () => {
           </Stack>
         </Stack>
         <Stack alignItems="center" m={5}>
-          <Button variant="contained" href={Urls.Questions} size="large">
+          <Button
+            variant="contained"
+            to={Urls.Questions}
+            size="large"
+            component={RouterLink}
+            key={Urls.Questions}
+          >
             Dotazník
           </Button>
         </Stack>
