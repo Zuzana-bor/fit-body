@@ -8,64 +8,137 @@ import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
 import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import { Container } from '@mui/material';
+import CardMedia from '@mui/material/CardMedia';
+import { alpha } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <Container sx={{ mb: 10 }}>
-      <Box sx={{ backgroundImage: 'url(/assets/women.jpg)', p: 4, m: 0 }}>
-        <Stack
-          direction="column"
-          justifyContent="space-between"
-          spacing={8}
-          my={4}
-        >
-          <Typography variant="h4" color="white">
-            <div>Mysli na sebe i na mateřské dovolené.</div>
-            <div> Buď v kondici. </div>
-            <div> Buď svá. </div>
-          </Typography>
-        </Stack>
-        <Box
+    <>
+      <Box
+        sx={{
+          overflow: 'hidden',
+          height: 600,
+          position: 'relative',
+          '&:after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            zIndex: 1,
+          },
+        }}
+      >
+        <CardMedia
           sx={{
-            width: 350,
-            backgroundColor: 'primary',
-            color: 'white',
-            mt: 5,
-
-            p: 1,
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            objectFit: 'cover',
+            objectPosition: 'center 25%',
+            zIndex: 0,
+            height: '100%',
           }}
-        >
-          <p className="motivace">
-            Cvič tam, kde ti to vyhovuje a co tvé tělo potřebuje. Stravuj se
-            tak, aby Ti tvé tělo bylo vděčné a dosáhla jsi svých cílů. Vyplň
-            krátký dotazník a zjisti, jak na to.
-          </p>
-        </Box>
+          image="/assets/home.jpg"
+          title="home"
+          component="img"
+        />
+        <Container>
+          <Stack
+            direction="column"
+            justifyContent="space-between"
+            spacing={4}
+            sx={{
+              position: 'relative',
+              top: 80,
+              zIndex: 2,
+            }}
+          >
+            <Typography variant="h3" color="white">
+              Mysli na sebe i na mateřské dovolené.
+            </Typography>
+            <Typography variant="h3" color="white">
+              Buď v kondici.
+            </Typography>
+            <Typography variant="h3" color="white">
+              Buď svá.
+            </Typography>
+          </Stack>
+          <Box
+            sx={(theme) => ({
+              width: 450,
+              color: 'white',
+              p: 2,
+              position: 'relative',
+              top: 155,
+              zIndex: 2,
+              backgroundColor: alpha(theme.palette.primary.main, 0.6),
+            })}
+          >
+            <Typography>
+              Cvič tam, kde ti to vyhovuje a co tvé tělo potřebuje. Stravuj se
+              tak, aby Ti tvé tělo bylo vděčné a dosáhla jsi svých cílů. Vyplň
+              krátký dotazník a zjisti, jak na to.
+            </Typography>
+          </Box>
 
-        <Stack spacing={2} alignItems="center" my={8}>
-          <Button variant="contained" href={Urls.Questions}>
-            Pojď na to
+          <Stack
+            alignItems="center"
+            position="absolute"
+            bottom={30}
+            width="100%"
+            left={0}
+            right={0}
+            zIndex={2}
+          >
+            <Button
+              variant="contained"
+              to={Urls.Questions}
+              size="large"
+              component={RouterLink}
+              key={Urls.Questions}
+            >
+              Pojď na to
+            </Button>
+          </Stack>
+        </Container>
+      </Box>
+      <Container sx={{ mb: 10 }}>
+        <Typography variant="h4" my={4} textAlign="center">
+          Co zjistíš vyplněním dotazníku?
+        </Typography>
+        <Stack direction="row" justifyContent="space-around">
+          <Stack alignItems="center">
+            <FitnessCenterTwoToneIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Jak si tréninky nakombinovat.</Typography>
+          </Stack>
+          <Stack alignItems="center">
+            <EggAltTwoToneIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Jak se stravovat</Typography>
+          </Stack>
+          <Stack alignItems="center">
+            <MoodTwoToneIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Jak být v pohodě a šťastná</Typography>
+          </Stack>
+        </Stack>
+        <Stack alignItems="center" m={5}>
+          <Button
+            variant="contained"
+            to={Urls.Questions}
+            size="large"
+            component={RouterLink}
+            key={Urls.Questions}
+          >
+            Dotazník
           </Button>
         </Stack>
-      </Box>
-      <Typography variant="h4" m={3}>
-        Zjisti:
-      </Typography>
-      <Stack direction="row" justifyContent="space-around">
-        <Stack alignItems="center">
-          <FitnessCenterTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak si tréninky nakombinovat.</Typography>
-        </Stack>
-        <Stack alignItems="center">
-          <EggAltTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak se stravovat</Typography>
-        </Stack>
-        <Stack alignItems="center">
-          <MoodTwoToneIcon fontSize="large" color="primary" />
-          <Typography variant="h6">Jak být v pohodě a šťastná</Typography>
-        </Stack>
-      </Stack>
-    </Container>
+      </Container>
+    </>
   );
 };
 
