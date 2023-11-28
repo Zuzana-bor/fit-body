@@ -8,6 +8,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
 import { TrainingType } from '../../data/trainings';
+import { kebabCase } from 'lodash';
+import { Link } from 'react-router-dom';
+import { Urls } from '../../config';
 
 type TrainingProps = {
   training: TrainingType;
@@ -32,7 +35,7 @@ const Training: FC<TrainingProps> = ({ training }) => {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {name}
+                <Link to={`${Urls.Exercise}#${kebabCase(name)}`}> {name}</Link>
               </TableCell>
               <TableCell align="right">{number}</TableCell>
               <TableCell align="right">{muscle}</TableCell>

@@ -7,13 +7,15 @@ import { Exercise } from '../../data/exercises';
 
 type ExerciseCardProps = {
   item: Exercise;
+  id: string;
 };
 
 const ExerciseCard: FC<ExerciseCardProps> = ({
   item: { name, description, media },
+  id,
 }) => {
   return (
-    <Card sx={{ height: '100%' }}>
+    <Card sx={{ height: '100%' }} id={id}>
       <CardContent>
         <CardMedia
           sx={{ height: 250, objectFit: 'contain' }}

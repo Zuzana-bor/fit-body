@@ -4,6 +4,7 @@ import { exercises } from '../../data/exercises';
 import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
 import Grid from '@mui/material/Grid';
+import { kebabCase } from 'lodash';
 
 const Exercise = () => {
   const groupItems = groupBy(exercises, 'category');
@@ -18,7 +19,7 @@ const Exercise = () => {
           <Grid container spacing={4}>
             {exercises.map((item) => (
               <Grid item xs={4}>
-                <ExerciseCard item={item} />
+                <ExerciseCard item={item} id={kebabCase(item.name)} />
               </Grid>
             ))}
           </Grid>
