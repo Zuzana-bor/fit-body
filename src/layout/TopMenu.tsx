@@ -16,7 +16,7 @@ const TopMenu = () => {
             {Object.entries(Pages).map(([url, name]) => (
               <Button
                 component={RouterLink}
-                to={Urls[url]}
+                to={Urls[url as keyof typeof Urls]}
                 key={url}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >

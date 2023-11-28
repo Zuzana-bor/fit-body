@@ -14,6 +14,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
 import { Stack, Box } from '@mui/material';
 import Footer from './layout/Footer';
+import ScrollToHashElement from './layout/ScrollToHashElement';
 
 const theme = createTheme({
   palette: {
@@ -27,6 +28,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+        <ScrollToHashElement />
         <Stack sx={{ minHeight: '100vh' }}>
           <CssBaseline />
           <TopMenu />
@@ -35,7 +37,7 @@ function App() {
               <Route path={Urls.Plans} element={<Plans />} />
               <Route path={Urls.Questions} element={<Questions />} />
               <Route path={Urls.Exercise} element={<Exercise />} />
-              <Route path={Urls.Home} element={<Home />} theme={theme} />
+              <Route path={Urls.Home} element={<Home />} />
             </Routes>
           </Box>
           <Footer />
