@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Stack } from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -8,16 +8,21 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Box from '@mui/material/Box';
-import UpperBody from './Training';
+import Training from './Training';
+import { PlansTabsPart } from '../../config';
 
-const Plans = () => {
+type PlansProps = {
+  plansTabs?: PlansTabsPart[];
+};
+
+const Plans: FC<PlansProps> = () => {
   const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
 
   const activeTraining = plansTabs.find(
     (item) => item.id === activeTab,
   )?.content;
 
-  const handleClick = (tab) => {
+  const handleClick = (tab: string) => {
     setActiveTab(tab);
   };
 
@@ -46,7 +51,7 @@ const Plans = () => {
               </List>
             </Grid>
             <Grid item xs={9}>
-              <UpperBody training={activeTraining} />
+              {activeTraining && <Training training={activeTraining} />}
             </Grid>
           </Grid>
         </Stack>

@@ -3,7 +3,7 @@ import { Stack } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Stack backgroundColor="lightgrey" alignItems="center" py={2}>
+    <Stack sx={{ backgroundColor: 'lightgrey' }} alignItems="center" py={2}>
       Copyright Zuzana Bořutová
     </Stack>
   );

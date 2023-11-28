@@ -4,8 +4,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Urls } from '../../config';
-import FitnessCenterTwoToneIcon from '@mui/icons-material/FitnessCenterTwoTone';
-import EggAltTwoToneIcon from '@mui/icons-material/EggAltTwoTone';
+import { EggAltTwoTone, FitnessCenter } from '@mui/icons-material';
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 import { Container } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
@@ -114,11 +113,11 @@ const Home = () => {
         </Typography>
         <Stack direction="row" justifyContent="space-around">
           <Stack alignItems="center">
-            <FitnessCenterTwoToneIcon fontSize="large" color="primary" />
+            <FitnessCenter fontSize="large" color="primary" />
             <Typography variant="h6">Jak si tréninky nakombinovat.</Typography>
           </Stack>
           <Stack alignItems="center">
-            <EggAltTwoToneIcon fontSize="large" color="primary" />
+            <EggAltTwoTone fontSize="large" color="primary" />
             <Typography variant="h6">Jak se stravovat</Typography>
           </Stack>
           <Stack alignItems="center">

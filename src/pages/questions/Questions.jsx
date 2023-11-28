@@ -20,7 +20,6 @@ const Questions = () => {
 
   const isFilled = Object.values(values).length === 8;
 
-  console.log(values);
   return (
     <Container maxWidth="sm" sx={{ mb: 10 }}>
       <Box pt={4}>

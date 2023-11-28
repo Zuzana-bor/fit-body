@@ -1,10 +1,17 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Exercise } from '../../data/exercises';
 
-const ExerciseCard = ({ item: { name, description, media } }) => {
+type ExerciseCardProps = {
+  item: Exercise;
+};
+
+const ExerciseCard: FC<ExerciseCardProps> = ({
+  item: { name, description, media },
+}) => {
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent>
