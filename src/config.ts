@@ -60,3 +60,11 @@ export const plansTabs = [
     content: cardio,
   },
 ];
+
+export type Typevalues = {
+  weight: number;
+  height: number;
+  age: number;
+  activity: string;
+  target: string;
+};
