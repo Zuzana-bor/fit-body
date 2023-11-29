@@ -13,16 +13,18 @@ const TopMenu = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {Object.entries(Pages).map(([url, name]) => (
-              <Button
-                component={RouterLink}
-                to={Urls[url as keyof typeof Urls]}
-                key={url}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {name}
-              </Button>
-            ))}
+            {(Object.entries(Pages) as [keyof typeof Urls, string][]).map(
+              ([url, name]) => (
+                <Button
+                  component={RouterLink}
+                  to={Urls[url]}
+                  key={url}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {name}
+                </Button>
+              ),
+            )}
           </Box>
         </Toolbar>
       </Container>

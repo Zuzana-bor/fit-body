@@ -20,12 +20,12 @@ export enum Urls {
   Home = '/',
 }
 
-export enum Pages {
-  Home = 'home',
-  Plans = 'tréningové plány',
-  Questions = 'dotazník',
-  Exercise = 'databáze cviků',
-}
+export const Pages: Record<keyof typeof Urls, string> = {
+  Home: 'home',
+  Plans: 'tréningové plány',
+  Questions: 'dotazník',
+  Exercise: 'databáze cviků',
+};
 
 export type PlansTabsPart = {
   id: string;
