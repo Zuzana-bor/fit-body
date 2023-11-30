@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from '@mui/material';
 import { getKoefTarget, getAf } from './utils';
+import { FormAnswers } from '../../config';
 
-const Result = ({ values: { weight, height, age, activity, target } }) => {
+type ResultProps = {
+  values: FormAnswers;
+};
+
+const Result: FC<ResultProps> = ({
+  values: { weight, height, age, activity, target },
+}) => {
   const af = getAf(activity);
   const koefTarget = getKoefTarget(target);
 
