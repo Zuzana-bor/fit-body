@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
@@ -11,10 +11,15 @@ import FormLabel from '@mui/material/FormLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { FormAnswers } from '../../config';
 
-const QuestionsForm = (
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => {},
-  formAnswers: FormAnswers,
-) => {
+type QuestionsFormProps = {
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  formAnswers: FormAnswers;
+};
+
+const QuestionsForm: FC<QuestionsFormProps> = ({
+  handleChange,
+  formAnswers,
+}) => {
   return (
     <Box mb={4}>
       <Stack gap={4}>

@@ -61,6 +61,17 @@ export const plansTabs = [
   },
 ];
 
+export const initialFormAnswers: FormAnswers = {
+  weight: 0,
+  height: 0,
+  age: 0,
+  gender: '',
+  activity: '',
+  target: '',
+  sleep: '',
+  intensity: 0,
+};
+
 export type FormAnswers = {
   weight: number;
   height: number;

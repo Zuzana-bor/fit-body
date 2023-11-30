@@ -4,15 +4,7 @@ import Button from '@mui/material/Button';
 import Result from './Result';
 import QuestionsForm from './QuestionsForm';
 import { Container } from '@mui/material';
-import { FormAnswers } from '../../config';
-
-const initialFormAnswers: FormAnswers = {
-  weight: 0,
-  height: 0,
-  age: 0,
-  activity: '',
-  target: '',
-};
+import { FormAnswers, initialFormAnswers } from '../../config';
 
 const Questions = () => {
   const [formAnswers, setformAnswers] =
