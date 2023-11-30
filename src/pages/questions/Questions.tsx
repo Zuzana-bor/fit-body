@@ -1,37 +1,46 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Result from './Result';
 import QuestionsForm from './QuestionsForm';
 import { Container } from '@mui/material';
-import { Typevalues } from '../../config';
+import { FormAnswers } from '../../config';
+
+const initialFormAnswers: FormAnswers = {
+  weight: 0,
+  height: 0,
+  age: 0,
+  activity: '',
+  target: '',
+};
 
 const Questions = () => {
-  const [values, setValues] = React.useState<Typevalues>({
-    weight: 0,
-    height: 0,
-    age: 0,
-    activity: '',
-    target: '',
-  });
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [formAnswers, setformAnswers] =
+    useState<FormAnswers>(initialFormAnswers);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+    setformAnswers((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleSubmit = () => {
     setIsSubmitted(true);
   };
 
-  const isFilled = Object.values(values).length === 8;
+  const isFilled = Object.values(formAnswers).length === 8;
 
   return (
     <Container maxWidth="sm" sx={{ mb: 10 }}>
       <Box pt={4}>
         {!isSubmitted ? (
           <>
-            <QuestionsForm handleChange={handleChange} />
+            <QuestionsForm
+              handleChange={handleChange}
+              formAnswers={formAnswers}
+            />
 
             <Button
               variant="contained"
@@ -44,7 +53,7 @@ const Questions = () => {
           </>
         ) : (
           <Box>
-            <Result values={values} />
+            <Result values={formAnswers} />
           </Box>
         )}
       </Box>

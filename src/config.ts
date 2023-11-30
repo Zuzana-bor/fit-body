@@ -61,10 +61,13 @@ export const plansTabs = [
   },
 ];
 
-export type Typevalues = {
+export type FormAnswers = {
   weight: number;
   height: number;
   age: number;
+  gender: string;
   activity: string;
   target: string;
+  sleep: string;
+  intensity: number;
 };

@@ -9,47 +9,54 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import MenuItem from '@mui/material/MenuItem';
+import { FormAnswers } from '../../config';
 
-const QuestionsForm = ({ handleChange }) => {
+const QuestionsForm = (
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => {},
+  formAnswers: FormAnswers,
+) => {
   return (
     <Box mb={4}>
       <Stack gap={4}>
         <TextField
+          sx={{ pattern: '[0-9]' }}
           InputProps={{
             endAdornment: <InputAdornment position="end">kg</InputAdornment>,
             inputMode: 'numeric',
-            pattern: '[0-9]*',
           }}
           id="outlined-basic"
           type="number"
           label="Váha"
           name="weight"
+          value={formAnswers.weight || ''}
           variant="outlined"
           onChange={handleChange}
         />
         <TextField
+          sx={{ pattern: '[0-9]' }}
           InputProps={{
             endAdornment: <InputAdornment position="end">cm</InputAdornment>,
             inputMode: 'numeric',
-            pattern: '[0-9]*',
           }}
           id="outlined-basic"
           type="number"
           label="Výška"
           name="height"
+          value={formAnswers.height || ''}
           variant="outlined"
           onChange={handleChange}
         />
         <TextField
+          sx={{ pattern: '[0-9]' }}
           InputProps={{
             endAdornment: <InputAdornment position="end">let</InputAdornment>,
             inputMode: 'numeric',
-            pattern: '[0-9]*',
           }}
           id="outlined-basic"
           type="number"
           label="Věk"
           name="age"
+          value={formAnswers.age || ''}
           variant="outlined"
           onChange={handleChange}
         />
@@ -59,6 +66,7 @@ const QuestionsForm = ({ handleChange }) => {
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue=""
             name="gender"
+            value={formAnswers.gender}
             onChange={handleChange}
           >
             <FormControlLabel value="female" control={<Radio />} label="Žena" />
@@ -71,6 +79,7 @@ const QuestionsForm = ({ handleChange }) => {
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue=""
             name="target"
+            value={formAnswers.target}
             onChange={handleChange}
           >
             <FormControlLabel
@@ -98,6 +107,7 @@ const QuestionsForm = ({ handleChange }) => {
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue=""
             name="sleep"
+            value={formAnswers.sleep}
             onChange={handleChange}
           >
             <FormControlLabel value="5" control={<Radio />} label="5 a méně" />
@@ -115,6 +125,7 @@ const QuestionsForm = ({ handleChange }) => {
           select
           label="Aktivita"
           name="activity"
+          value={formAnswers.activity}
           defaultValue=""
           onChange={handleChange}
         >
@@ -148,6 +159,7 @@ const QuestionsForm = ({ handleChange }) => {
           select
           label="Jak často chceš cvičit"
           name="intensity"
+          value={formAnswers.intensity || ''}
           defaultValue=""
           onChange={handleChange}
         >
