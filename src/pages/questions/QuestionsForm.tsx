@@ -24,10 +24,12 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
     <Box mb={4}>
       <Stack gap={4}>
         <TextField
-          sx={{ pattern: '[0-9]' }}
           InputProps={{
             endAdornment: <InputAdornment position="end">kg</InputAdornment>,
+          }}
+          inputProps={{
             inputMode: 'numeric',
+            pattern: '[0-9]',
           }}
           id="outlined-basic"
           type="number"
@@ -38,10 +40,12 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           onChange={handleChange}
         />
         <TextField
-          sx={{ pattern: '[0-9]' }}
           InputProps={{
             endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+          }}
+          inputProps={{
             inputMode: 'numeric',
+            pattern: '[0-9]',
           }}
           id="outlined-basic"
           type="number"
@@ -52,10 +56,12 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           onChange={handleChange}
         />
         <TextField
-          sx={{ pattern: '[0-9]' }}
           InputProps={{
             endAdornment: <InputAdornment position="end">let</InputAdornment>,
+          }}
+          inputProps={{
             inputMode: 'numeric',
+            pattern: '[0-9]',
           }}
           id="outlined-basic"
           type="number"
