@@ -31,7 +31,6 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
             inputMode: 'numeric',
             pattern: '[0-9]',
           }}
-          id="outlined-basic"
           type="number"
           label="Váha"
           name="weight"
@@ -47,7 +46,6 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
             inputMode: 'numeric',
             pattern: '[0-9]',
           }}
-          id="outlined-basic"
           type="number"
           label="Výška"
           name="height"
@@ -63,7 +61,6 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
             inputMode: 'numeric',
             pattern: '[0-9]',
           }}
-          id="outlined-basic"
           type="number"
           label="Věk"
           name="age"
@@ -72,9 +69,9 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           onChange={handleChange}
         />
         <FormControl>
-          <FormLabel id="demo-radio-buttons-group-label">Pohlaví</FormLabel>
+          <FormLabel id="gender">Pohlaví</FormLabel>
           <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="gender"
             defaultValue=""
             name="gender"
             value={formAnswers.gender}
@@ -85,9 +82,9 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           </RadioGroup>
         </FormControl>
         <FormControl>
-          <FormLabel id="demo-radio-buttons-group-label">Cíl</FormLabel>
+          <FormLabel id="target">Cíl</FormLabel>
           <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="target"
             defaultValue=""
             name="target"
             value={formAnswers.target}
@@ -111,11 +108,9 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           </RadioGroup>
         </FormControl>
         <FormControl>
-          <FormLabel id="demo-radio-buttons-group-label">
-            Kolik hodin spánku máš
-          </FormLabel>
+          <FormLabel id="sleep">Kolik hodin spánku máš</FormLabel>
           <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="sleep"
             defaultValue=""
             name="sleep"
             value={formAnswers.sleep}
@@ -132,7 +127,6 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
         </FormControl>
 
         <TextField
-          id="outlined-select-currency"
           select
           label="Aktivita"
           name="activity"
@@ -166,7 +160,6 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
         </TextField>
 
         <TextField
-          id="outlined-select-currency"
           select
           label="Jak často chceš cvičit"
           name="intensity"
