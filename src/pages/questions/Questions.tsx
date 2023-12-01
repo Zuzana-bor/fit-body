@@ -11,10 +11,19 @@ const Questions = () => {
     useState<FormAnswers>(initialFormAnswers);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  console.log(formAnswers);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setformAnswers((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleChangeNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setformAnswers((prev) => ({
+      ...prev,
+      [event.target.name]: parseInt(event.target.value) || 0,
     }));
   };
 
@@ -32,6 +41,7 @@ const Questions = () => {
             <QuestionsForm
               handleChange={handleChange}
               formAnswers={formAnswers}
+              handleChangeNumber={handleChangeNumber}
             />
 
             <Button

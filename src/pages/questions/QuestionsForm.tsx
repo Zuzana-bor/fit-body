@@ -14,11 +14,13 @@ import { FormAnswers } from '../../config';
 type QuestionsFormProps = {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formAnswers: FormAnswers;
+  handleChangeNumber: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const QuestionsForm: FC<QuestionsFormProps> = ({
   handleChange,
   formAnswers,
+  handleChangeNumber,
 }) => {
   return (
     <Box mb={4}>
@@ -36,7 +38,7 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           name="weight"
           value={formAnswers.weight || ''}
           variant="outlined"
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         />
         <TextField
           InputProps={{
@@ -51,7 +53,7 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           name="height"
           value={formAnswers.height || ''}
           variant="outlined"
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         />
         <TextField
           InputProps={{
@@ -66,7 +68,7 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           name="age"
           value={formAnswers.age || ''}
           variant="outlined"
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         />
         <FormControl>
           <FormLabel id="gender">Pohlaví</FormLabel>
