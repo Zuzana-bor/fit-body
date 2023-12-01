@@ -1,4 +1,6 @@
-export const getKoefTarget = (target) => {
+import { FormAnswers } from '../../config';
+
+export const getKoefTarget = (target: string) => {
   switch (target) {
     case 'weightloss':
       return 0.8;
@@ -9,7 +11,7 @@ export const getKoefTarget = (target) => {
   }
 };
 
-export const getAf = (activity) => {
+export const getAf = (activity: string) => {
   switch (activity) {
     case 'activLevel1':
       return 1.2;
@@ -30,3 +32,22 @@ export const getAf = (activity) => {
       return 2.2;
   }
 };
+
+export const getIsFilled = ({
+  weight,
+  gender,
+  height,
+  age,
+  activity,
+  target,
+  sleep,
+  intensity,
+}: FormAnswers) =>
+  weight > 0 &&
+  gender.length &&
+  height > 0 &&
+  age > 0 &&
+  activity.length &&
+  target.length &&
+  sleep.length &&
+  intensity > 0;

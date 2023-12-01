@@ -5,6 +5,7 @@ import Result from './Result';
 import QuestionsForm from './QuestionsForm';
 import { Container } from '@mui/material';
 import { FormAnswers, initialFormAnswers } from '../../config';
+import { getIsFilled } from './utils';
 
 const Questions = () => {
   const [formAnswers, setformAnswers] =
@@ -31,7 +32,7 @@ const Questions = () => {
     setIsSubmitted(true);
   };
 
-  const isFilled = Object.values(formAnswers).length === 8;
+  const isFilled = getIsFilled(formAnswers);
 
   return (
     <Container maxWidth="sm" sx={{ mb: 10 }}>
