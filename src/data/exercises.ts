@@ -146,14 +146,7 @@ export const exercises: Exercise[] = [
     media: '/assets/plank.gif',
     mainMuscleGroupe: 'břicho',
   },
-  {
-    id: 'squat',
-    name: 'dřep',
-    description: 'Lorem ipsum ',
-    media: '.',
-    category: 'Dolní část těla',
-    mainMuscleGroupe: 'zadek',
-  },
+
   {
     id: 'dumbbell-squat',
     name: 'dřep s jednuručkama',
@@ -233,7 +226,7 @@ export const exercises: Exercise[] = [
       'Ležíme na zádech, paže  podél těla, nohy pokrčenée. S výdechem zvedáme pánev vzhůru, v horní pozici zatneme hýždě, s nádechem se vracíme do výchozí pozice.',
     media: '/assets/pelvic-tilt.gif',
     category: 'Dolní část těla',
-    mainMuscleGroupe: 'hýždě',
+    mainMuscleGroupe: 'boky',
   },
   {
     id: 'jumping-rope',
