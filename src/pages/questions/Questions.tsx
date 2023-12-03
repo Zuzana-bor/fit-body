@@ -6,13 +6,14 @@ import QuestionsForm from './QuestionsForm';
 import { Container } from '@mui/material';
 import { FormAnswers, initialFormAnswers } from '../../config';
 import { getIsFilled } from './utils';
+import { Create } from '@mui/icons-material';
+import { Send } from '@mui/icons-material';
+import Stack from '@mui/material/Stack';
 
 const Questions = () => {
   const [formAnswers, setformAnswers] =
     useState<FormAnswers>(initialFormAnswers);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  console.log(formAnswers);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setformAnswers((prev) => ({
@@ -28,6 +29,15 @@ const Questions = () => {
     }));
   };
 
+  const handleEdit = () => {
+    setIsSubmitted(false);
+  };
+
+  const handleReset = () => {
+    setIsSubmitted(false);
+    setformAnswers(initialFormAnswers);
+  };
+
   const handleSubmit = () => {
     setIsSubmitted(true);
   };
@@ -36,7 +46,7 @@ const Questions = () => {
 
   return (
     <Container maxWidth="sm" sx={{ mb: 10 }}>
-      <Box pt={4}>
+      <Box pt={4} pb={4}>
         {!isSubmitted ? (
           <>
             <QuestionsForm
@@ -60,6 +70,19 @@ const Questions = () => {
           </Box>
         )}
       </Box>
+      <Stack direction="row" spacing={2}>
+        <Button variant="outlined" startIcon={<Create />} onClick={handleEdit}>
+          Upravit hodnoty
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<Send />}
+          color="secondary"
+          onClick={handleReset}
+        >
+          Vyplnit znovu
+        </Button>
+      </Stack>
     </Container>
   );
 };
