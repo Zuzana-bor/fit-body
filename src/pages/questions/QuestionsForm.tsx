@@ -167,7 +167,7 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           name="intensity"
           value={formAnswers.intensity || ''}
           defaultValue=""
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         >
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
