@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Result from './Result';
 import QuestionsForm from './QuestionsForm';
 import { Container } from '@mui/material';
-import { FormAnswers, initialFormAnswers } from '../../config';
+import { initialFormAnswers } from '../../config';
 import { getIsFilled } from './utils';
 import { Create } from '@mui/icons-material';
 import { Send } from '@mui/icons-material';
 import Stack from '@mui/material/Stack';
+import { AppContext } from '../../store/AppContext ';
 
 const Questions = () => {
-  const [formAnswers, setformAnswers] =
-    useState<FormAnswers>(initialFormAnswers);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { formAnswers, setFormAnswers } = useContext(AppContext);
+  const isFilled = getIsFilled(formAnswers);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(isFilled);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setformAnswers((prev) => ({
+    setFormAnswers((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
   };
 
   const handleChangeNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setformAnswers((prev) => ({
+    setFormAnswers((prev) => ({
       ...prev,
       [event.target.name]: parseInt(event.target.value) || 0,
     }));
@@ -35,14 +36,12 @@ const Questions = () => {
 
   const handleReset = () => {
     setIsSubmitted(false);
-    setformAnswers(initialFormAnswers);
+    setFormAnswers(initialFormAnswers);
   };
 
   const handleSubmit = () => {
     setIsSubmitted(true);
   };
-
-  const isFilled = getIsFilled(formAnswers);
 
   return (
     <Container maxWidth="sm" sx={{ mb: 10 }}>

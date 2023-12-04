@@ -1,3 +1,4 @@
+import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import TopMenu from './layout/TopMenu';
 import '@fontsource/roboto/300.css';
@@ -14,6 +15,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
 import { Stack, Box } from '@mui/material';
 import Footer from './layout/Footer';
+import { AppContextProvider } from './store/AppContextProvider';
 import ScrollToHashElement from './layout/ScrollToHashElement';
 
 const theme = createTheme({
@@ -27,22 +29,24 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <ScrollToHashElement />
-        <Stack sx={{ minHeight: '100vh' }}>
-          <CssBaseline />
-          <TopMenu />
-          <Box flexGrow={1}>
-            <Routes>
-              <Route path={Urls.Plans} element={<Plans />} />
-              <Route path={Urls.Questions} element={<Questions />} />
-              <Route path={Urls.Exercise} element={<Exercise />} />
-              <Route path={Urls.Home} element={<Home />} />
-            </Routes>
-          </Box>
-          <Footer />
-        </Stack>
-      </BrowserRouter>
+      <AppContextProvider>
+        <BrowserRouter>
+          <ScrollToHashElement />
+          <Stack sx={{ minHeight: '100vh' }}>
+            <CssBaseline />
+            <TopMenu />
+            <Box flexGrow={1}>
+              <Routes>
+                <Route path={Urls.Plans} element={<Plans />} />
+                <Route path={Urls.Questions} element={<Questions />} />
+                <Route path={Urls.Exercise} element={<Exercise />} />
+                <Route path={Urls.Home} element={<Home />} />
+              </Routes>
+            </Box>
+            <Footer />
+          </Stack>
+        </BrowserRouter>
+      </AppContextProvider>
     </ThemeProvider>
   );
 }
