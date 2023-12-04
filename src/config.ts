@@ -20,12 +20,12 @@ export enum Urls {
   Home = '/',
 }
 
-export enum Pages {
-  Home = 'home',
-  Plans = 'tréningové plány',
-  Questions = 'dotazník',
-  Exercise = 'databáze cviků',
-}
+export const Pages: Record<keyof typeof Urls, string> = {
+  Home: 'home',
+  Plans: 'tréningové plány',
+  Questions: 'dotazník',
+  Exercise: 'databáze cviků',
+};
 
 export type PlansTabsPart = {
   id: string;
@@ -60,3 +60,25 @@ export const plansTabs = [
     content: cardio,
   },
 ];
+
+export const initialFormAnswers: FormAnswers = {
+  weight: 0,
+  height: 0,
+  age: 0,
+  gender: '',
+  activity: '',
+  target: '',
+  sleep: '',
+  intensity: '',
+};
+
+export type FormAnswers = {
+  weight: number;
+  height: number;
+  age: number;
+  gender: string;
+  activity: string;
+  target: string;
+  sleep: string;
+  intensity: string;
+};

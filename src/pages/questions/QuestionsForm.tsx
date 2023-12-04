@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
@@ -9,56 +9,74 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import MenuItem from '@mui/material/MenuItem';
+import { FormAnswers } from '../../config';
 
-const QuestionsForm = ({ handleChange }) => {
+type QuestionsFormProps = {
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  formAnswers: FormAnswers;
+  handleChangeNumber: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const QuestionsForm: FC<QuestionsFormProps> = ({
+  handleChange,
+  formAnswers,
+  handleChangeNumber,
+}) => {
   return (
     <Box mb={4}>
       <Stack gap={4}>
         <TextField
           InputProps={{
             endAdornment: <InputAdornment position="end">kg</InputAdornment>,
-            inputMode: 'numeric',
-            pattern: '[0-9]*',
           }}
-          id="outlined-basic"
+          inputProps={{
+            inputMode: 'numeric',
+            pattern: '[0-9]',
+          }}
           type="number"
           label="Váha"
           name="weight"
+          value={formAnswers.weight || ''}
           variant="outlined"
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         />
         <TextField
           InputProps={{
             endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-            inputMode: 'numeric',
-            pattern: '[0-9]*',
           }}
-          id="outlined-basic"
+          inputProps={{
+            inputMode: 'numeric',
+            pattern: '[0-9]',
+          }}
           type="number"
           label="Výška"
           name="height"
+          value={formAnswers.height || ''}
           variant="outlined"
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         />
         <TextField
           InputProps={{
             endAdornment: <InputAdornment position="end">let</InputAdornment>,
-            inputMode: 'numeric',
-            pattern: '[0-9]*',
           }}
-          id="outlined-basic"
+          inputProps={{
+            inputMode: 'numeric',
+            pattern: '[0-9]',
+          }}
           type="number"
           label="Věk"
           name="age"
+          value={formAnswers.age || ''}
           variant="outlined"
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         />
         <FormControl>
-          <FormLabel id="demo-radio-buttons-group-label">Pohlaví</FormLabel>
+          <FormLabel id="gender">Pohlaví</FormLabel>
           <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="gender"
             defaultValue=""
             name="gender"
+            value={formAnswers.gender}
             onChange={handleChange}
           >
             <FormControlLabel value="female" control={<Radio />} label="Žena" />
@@ -66,11 +84,12 @@ const QuestionsForm = ({ handleChange }) => {
           </RadioGroup>
         </FormControl>
         <FormControl>
-          <FormLabel id="demo-radio-buttons-group-label">Cíl</FormLabel>
+          <FormLabel id="target">Cíl</FormLabel>
           <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="target"
             defaultValue=""
             name="target"
+            value={formAnswers.target}
             onChange={handleChange}
           >
             <FormControlLabel
@@ -91,13 +110,12 @@ const QuestionsForm = ({ handleChange }) => {
           </RadioGroup>
         </FormControl>
         <FormControl>
-          <FormLabel id="demo-radio-buttons-group-label">
-            Kolik hodin spánku máš
-          </FormLabel>
+          <FormLabel id="sleep">Kolik hodin spánku máš</FormLabel>
           <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="sleep"
             defaultValue=""
             name="sleep"
+            value={formAnswers.sleep}
             onChange={handleChange}
           >
             <FormControlLabel value="5" control={<Radio />} label="5 a méně" />
@@ -111,10 +129,10 @@ const QuestionsForm = ({ handleChange }) => {
         </FormControl>
 
         <TextField
-          id="outlined-select-currency"
           select
           label="Aktivita"
           name="activity"
+          value={formAnswers.activity}
           defaultValue=""
           onChange={handleChange}
         >
@@ -144,20 +162,20 @@ const QuestionsForm = ({ handleChange }) => {
         </TextField>
 
         <TextField
-          id="outlined-select-currency"
           select
           label="Jak často chceš cvičit"
           name="intensity"
+          value={formAnswers.intensity || ''}
           defaultValue=""
-          onChange={handleChange}
+          onChange={handleChangeNumber}
         >
-          <MenuItem value="1">1</MenuItem>
-          <MenuItem value="2">2</MenuItem>
-          <MenuItem value="3">3</MenuItem>
-          <MenuItem value="4">4</MenuItem>
-          <MenuItem value="5">5</MenuItem>
-          <MenuItem value="6">6</MenuItem>
-          <MenuItem value="7">7</MenuItem>
+          <MenuItem value="intensity1">1</MenuItem>
+          <MenuItem value="intensity2">2</MenuItem>
+          <MenuItem value="intensity3">3</MenuItem>
+          <MenuItem value="intensity4">4</MenuItem>
+          <MenuItem value="intensity5">5</MenuItem>
+          <MenuItem value="intensity6">6</MenuItem>
+          <MenuItem value="intensity7">7</MenuItem>
         </TextField>
       </Stack>
     </Box>
