@@ -42,12 +42,12 @@ export const getIsFilled = ({
   target,
   sleep,
   intensity,
-}: FormAnswers) =>
+}: FormAnswers): boolean =>
   weight > 0 &&
-  gender.length &&
+  !!gender.length &&
   height > 0 &&
   age > 0 &&
-  activity.length &&
-  target.length &&
-  sleep.length &&
-  intensity.length;
+  !!activity.length &&
+  !!target.length &&
+  !!sleep.length &&
+  !!intensity.length;
