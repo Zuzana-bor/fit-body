@@ -67,22 +67,26 @@ const Questions = () => {
         ) : (
           <Box>
             <Result values={formAnswers} />
+            <Stack direction="row" spacing={2}>
+              <Button
+                variant="outlined"
+                startIcon={<Create />}
+                onClick={handleEdit}
+              >
+                Upravit hodnoty
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<Send />}
+                color="secondary"
+                onClick={handleReset}
+              >
+                Vyplnit znovu
+              </Button>
+            </Stack>
           </Box>
         )}
       </Box>
-      <Stack direction="row" spacing={2}>
-        <Button variant="outlined" startIcon={<Create />} onClick={handleEdit}>
-          Upravit hodnoty
-        </Button>
-        <Button
-          variant="outlined"
-          startIcon={<Send />}
-          color="secondary"
-          onClick={handleReset}
-        >
-          Vyplnit znovu
-        </Button>
-      </Stack>
     </Container>
   );
 };
