@@ -50,4 +50,4 @@ export const getIsFilled = ({
   activity.length &&
   target.length &&
   sleep.length &&
-  intensity > 0;
+  intensity.length;

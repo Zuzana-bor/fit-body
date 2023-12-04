@@ -169,13 +169,13 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           defaultValue=""
           onChange={handleChangeNumber}
         >
-          <MenuItem value="1">1</MenuItem>
-          <MenuItem value="2">2</MenuItem>
-          <MenuItem value="3">3</MenuItem>
-          <MenuItem value="4">4</MenuItem>
-          <MenuItem value="5">5</MenuItem>
-          <MenuItem value="6">6</MenuItem>
-          <MenuItem value="7">7</MenuItem>
+          <MenuItem value="intensity1">1</MenuItem>
+          <MenuItem value="intensity2">2</MenuItem>
+          <MenuItem value="intensity3">3</MenuItem>
+          <MenuItem value="intensity4">4</MenuItem>
+          <MenuItem value="intensity5">5</MenuItem>
+          <MenuItem value="intensity6">6</MenuItem>
+          <MenuItem value="intensity7">7</MenuItem>
         </TextField>
       </Stack>
     </Box>

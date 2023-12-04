@@ -69,7 +69,7 @@ export const initialFormAnswers: FormAnswers = {
   activity: '',
   target: '',
   sleep: '',
-  intensity: 0,
+  intensity: '',
 };
 
 export type FormAnswers = {
@@ -80,5 +80,5 @@ export type FormAnswers = {
   activity: string;
   target: string;
   sleep: string;
-  intensity: number;
+  intensity: string;
 };
