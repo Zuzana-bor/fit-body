@@ -48,7 +48,7 @@ export const upperBody: TrainingType = [
     '/assets/single-arm-dumbbell-row.gif',
   ),
   createTrainingPart('Kliky (dámské)', '15 / 2', 'prsa', '/assets/push-up.gif'),
-  createTrainingPart('Angličáky', '10 / 2', 'kardio', '/assets/Burpees.gif'),
+  createTrainingPart('Angličák', '10 / 2', 'kardio', '/assets/Burpees.gif'),
   createTrainingPart(
     'Zvedání paží v planku',
     '12 / 2',
@@ -106,7 +106,7 @@ export const fullBody = [
     '/assets/tricep-overhead-extensions.gif',
   ),
   createTrainingPart(
-    'obrácený sněhulák',
+    'obrácený anděl',
     '10 / 3',
     'záda',
     '/assets/reverse-snow-angle.png',
