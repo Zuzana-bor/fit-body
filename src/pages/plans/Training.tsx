@@ -7,13 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
-import { TrainingType } from '../../data/trainings';
+import { TrainingData } from '../../data/trainings';
 import { kebabCase } from 'lodash';
 import { Link } from 'react-router-dom';
 import { Urls } from '../../config';
 
 type TrainingProps = {
-  training: TrainingType;
+  training: TrainingData;
 };
 
 const Training: FC<TrainingProps> = ({ training }) => {

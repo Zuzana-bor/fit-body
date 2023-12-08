@@ -9,11 +9,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Box from '@mui/material/Box';
 import Training from './Training';
 import { getPlansTabs } from './utils';
-import { trainings } from '../../data/trainings';
-import { plansTabsConfig } from '../../config';
+import { plansTabsConfig } from './config';
+import { trainingsData } from '../../data/trainings';
 
 const Plans = () => {
-  const plansTabs = getPlansTabs(plansTabsConfig, trainings);
+  const plansTabs = getPlansTabs(plansTabsConfig, trainingsData);
   const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
 
   const activeTraining = plansTabs.find(

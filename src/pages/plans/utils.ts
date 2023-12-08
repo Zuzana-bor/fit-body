@@ -1,16 +1,14 @@
-import { PlansTabsPart, PlansTabsPartConfig } from '../../config';
-import {
-  TrainingConfig,
-  TrainingPart,
-  TrainingType,
-} from '../../data/trainings';
+import { TrainingsData } from '../../data/trainings';
+import { PlansTabsPart, PlansTabsPartConfig } from './config';
 
 export const getPlansTabs = (
   plansTabsConfig: PlansTabsPartConfig[],
-  trainings: TrainingConfig,
+  trainingsData: TrainingsData,
 ): PlansTabsPart[] => {
-  plansTabsConfig.map((item) => ({
-    ...item,
-    content: trainings.find(({ id }) => id === item.id),
-  }));
+  return plansTabsConfig
+    .map((item) => ({
+      ...item,
+      content: trainingsData.find(({ id }) => id === item.id)?.training,
+    }))
+    .filter((item): item is PlansTabsPart => !!item.content);
 };

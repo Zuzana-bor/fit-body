@@ -1,22 +1,22 @@
-export type TrainingPart = {
+export type TrainingDataPart = {
   name: string;
   number: string;
   muscle: string;
   media: string;
 };
 
-export type TrainingType = TrainingPart[];
+export type TrainingData = TrainingDataPart[];
 
-const createTrainingPart = (
+export const createTrainingPart = (
   name: string,
   number: string,
   muscle: string,
   media: string,
-): TrainingPart => {
+): TrainingDataPart => {
   return { name, number, muscle, media };
 };
 
-export const upperBody: TrainingType = [
+const upperBody: TrainingData = [
   createTrainingPart(
     'Jumping jack',
     '1 minuta',
@@ -64,7 +64,7 @@ export const upperBody: TrainingType = [
   ),
 ];
 
-export const fullBody = [
+const fullBody = [
   createTrainingPart('švihadlo', '1 minuta', 'kardio', '/assets/jump-rope.gif'),
 
   createTrainingPart(
@@ -121,7 +121,7 @@ export const fullBody = [
   createTrainingPart('Plank', '50 sekund/2', 'břicho', '/assets/plank.gif'),
 ];
 
-export const lowerBody = [
+const lowerBody = [
   createTrainingPart(
     'jumping jack',
     '1 minuta',
@@ -168,7 +168,7 @@ export const lowerBody = [
   ),
 ];
 
-export const cardio = [
+const cardio = [
   createTrainingPart('švihadlo', '1 minuta', 'kardio', '/assets/jump-rope.gif'),
   createTrainingPart(
     'Jumping jack',
@@ -201,11 +201,14 @@ export const cardio = [
   createTrainingPart('Kliky (dámské)', '15/3', 'prsa', '/assets/push-up.gif'),
 ];
 
-export type TrainingConfig = {
+export type TrainingDataObject = {
   id: string;
-  training: TrainingType;
-}[];
-export const trainings: TrainingConfig = [
+  training: TrainingData;
+};
+
+export type TrainingsData = TrainingDataObject[];
+
+export const trainingsData: TrainingsData = [
   {
     id: 'upperBody',
     training: upperBody,
