@@ -17,6 +17,8 @@ import { Stack, Box } from '@mui/material';
 import Footer from './layout/Footer';
 import { AppContextProvider } from './store/AppContextProvider';
 import ScrollToHashElement from './layout/ScrollToHashElement';
+import { AppContext } from './store/AppContext ';
+import { initialState } from './store/AppContext ';
 
 const theme = createTheme({
   palette: {
