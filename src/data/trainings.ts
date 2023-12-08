@@ -200,3 +200,26 @@ export const cardio = [
   ),
   createTrainingPart('Kliky (dámské)', '15/3', 'prsa', '/assets/push-up.gif'),
 ];
+
+export type TrainingConfig = {
+  id: string;
+  training: TrainingType;
+}[];
+export const trainings: TrainingConfig = [
+  {
+    id: 'upperBody',
+    training: upperBody,
+  },
+  {
+    id: 'lowerBody',
+    training: lowerBody,
+  },
+  {
+    id: 'fullBody',
+    training: fullBody,
+  },
+  {
+    id: 'cardio',
+    training: cardio,
+  },
+];

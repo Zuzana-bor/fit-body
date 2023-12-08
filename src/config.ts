@@ -7,11 +7,14 @@ import {
 
 import {
   TrainingPart,
+  TrainingType,
   cardio,
   fullBody,
   lowerBody,
   upperBody,
 } from './data/trainings';
+import { SvgIconTypeMap } from '@mui/material';
+import { OverridableComponent } from '@mui/types';
 
 export enum Urls {
   Plans = '/plans',
@@ -27,37 +30,37 @@ export const Pages: Record<keyof typeof Urls, string> = {
   Exercise: 'databáze cviků',
 };
 
-export type PlansTabsPart = {
+export type PlansTabsPartConfig = {
   id: string;
   name: string;
-  icon: string;
-  content: TrainingPart;
+  icon: SvgIcon;
 };
-
-export const plansTabs = [
+export type PlansTabsPart = PlansTabsPartConfig & {
+  content: TrainingType;
+};
+type SvgIcon = OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
+  muiName: string;
+};
+export const plansTabsConfig: PlansTabsPartConfig[] = [
   {
     id: 'upperBody',
     name: 'Horní část těla',
     icon: EmojiPeople,
-    content: upperBody,
   },
   {
     id: 'lowerBody',
     name: 'Dolní část těla',
     icon: TransferWithinAStation,
-    content: lowerBody,
   },
   {
     id: 'fullBody',
     name: 'FullBody',
     icon: AccessibilityNew,
-    content: fullBody,
   },
   {
     id: 'cardio',
     name: 'Kardio cvičení',
     icon: Favorite,
-    content: cardio,
   },
 ];
 
