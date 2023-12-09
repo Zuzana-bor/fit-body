@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Stack } from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -34,6 +34,7 @@ const Plans = () => {
                 {plansTabs.map(({ name, icon: Icon, id }) => {
                   return (
                     <ListItem disablePadding>
+                      key={id}
                       <ListItemButton
                         selected={id === activeTab}
                         onClick={() => handleClick(id)}
