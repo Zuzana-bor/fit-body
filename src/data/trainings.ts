@@ -1,8 +1,9 @@
 export type TrainingDataPart = {
-  name: string;
+  name?: string;
   number: string;
-  muscle: string;
-  media: string;
+  muscle?: string;
+  media?: string;
+  exerciseId?: string;
 };
 
 export type TrainingData = TrainingDataPart[];
@@ -17,12 +18,7 @@ export const createTrainingPart = (
 };
 
 const upperBody: TrainingData = [
-  createTrainingPart(
-    'Jumping jack',
-    '1 minuta',
-    'kardio',
-    '/assets/jumping-jacks.gif',
-  ),
+  { exerciseId: 'jumping-jack', number: '1 minuta' },
   createTrainingPart(
     'Bicepsové zdvihy s rotací',
     '15 / 3',

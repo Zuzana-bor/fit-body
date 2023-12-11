@@ -8,13 +8,18 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Box from '@mui/material/Box';
 import Training from './Training';
-import { getPlansTabs } from './utils';
+import { getPlansTabs, getTrainings } from './utils';
 import { plansTabsConfig } from './config';
 import { trainingsData } from '../../data/trainings';
+import { exercises } from '../../data/exercises';
 
 const Plans = () => {
+  const trainings = getTrainings(trainingsData, exercises);
   const plansTabs = getPlansTabs(plansTabsConfig, trainingsData);
+
   const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
+
+  console.log(trainings);
 
   const activeTraining = plansTabs.find(
     (item) => item.id === activeTab,

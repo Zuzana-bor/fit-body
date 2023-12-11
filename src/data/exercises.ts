@@ -247,7 +247,7 @@ export const exercises: Exercise[] = [
     mainMuscleGroupe: '',
   },
   {
-    id: 'Jumping jack',
+    id: 'jumping-jack',
     name: 'Jumping jack',
     description:
       'Výchozí pozice je vzpřímený postoj s nohama u sebe a rukama podél těla. Mírně povyskoč, nohy jdou od sebe. Naskakujte na špičky. Při dopadu na špičky mějte kolena mírně pokrčená. Kolena celou dobu směřují před sebe. současně s pohybem nohou zvedejte ruce z výchozí polohy do polohy nad hlavou. Ruce nad hlavou se jemně dotýkají. Ruce nejsou úplně narovnané, ale lehce pokrčené v loktech.Po celou dobu pohybu mějte zatnuté břicho. Pohyb opakujte tam a zpět ',
