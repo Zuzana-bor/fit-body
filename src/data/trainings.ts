@@ -19,182 +19,51 @@ export const createTrainingPart = (
 
 const upperBody: TrainingData = [
   { exerciseId: 'jumping-jack', number: '1 minuta' },
-  createTrainingPart(
-    'Bicepsové zdvihy s rotací',
-    '15 / 3',
-    'biceps',
-    '/assets/inner-bicep-curl.gif',
-  ),
-  createTrainingPart(
-    'Tricepsové tlaky',
-    '15 / 2',
-    'triceps',
-    '/assets/tricep-overhead-extensions.gif',
-  ),
-  createTrainingPart(
-    'Arnoldovy tlaky',
-    '20 / 3',
-    'ramena, triceps',
-    'assets/arnoldpress.png',
-  ),
-  createTrainingPart(
-    'Přítahy jednoruček v předklonu',
-    '20 / 3',
-    'záda',
-    '/assets/single-arm-dumbbell-row.gif',
-  ),
-  createTrainingPart('Kliky (dámské)', '15 / 2', 'prsa', '/assets/push-up.gif'),
-  createTrainingPart('Angličák', '10 / 2', 'kardio', '/assets/Burpees.gif'),
-  createTrainingPart(
-    'Zvedání paží v planku',
-    '12 / 2',
-    'břicho',
-    '/assets/plank-arm-lifts.gif',
-  ),
-  createTrainingPart('Sedy-lehy', '30 / 3', 'břicho', '/assets/sit-ups.gif'),
-  createTrainingPart(
-    'Vykopávání v obráceném vzporu',
-    '20 / 3',
-    'břicho',
-    '/assets/Reverse-Plank-Kicks.gif',
-  ),
+  { exerciseId: 'bicepsové-zdvihy-s-rotací', number: '15 / 3' },
+  { exerciseId: 'tricepsove-tlaky', number: '15 / 2' },
+  { exerciseId: 'arnoldovy-tlaky', number: '20 / 3' },
+  { exerciseId: 'pritahy-jednorucek-v-predklonu', number: '20 / 3' },
+  { exerciseId: 'kliky-damske', number: '15 / 2' },
+  { exerciseId: 'anglicak', number: '10 / 2' },
+  { exerciseId: 'zvedani-paží-v-planku', number: '12 / 2' },
+  { exerciseId: 'sedy-lehy', number: '30 / 3' },
+  { exerciseId: 'vykopavani-v-obracenem-vzporu', number: '20 / 3' },
 ];
 
 const fullBody = [
-  createTrainingPart('švihadlo', '1 minuta', 'kardio', '/assets/jump-rope.gif'),
-
-  createTrainingPart(
-    'dřep s jednuručkama',
-    '30 / 3',
-    'hýždě',
-    '/assets/dumbbell-squat.gif',
-  ),
-  createTrainingPart(
-    'výpady vzad/vpřed',
-    '20 / 3',
-    'hýždě,stehna',
-    '/assets/pendulum-lunge.gif',
-  ),
-  createTrainingPart(
-    'Unožování ve stoje s expanderem',
-    '20 / 3',
-    'hýždě',
-    '/assets/side-leg-lift.png',
-  ),
-  createTrainingPart('Kliky (dámské)', '15 / 2', 'prsa', '/assets/push-up.gif'),
-
-  createTrainingPart(
-    'Upažování ve stoje',
-    '15 / 2',
-    'ramena',
-    '/assets/Dumbbell-Standing-Lateral-Raise.gif',
-  ),
-  createTrainingPart(
-    'Bicepsové zdvihy s rotací',
-    '15 / 3',
-    'biceps',
-    '/assets/inner-bicep-curl.gif',
-  ),
-  createTrainingPart(
-    'Tricepsové tlaky',
-    '15 / 2',
-    'triceps',
-    '/assets/tricep-overhead-extensions.gif',
-  ),
-  createTrainingPart(
-    'obrácený anděl',
-    '10 / 3',
-    'záda',
-    '/assets/reverse-snow-angle.png',
-  ),
-
-  createTrainingPart(
-    'Zkracovačky do kříže',
-    '30/3',
-    'břicho',
-    '/assets/Cross-Crunch.gif',
-  ),
-  createTrainingPart('Plank', '50 sekund/2', 'břicho', '/assets/plank.gif'),
+  { exerciseId: 'švihadlo', number: '1 minuta' },
+  { exerciseId: 'dřep-s-jednoručkama', number: '30/3' },
+  { exerciseId: 'výpady-vzad/vpřed', number: '20/3' },
+  { exerciseId: 'unožování-ve-stoje-s-expanderem', number: '20/3' },
+  { exerciseId: 'kliky-damske', number: '15/2' },
+  { exerciseId: 'upažování-ve-stoje', number: '15/2' },
+  { exerciseId: 'bicepsove-zdvihy-s-rotací', number: '15/3' },
+  { exerciseId: 'tricepsové-tlaky', number: '15/2' },
+  { exerciseId: 'obrácený-anděl', number: '10/3' },
+  { exerciseId: 'zkracovačky-do-kříže-anděl', number: '30/3' },
+  { exerciseId: 'planky', number: '50 sekund/2' },
 ];
 
 const lowerBody = [
-  createTrainingPart(
-    'jumping jack',
-    '1 minuta',
-    'kardio',
-    '/assets/jumping-jacks.gif',
-  ),
-  createTrainingPart(
-    'Mrtvý tah',
-    '20 / 3',
-    'stehna,hýždě,záda',
-    '/assets/dumbbell-deadlifts.gif',
-  ),
-  createTrainingPart(
-    'sumo dřep s jednoručkama',
-    '20 / 3',
-    'hýždě,stehna',
-    '/assets/dumbbell-sumo-deadlift.gif',
-  ),
-  createTrainingPart(
-    'dřep s výskokem',
-    '20 / 3',
-    'hýždě,stehna',
-    '/assets/jump-Squat.gif',
-  ),
-  createTrainingPart(
-    'Výpady do strany',
-    '20 / 3',
-    'stehna',
-    '/assets/side-Lunge.gif',
-  ),
-  createTrainingPart(
-    'Výpady s výskokem',
-    '30 / 3',
-    'stehna',
-    '/assets/power-lunge.gif',
-  ),
-  createTrainingPart('Angličáky', '10 / 2', 'kardio', '/assets/Burpees.gif'),
-
-  createTrainingPart(
-    'Zvedání pánve v leže',
-    '15 / 2',
-    'hýždě',
-    '/assets/pelvic-tilt.gif',
-  ),
+  { exerciseId: 'jumping-jack', number: '1 minuta' },
+  { exerciseId: 'mrtvý-tah', number: '20 / 3' },
+  { exerciseId: 'sumo-dřep-s-jednoručkama', number: '20 / 3' },
+  { exerciseId: 'dřep-s-výskokem', number: '20 / 3' },
+  { exerciseId: 'výpady-do-strany', number: '20 / 3' },
+  { exerciseId: 'výpady-s-výskokem', number: '30 / 3' },
+  { exerciseId: 'angličáky', number: '10 / 2' },
+  { exerciseId: 'zvedání-pánve-v-leže', number: '15 / 2' },
 ];
 
 const cardio = [
-  createTrainingPart('švihadlo', '1 minuta', 'kardio', '/assets/jump-rope.gif'),
-  createTrainingPart(
-    'Jumping jack',
-    '50 sekund+10 pauza/3',
-    'kardio',
-    '/assets/jumping-jacks.gif',
-  ),
-  createTrainingPart('Sedy-lehy', '30 / 3', 'břicho', '/assets/sit-ups.gif'),
-  createTrainingPart('Angličáky', '10 / 2', 'kardio', '/assets/Burpees.gif'),
-
-  createTrainingPart(
-    'dřep s výskokem',
-    '20 / 3',
-    'hýždě,stehna',
-    '/assets/jump-Squat.gif',
-  ),
-  createTrainingPart(
-    'výpady s jednoručkama',
-    '20 / 3',
-    'hýždě,stehna',
-    '/assets/dumbbell-Lunge.gif',
-  ),
-
-  createTrainingPart(
-    'Výpady s výskokem',
-    '30 / 3',
-    'stehna',
-    '/assets/power-lunge.gif',
-  ),
-  createTrainingPart('Kliky (dámské)', '15/3', 'prsa', '/assets/push-up.gif'),
+  { exerciseId: 'švihadlo', number: '1 minuta' },
+  { exerciseId: 'jumping-jack', number: '1 minuta' },
+  { exerciseId: 'sedy-lehy', number: '30 / 3' },
+  { exerciseId: 'angličáky', number: '10 / 2' },
+  { exerciseId: 'dřep-s-výskokem', number: '20 / 3' },
+  { exerciseId: 'výpady-s-jednoručkama', number: '20 / 3' },
+  { exerciseId: 'výpady-s-výskokem', number: '30 / 3' },
+  { exerciseId: 'kliky-damske', number: '15/2' },
 ];
 
 export type TrainingDataObject = {
