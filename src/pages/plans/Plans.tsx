@@ -33,8 +33,7 @@ const Plans = () => {
               <List>
                 {plansTabs.map(({ name, icon: Icon, id }) => {
                   return (
-                    <ListItem disablePadding>
-                      key={id}
+                    <ListItem disablePadding key={id}>
                       <ListItemButton
                         selected={id === activeTab}
                         onClick={() => handleClick(id)}
