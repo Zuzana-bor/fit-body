@@ -6,12 +6,10 @@ export type TrainingDataPart = {
 export type TrainingData = TrainingDataPart[];
 
 export const createTrainingPart = (
-  name: string,
   number: string,
-  muscle: string,
-  media: string,
+  exerciseId: string,
 ): TrainingDataPart => {
-  return { name, number, muscle, media };
+  return { number, exerciseId };
 };
 
 const upperBody: TrainingData = [

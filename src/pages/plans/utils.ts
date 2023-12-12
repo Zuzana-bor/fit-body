@@ -4,12 +4,12 @@ import { Exercise } from '../../data/exercises';
 
 export const getPlansTabs = (
   plansTabsConfig: PlansTabsPartConfig[],
-  trainingsData: TrainingsData,
+  trainings: Trainings,
 ): PlansTabsPart[] => {
   return plansTabsConfig
     .map((item) => ({
       ...item,
-      content: trainingsData.find(({ id }) => id === item.id)?.training,
+      content: trainings.find(({ id }) => id === item.id)?.training,
     }))
     .filter((item): item is PlansTabsPart => !!item.content);
 };

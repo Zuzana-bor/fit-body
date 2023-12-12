@@ -7,16 +7,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
-import { TrainingData } from '../../data/trainings';
 import { kebabCase } from 'lodash';
 import { Link } from 'react-router-dom';
 import { Urls } from '../../config';
+import { Training } from './utils';
 
 type TrainingProps = {
-  training: TrainingData;
+  training: Training;
 };
 
-const Training: FC<TrainingProps> = ({ training }) => {
+const TrainingTable: FC<TrainingProps> = ({ training }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -29,29 +29,31 @@ const Training: FC<TrainingProps> = ({ training }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {training.map(({ name, number, muscle, media }) => (
-            <TableRow
-              key={name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                <Link to={`${Urls.Exercise}#${kebabCase(name)}`}> {name}</Link>
-              </TableCell>
-              <TableCell align="right">{number}</TableCell>
-              <TableCell align="right">{muscle}</TableCell>
-              <TableCell align="right">
-                <CardMedia
-                  sx={{ height: 100, objectFit: 'contain' }}
-                  component="img"
-                  image={media}
-                  title={name}
-                />
-              </TableCell>
-            </TableRow>
-          ))}
+          {training.map(
+            ({ number, exercise: { mainMuscleGroupe, media, name } }) => (
+              <TableRow
+                key={name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  <Link to={`${Urls.Exercise}#${kebabCase(name)}`}>{name}</Link>
+                </TableCell>
+                <TableCell align="right">{number}</TableCell>
+                <TableCell align="right">{mainMuscleGroupe}</TableCell>
+                <TableCell align="right">
+                  <CardMedia
+                    sx={{ height: 100, objectFit: 'contain' }}
+                    component="img"
+                    image={media}
+                    title={name}
+                  />
+                </TableCell>
+              </TableRow>
+            ),
+          )}
         </TableBody>
       </Table>
     </TableContainer>
   );
 };
-export default Training;
+export default TrainingTable;

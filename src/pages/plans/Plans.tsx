@@ -7,19 +7,17 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Box from '@mui/material/Box';
-import Training from './Training';
 import { getPlansTabs, getTrainings } from './utils';
 import { plansTabsConfig } from './config';
 import { trainingsData } from '../../data/trainings';
 import { exercises } from '../../data/exercises';
+import TrainingTable from './TrainingTable';
 
 const Plans = () => {
   const trainings = getTrainings(trainingsData, exercises);
-  const plansTabs = getPlansTabs(plansTabsConfig, trainingsData);
+  const plansTabs = getPlansTabs(plansTabsConfig, trainings);
 
   const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
-
-  console.log(trainings);
 
   const activeTraining = plansTabs.find(
     (item) => item.id === activeTab,
@@ -54,7 +52,7 @@ const Plans = () => {
               </List>
             </Grid>
             <Grid item xs={9}>
-              {activeTraining && <Training training={activeTraining} />}
+              {activeTraining && <TrainingTable training={activeTraining} />}
             </Grid>
           </Grid>
         </Stack>
