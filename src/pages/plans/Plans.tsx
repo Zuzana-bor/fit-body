@@ -9,9 +9,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Box from '@mui/material/Box';
 import { getPlansTabs } from './utils';
 import { plansTabsConfig } from './config';
-import { getTrainings } from '../../data-mapping/trainings';
-import { trainingsData } from '../../data/trainings';
-import { exercises } from '../../data/exercises';
 import TrainingTable from './TrainingTable';
 
 const Plans = () => {
