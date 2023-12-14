@@ -6,7 +6,7 @@ import {
 } from '@mui/icons-material';
 
 import { SvgIcon } from '../../config';
-import { Training } from './utils';
+import { Training } from '../../data-mapping/trainings';
 
 export type PlansTabsPartConfig = {
   id: string;

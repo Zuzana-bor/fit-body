@@ -10,7 +10,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { kebabCase } from 'lodash';
 import { Link } from 'react-router-dom';
 import { Urls } from '../../config';
-import { Training } from './utils';
+import { Training } from '../../data-mapping/trainings';
 
 type TrainingTableProps = {
   training: Training;
