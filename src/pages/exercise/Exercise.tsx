@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import { exercises } from '../../data/exercises';
 import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
 import Grid from '@mui/material/Grid';
 import { kebabCase } from 'lodash';
+import { AppContext } from '../../store/AppContext ';
 
 const Exercise = () => {
+  const { exercises } = React.useContext(AppContext);
   const groupItems = groupBy(exercises, 'category');
 
   return (

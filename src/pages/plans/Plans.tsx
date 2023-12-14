@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -8,25 +8,30 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Box from '@mui/material/Box';
 import { getPlansTabs } from './utils';
-import { plansTabsConfig } from './config';
+import { PlansTabsPart, plansTabsConfig } from './config';
 import TrainingTable from './TrainingTable';
-import { getTrainings } from '../../data-mapping/trainings';
-import { trainingsData } from '../../data/trainings';
-import { exercises } from '../../data/exercises';
+import { AppContext } from '../../store/AppContext ';
 
 const Plans = () => {
-  const trainings = getTrainings(trainingsData, exercises);
-  const plansTabs = getPlansTabs(plansTabsConfig, trainings);
+  const { trainings } = React.useContext(AppContext);
+  const [plansTabs, setPlansTabs] = useState<PlansTabsPart[]>();
+  const [activeTab, setActiveTab] = useState<string>();
 
-  const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
-
-  const activeTraining = plansTabs.find(
+  const activeTraining = plansTabs?.find(
     (item) => item.id === activeTab,
   )?.content;
 
   const handleClick = (tab: string) => {
     setActiveTab(tab);
   };
+
+  useEffect(() => {
+    if (trainings) {
+      const plansTabs = getPlansTabs(plansTabsConfig, trainings);
+      setPlansTabs(plansTabs);
+      setActiveTab(plansTabs[0].id);
+    }
+  }, [trainings]);
 
   return (
     <Container sx={{ mb: 10 }}>
@@ -35,7 +40,7 @@ const Plans = () => {
           <Grid container spacing={2}>
             <Grid item xs={3}>
               <List>
-                {plansTabs.map(({ name, icon: Icon, id }) => {
+                {plansTabs?.map(({ name, icon: Icon, id }) => {
                   return (
                     <ListItem disablePadding key={id}>
                       <ListItemButton
