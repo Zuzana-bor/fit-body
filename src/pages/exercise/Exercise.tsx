@@ -3,7 +3,6 @@ import { Box, Container, Typography } from '@mui/material';
 import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
 import Grid from '@mui/material/Grid';
-import { kebabCase } from 'lodash';
 import { AppContext } from '../../store/AppContext ';
 
 const Exercise = () => {
@@ -20,7 +19,7 @@ const Exercise = () => {
           <Grid container spacing={4}>
             {exercises.map((item) => (
               <Grid item xs={4}>
-                <ExerciseCard item={item} id={kebabCase(item.name)} />
+                <ExerciseCard item={item} />
               </Grid>
             ))}
           </Grid>
