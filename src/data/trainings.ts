@@ -5,13 +5,6 @@ export type TrainingDataPart = {
 
 export type TrainingData = TrainingDataPart[];
 
-export const createTrainingPart = (
-  number: string,
-  exerciseId: string,
-): TrainingDataPart => {
-  return { number, exerciseId };
-};
-
 const upperBody: TrainingData = [
   { exerciseId: 'jumping-jack', number: '1 minuta' },
   { exerciseId: 'inner-bicep-curl', number: '15 / 3' },

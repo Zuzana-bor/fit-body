@@ -12,11 +12,11 @@ import { Link } from 'react-router-dom';
 import { Urls } from '../../config';
 import { Training } from './utils';
 
-type TrainingProps = {
+type TrainingTableProps = {
   training: Training;
 };
 
-const TrainingTable: FC<TrainingProps> = ({ training }) => {
+const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
