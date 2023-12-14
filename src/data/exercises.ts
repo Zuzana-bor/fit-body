@@ -100,7 +100,7 @@ export const exercises: Exercise[] = [
     mainMuscleGroupe: 'břicho',
   },
   {
-    id: 'Cross-Crunch',
+    id: 'cross-Crunch',
     name: 'Zkracovačky do kříže',
     description:
       'Ruce dáme na prsa, případně v týl, stehna míří svisle vzhůru a nohy jsou ohnuté v kolenou.S nádechem odlepte ramena od země a přirozeným zakulacením zad přibližte loket k jednomu kolenu.Během zvedání probíhá výdech. A zpět. Kolena střídejte.',
@@ -119,7 +119,7 @@ export const exercises: Exercise[] = [
     mainMuscleGroupe: 'břicho',
   },
   {
-    id: 'Dumbbell-Standing-Lateral-Raise',
+    id: 'dumbbell-Standing-Lateral-Raise',
     name: 'Upažování ve stoje',
     description:
       'Tělo je pevné a ruce drží činky podél těla. Dlaně směřují k tělu. Nadechneme se a plynule zvedáme ruce nahoru tak, aby lokty neklesaly pod úroveň zápěstí. Finální poloha končí na úrovni, kdy jsou paže rovnoběžně se zemí.',
@@ -129,7 +129,7 @@ export const exercises: Exercise[] = [
   },
 
   {
-    id: 'Reverse-Plank-Kicks',
+    id: 'reverse-Plank-Kicks',
     name: 'Vykopávání v obráceném vzporu.',
     description:
       'Začínáme v pozici obráceného prkna. pánev směřujeme nahoru. Kolenem pohybujeme směrem k hrudi a zpět. Kolena střídáme. ',
@@ -138,7 +138,7 @@ export const exercises: Exercise[] = [
     mainMuscleGroupe: 'břicho',
   },
   {
-    id: 'Plank',
+    id: 'plank',
     name: 'Plank',
     description:
       ' Opřete se o lokty a prsty na nohou, dejte tělo do jedné roviny jako prkno a v této poloze setrvejte.',
@@ -166,7 +166,7 @@ export const exercises: Exercise[] = [
     mainMuscleGroupe: 'hýždě,stehna',
   },
   {
-    id: 'jump-Squat',
+    id: 'jump-squat',
     name: 'dřep s výskokem',
     description:
       ' stojíme rovně, nohy jsou rozkročené o něco více, než je šíře ramen, špičky směřují mírně ven. S nádechem jdeme do dřepu, s výdechem se odrazíme od země a vyskočíme co nejvýše. ',
@@ -193,7 +193,7 @@ export const exercises: Exercise[] = [
     mainMuscleGroupe: 'zadek, stehna',
   },
   {
-    id: 'side-Lunge ',
+    id: 'side-lunge ',
     name: 'Výpady do strany',
     description:
       'Postavíme se s nohama od sebe. Začneme pohybem hýždí směrem vzad a následně ukročíme jednou nohou směrem do strany. Zároveň s tím se ohneme i v koleni a začneme klesat až do spodní pozice.Po dosažení spodní pozice celý pohyb obrátíme a dostaneme se do původní pozice. Záda jsou rovná',

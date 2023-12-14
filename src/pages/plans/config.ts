@@ -6,7 +6,7 @@ import {
 } from '@mui/icons-material';
 
 import { SvgIcon } from '../../config';
-import { TrainingData } from '../../data/trainings';
+import { Training } from './utils';
 
 export type PlansTabsPartConfig = {
   id: string;
@@ -14,7 +14,7 @@ export type PlansTabsPartConfig = {
   icon: SvgIcon;
 };
 export type PlansTabsPart = PlansTabsPartConfig & {
-  content: TrainingData;
+  content: Training;
 };
 
 export const plansTabsConfig: PlansTabsPartConfig[] = [
