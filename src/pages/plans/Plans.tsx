@@ -10,8 +10,12 @@ import Box from '@mui/material/Box';
 import { getPlansTabs } from './utils';
 import { plansTabsConfig } from './config';
 import TrainingTable from './TrainingTable';
+import { getTrainings } from '../../data-mapping/trainings';
+import { trainingsData } from '../../data/trainings';
+import { exercises } from '../../data/exercises';
 
 const Plans = () => {
+  const trainings = getTrainings(trainingsData, exercises);
   const plansTabs = getPlansTabs(plansTabsConfig, trainings);
 
   const [activeTab, setActiveTab] = React.useState(plansTabs[0].id);
