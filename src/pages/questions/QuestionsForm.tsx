@@ -118,12 +118,12 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
             value={formAnswers.sleep}
             onChange={handleChange}
           >
-            <FormControlLabel value="5" control={<Radio />} label="5 a méně" />
-            <FormControlLabel value="6" control={<Radio />} label="6-7 hodin" />
+            <FormControlLabel value="5" control={<Radio />} label="6 a méně" />
+            <FormControlLabel value="6" control={<Radio />} label="6-9 hodin" />
             <FormControlLabel
-              value="8"
+              value="9"
               control={<Radio />}
-              label="8 a více hodin"
+              label="9 a více hodin"
             />
           </RadioGroup>
         </FormControl>

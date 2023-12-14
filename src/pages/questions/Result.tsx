@@ -1,26 +1,86 @@
 import React, { FC } from 'react';
-import { Typography } from '@mui/material';
-import { getKoefTarget, getAf } from './utils';
 import { FormAnswers } from '../../config';
+import { getKoefTarget, getAf, getIntensity, getSleepTime } from './utils';
+import SleepCard from './SleepCard';
+import KclCard from './KclCard';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Avatar from '@mui/material/Avatar';
+import PlanCard from './PlanCard';
+import { Typography } from '@mui/material';
 
 type ResultProps = {
   values: FormAnswers;
 };
 
 const Result: FC<ResultProps> = ({
-  values: { weight, height, age, activity, target },
+  values: { weight, height, age, activity, target, intensity, sleep },
 }) => {
   const af = getAf(activity);
   const koefTarget = getKoefTarget(target);
+  const training = getIntensity(intensity);
+  const sleepTime = getSleepTime(sleep);
 
   const bmr = 655.0955 + 9.5634 * weight + 1.8496 * height - 4.6756 * age;
   const tdee = bmr * af;
-  const kcl = tdee * koefTarget;
+  const kcl = Math.round(tdee * koefTarget);
 
   return (
-    <Typography variant="h4" m={3}>
-      Tvůj denní příjem kalorií- {kcl} Kcal
-    </Typography>
+    <>
+      <List sx={{ bgcolor: 'background.paper', mb: '2' }}>
+        <ListItem>
+          <Avatar
+            alt="pohyb"
+            src="/assets/info_pohyb.png"
+            sx={{ width: 100, height: 100, p: '4' }}
+          />
+
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography variant="h4" gutterBottom>
+                Pohyb
+              </Typography>
+            }
+            secondary={<PlanCard training={training} />}
+          />
+        </ListItem>
+        <ListItem>
+          <Avatar
+            alt="lalorie"
+            src="/assets/info_jidlo.png"
+            sx={{ width: 100, height: 100 }}
+          />
+
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography variant="h4" gutterBottom>
+                Kalorie
+              </Typography>
+            }
+            secondary={<KclCard kcl={kcl} />}
+          />
+        </ListItem>
+        <ListItem>
+          <Avatar
+            alt="spánek"
+            src="/assets/info_spanek.png"
+            sx={{ width: 100, height: 100 }}
+          />
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography variant="h4" gutterBottom>
+                Pohyb
+              </Typography>
+            }
+            secondary={<SleepCard sleepTime={sleepTime} />}
+          />
+        </ListItem>
+      </List>
+    </>
   );
 };
 
