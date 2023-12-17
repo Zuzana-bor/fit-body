@@ -5,19 +5,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Urls } from '../../config';
 import { kebabCase } from 'lodash';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
-
 import { FC } from 'react';
-import { ResultingTrainingPart } from './utils';
+import { TrainingPlanData } from '../../data/trainingsPlans';
+import { Urls } from '../../config';
 
 type PlanCardProps = {
-  training: ResultingTrainingPart[];
+  koefIntensity: TrainingPlanData;
 };
 
-const PlanCard: FC<PlanCardProps> = ({ training }) => {
+const PlanCard: FC<PlanCardProps> = ({ koefIntensity: { id, days } }) => {
   return (
     <>
       Tvůj tréninkový plán
@@ -31,19 +30,19 @@ const PlanCard: FC<PlanCardProps> = ({ training }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {training.map((row) => (
+              {days.map((item) => (
                 <TableRow
-                  key={row.day}
+                  key={item.day}
                   sx={{
                     '&:last-child td, &:last-child th': { border: 0 },
                   }}
                 >
                   <TableCell component="th" scope="row">
-                    {row.day}
+                    {item.day}
                   </TableCell>
                   <TableCell align="right">
-                    <Link to={`${Urls.Plans}#${kebabCase(row.training)}`}>
-                      {row.training}
+                    <Link to={`${Urls.Plans}#${kebabCase(item.trainingID)}`}>
+                      {item.trainingID}
                     </Link>
                   </TableCell>
                 </TableRow>

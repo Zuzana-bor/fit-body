@@ -44,49 +44,47 @@ const Questions = () => {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mb: 10 }}>
-      <Box pt={4} pb={4}>
-        {!isSubmitted ? (
-          <>
-            <QuestionsForm
-              handleChange={handleChange}
-              formAnswers={formAnswers}
-              handleChangeNumber={handleChangeNumber}
-            />
+    <Box pt={4} pb={4}>
+      {!isSubmitted ? (
+        <Container maxWidth="sm" sx={{ mb: 10 }}>
+          <QuestionsForm
+            handleChange={handleChange}
+            formAnswers={formAnswers}
+            handleChangeNumber={handleChangeNumber}
+          />
 
+          <Button
+            variant="contained"
+            disabled={!isFilled}
+            onClick={handleSubmit}
+            size="large"
+          >
+            Odeslat
+          </Button>
+        </Container>
+      ) : (
+        <Container sx={{ mb: 10 }}>
+          <Result values={formAnswers} />
+          <Stack direction="row" spacing={2}>
             <Button
-              variant="contained"
-              disabled={!isFilled}
-              onClick={handleSubmit}
-              size="large"
+              variant="outlined"
+              startIcon={<Create />}
+              onClick={handleEdit}
             >
-              Odeslat
+              Upravit hodnoty
             </Button>
-          </>
-        ) : (
-          <Box>
-            <Result values={formAnswers} />
-            <Stack direction="row" spacing={2}>
-              <Button
-                variant="outlined"
-                startIcon={<Create />}
-                onClick={handleEdit}
-              >
-                Upravit hodnoty
-              </Button>
-              <Button
-                variant="outlined"
-                startIcon={<Send />}
-                color="secondary"
-                onClick={handleReset}
-              >
-                Vyplnit znovu
-              </Button>
-            </Stack>
-          </Box>
-        )}
-      </Box>
-    </Container>
+            <Button
+              variant="outlined"
+              startIcon={<Send />}
+              color="secondary"
+              onClick={handleReset}
+            >
+              Vyplnit znovu
+            </Button>
+          </Stack>
+        </Container>
+      )}
+    </Box>
   );
 };
 

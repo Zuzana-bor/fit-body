@@ -1,4 +1,5 @@
 import { FormAnswers } from '../../config';
+import { trainingPlanData } from '../../data/trainingsPlans';
 
 export const getKoefTarget = (target: FormAnswers['target']) => {
   switch (target) {
@@ -11,80 +12,24 @@ export const getKoefTarget = (target: FormAnswers['target']) => {
   }
 };
 
-export type ResultingTrainingPart = {
-  day: string;
-  training: string;
-};
-
-export type ResultingTrainingType = ResultingTrainingPart[];
-
-const createResultingTrainingPart = (
-  day: string,
-  training: string,
-): ResultingTrainingPart => {
-  return { day, training };
-};
-
-export const getIntensity = (intensity: FormAnswers['intensity']) => {
-  let rows = [createResultingTrainingPart('pondělí', 'fullBody')];
-
+export const getKoefIntensity = (intensity: FormAnswers['intensity']) => {
   switch (intensity) {
     case 'intensity1':
-      rows = [createResultingTrainingPart('pondělí', 'fullBody')];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity1');
 
     case 'intensity2':
-      rows = [
-        createResultingTrainingPart('pondělí', 'fullBody'),
-        createResultingTrainingPart('čtvrtek', 'cardio'),
-      ];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity2');
 
     case 'intensity3':
-      rows = [
-        createResultingTrainingPart('pondělí', 'upperBody'),
-        createResultingTrainingPart('středa', 'cardio'),
-        createResultingTrainingPart('pátek', 'lowerBody'),
-      ];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity3');
     case 'intensity4':
-      rows = [
-        createResultingTrainingPart('pondělí', 'upperBody'),
-        createResultingTrainingPart('úterý', 'cardio'),
-        createResultingTrainingPart('čtvrtek', 'lowerBody'),
-        createResultingTrainingPart('sobota', 'fullbody'),
-      ];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity4');
     case 'intensity5':
-      rows = [
-        createResultingTrainingPart('pondělí', 'upperBody'),
-        createResultingTrainingPart('úterý', 'lowerbody'),
-        createResultingTrainingPart('středa', 'cardio'),
-        createResultingTrainingPart('pátek', 'fullBody'),
-        createResultingTrainingPart('sobota', 'cardio'),
-      ];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity5');
     case 'intensity6':
-      rows = [
-        createResultingTrainingPart('pondělí', 'upperBody'),
-        createResultingTrainingPart('úterý', 'lowerbody'),
-        createResultingTrainingPart('středa', 'cardio'),
-        createResultingTrainingPart('čtvrtek', 'fullBody'),
-        createResultingTrainingPart('pátek', 'cardio'),
-        createResultingTrainingPart('sobota', 'fullBody'),
-      ];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity6');
     default:
-      rows = [
-        createResultingTrainingPart('pondělí', 'upperBody'),
-        createResultingTrainingPart('úterý', 'lowerbody'),
-        createResultingTrainingPart('středa', 'cardio'),
-        createResultingTrainingPart('čtvrtek', 'fullBody'),
-        createResultingTrainingPart('pátek', 'cardio'),
-        createResultingTrainingPart('sobota', 'fullBody'),
-        createResultingTrainingPart('neděle', 'cardio'),
-      ];
-      return rows;
+      return trainingPlanData.find((day) => day.id === 'intensity6');
   }
 };
 
