@@ -41,8 +41,8 @@ const PlanCard: FC<PlanCardProps> = ({ koefIntensity: { id, days } }) => {
                     {item.day}
                   </TableCell>
                   <TableCell align="right">
-                    <Link to={`${Urls.Plans}#${kebabCase(item.trainingID)}`}>
-                      {item.trainingID}
+                    <Link to={`${Urls.Plans}#${kebabCase(item.trainingiD)}`}>
+                      {item.trainingiD}
                     </Link>
                   </TableCell>
                 </TableRow>
