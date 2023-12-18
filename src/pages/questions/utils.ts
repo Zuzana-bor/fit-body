@@ -1,5 +1,5 @@
 import { FormAnswers } from '../../config';
-import { trainingPlanData } from '../../data/trainingsPlans';
+import { TrainingPlanDay, trainingPlan } from '../../data/trainingsPlans';
 
 export const getKoefTarget = (target: FormAnswers['target']) => {
   switch (target) {
@@ -12,28 +12,13 @@ export const getKoefTarget = (target: FormAnswers['target']) => {
   }
 };
 
-export const getKoefIntensity = (intensity: FormAnswers['intensity']) => {
-  switch (intensity) {
-    case 'intensity1':
-      return trainingPlanData.find((day) => day.id === 'intensity1');
-
-    case 'intensity2':
-      return trainingPlanData.find((day) => day.id === 'intensity2');
-
-    case 'intensity3':
-      return trainingPlanData.find((day) => day.id === 'intensity3');
-    case 'intensity4':
-      return trainingPlanData.find((day) => day.id === 'intensity4');
-    case 'intensity5':
-      return trainingPlanData.find((day) => day.id === 'intensity5');
-    case 'intensity6':
-      return trainingPlanData.find((day) => day.id === 'intensity6');
-    default:
-      return trainingPlanData.find((day) => day.id === 'intensity6');
-  }
+export const getTrainingPlanDays = (
+  intensity: FormAnswers['intensity'],
+): TrainingPlanDay[] | undefined => {
+  return trainingPlan.find((day) => day.id === 'intensity')?.days;
 };
 
-export const getSleepTime = (sleep: FormAnswers['sleep']) => {
+export const getSleepInfo = (sleep: FormAnswers['sleep']) => {
   switch (sleep) {
     case '5':
       return 'Pozor na nezdravý spánek.  Dlouhodobá spánková deprivace významně zvyšuje riziko vážných chronických onemocnění. Jedná se například o kardiovaskulární potíže, hormonální nerovnováhu, cukrovku, vysoký krevní tlak, demenci, Alzheimerovu chorobu a další.Lidem, kteří spí méně než 6 hodin, jde hubnutí o poznání hůře. Spánek má totiž vliv na metabolismus. V případě nedostatečného odpočinku organismus daleko hůř hospodaří s bílkovinami. Dochází také ke snížení hladiny leptinu, což má za následek to, že máme pocit hladu. Ideální doba spánku je okolo 8 hodin.';

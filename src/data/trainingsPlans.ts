@@ -1,6 +1,6 @@
 export type TrainingPlanDay = {
   day: string;
-  trainingid: string;
+  trainingId: string;
 };
 
 export type TrainingPlan = {
@@ -11,63 +11,63 @@ export type TrainingPlan = {
 export const trainingPlan: TrainingPlan[] = [
   {
     id: 'intensity1',
-    days: [{ day: 'pondělí', trainingiD: 'fullBody' }],
+    days: [{ day: 'pondělí', trainingId: 'fullBody' }],
   },
   {
     id: 'intensity2',
     days: [
-      { day: 'pondělí', trainingiD: 'fullBody' },
-      { day: 'čtvrtek', trainingiD: 'cardio' },
+      { day: 'pondělí', trainingId: 'fullBody' },
+      { day: 'čtvrtek', trainingId: 'cardio' },
     ],
   },
   {
     id: 'intensity3',
     days: [
-      { day: 'pondělí', trainingiD: 'upperBody' },
-      { day: 'středa', trainingiD: 'cardio' },
-      { day: 'pátek', trainingiD: 'lowerBody' },
+      { day: 'pondělí', trainingId: 'upperBody' },
+      { day: 'středa', trainingId: 'cardio' },
+      { day: 'pátek', trainingId: 'lowerBody' },
     ],
   },
   {
     id: 'intensity4',
     days: [
-      { day: 'pondělí', trainingiD: 'upperBody' },
-      { day: 'úterý', trainingiD: 'cardio' },
-      { day: 'čtvrtek', trainingiD: 'lowerBody' },
-      { day: 'sobota', trainingiD: 'fullBody' },
+      { day: 'pondělí', trainingId: 'upperBody' },
+      { day: 'úterý', trainingId: 'cardio' },
+      { day: 'čtvrtek', trainingId: 'lowerBody' },
+      { day: 'sobota', trainingId: 'fullBody' },
     ],
   },
   {
     id: 'intensity5',
     days: [
-      { day: 'pondělí', trainingiD: 'upperBody' },
-      { day: 'úterý', trainingiD: 'lowerBody' },
-      { day: 'středa', trainingiD: 'cardio' },
-      { day: 'pátek', trainingiD: 'fullBody' },
-      { day: 'sobota', trainingiD: 'cardio' },
+      { day: 'pondělí', trainingId: 'upperBody' },
+      { day: 'úterý', trainingId: 'lowerBody' },
+      { day: 'středa', trainingId: 'cardio' },
+      { day: 'pátek', trainingId: 'fullBody' },
+      { day: 'sobota', trainingId: 'cardio' },
     ],
   },
   {
     id: 'intensity6',
     days: [
-      { day: 'pondělí', trainingiD: 'upperBody' },
-      { day: 'úterý', trainingiD: 'lowerBody' },
-      { day: 'středa', trainingiD: 'cardio' },
-      { day: 'čtvrtek', trainingiD: 'fullBody' },
-      { day: 'pátek', trainingiD: 'cardio' },
-      { day: 'sobota', trainingiD: 'fullBody' },
+      { day: 'pondělí', trainingId: 'upperBody' },
+      { day: 'úterý', trainingId: 'lowerBody' },
+      { day: 'středa', trainingId: 'cardio' },
+      { day: 'čtvrtek', trainingId: 'fullBody' },
+      { day: 'pátek', trainingId: 'cardio' },
+      { day: 'sobota', trainingId: 'fullBody' },
     ],
   },
   {
     id: 'intensity7',
     days: [
-      { day: 'pondělí', trainingiD: 'upperBody' },
-      { day: 'úterý', trainingiD: 'lowerBody' },
-      { day: 'středa', trainingiD: 'cardio' },
-      { day: 'čtvrtek', trainingiD: 'fullBody' },
-      { day: 'pátek', trainingiD: 'cardio' },
-      { day: 'sobota', trainingiD: 'fullBody' },
-      { day: 'neděle', trainingiD: 'cardio' },
+      { day: 'pondělí', trainingId: 'upperBody' },
+      { day: 'úterý', trainingId: 'lowerBody' },
+      { day: 'středa', trainingId: 'cardio' },
+      { day: 'čtvrtek', trainingId: 'fullBody' },
+      { day: 'pátek', trainingId: 'cardio' },
+      { day: 'sobota', trainingId: 'fullBody' },
+      { day: 'neděle', trainingId: 'cardio' },
     ],
   },
 ];

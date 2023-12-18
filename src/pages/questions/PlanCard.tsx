@@ -9,14 +9,14 @@ import { kebabCase } from 'lodash';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { FC } from 'react';
-import { TrainingPlanData } from '../../data/trainingsPlans';
+import { TrainingPlanDay } from '../../data/trainingsPlans';
 import { Urls } from '../../config';
 
 type PlanCardProps = {
-  koefIntensity: TrainingPlanData;
+  days: TrainingPlanDay[];
 };
 
-const PlanCard: FC<PlanCardProps> = ({ koefIntensity: { id, days } }) => {
+const PlanCard: FC<PlanCardProps> = ({ days }) => {
   return (
     <>
       Tvůj tréninkový plán
@@ -41,8 +41,8 @@ const PlanCard: FC<PlanCardProps> = ({ koefIntensity: { id, days } }) => {
                     {item.day}
                   </TableCell>
                   <TableCell align="right">
-                    <Link to={`${Urls.Plans}#${kebabCase(item.trainingiD)}`}>
-                      {item.trainingiD}
+                    <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
+                      {item.trainingId}
                     </Link>
                   </TableCell>
                 </TableRow>
