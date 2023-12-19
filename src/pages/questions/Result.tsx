@@ -36,19 +36,16 @@ const Result: FC<ResultProps> = ({
       <List sx={{ mb: '2' }}>
         {trainingPlanDays ? (
           <Grid container spacing={1}>
-            {' '}
             <ListItem>
               <Grid xs={3}>
-                {' '}
                 <Avatar
                   alt="pohyb"
                   src="/assets/info_fitness.png"
-                  sx={{ width: 200, height: 200 }}
+                  sx={{ width: 250, height: 250 }}
                 />
               </Grid>
               <Grid xs={9}>
                 <ListItemText
-                  disableTypography
                   primary={
                     <Typography variant="h4" gutterBottom>
                       Pohyb
@@ -57,23 +54,21 @@ const Result: FC<ResultProps> = ({
                   secondary={<PlanCard days={trainingPlanDays} />}
                 />
               </Grid>
-            </ListItem>{' '}
+            </ListItem>
           </Grid>
         ) : null}
         <Grid container spacing={2}>
           <ListItem>
             <Grid xs={3}>
-              {' '}
               <Avatar
                 alt="kalorie"
                 src="/assets/info_food.png"
-                sx={{ width: 200, height: 200 }}
+                sx={{ width: 250, height: 250 }}
               />
             </Grid>
             <Grid xs={9}>
               <ListItemText
                 sx={{ backgroundColor: '#e8f5e9', m: '3' }}
-                disableTypography
                 primary={
                   <Typography variant="h4" gutterBottom>
                     Kalorie
@@ -90,12 +85,11 @@ const Result: FC<ResultProps> = ({
               <Avatar
                 alt="spánek"
                 src="/assets/info_sleep.png"
-                sx={{ width: 200, height: 200 }}
+                sx={{ width: 250, height: 250 }}
               />
-            </Grid>{' '}
+            </Grid>
             <Grid xs={9}>
               <ListItemText
-                disableTypography
                 primary={
                   <Typography variant="h4" gutterBottom>
                     Spánek
@@ -104,7 +98,7 @@ const Result: FC<ResultProps> = ({
                 secondary={<SleepCard sleepInfo={sleepInfo} />}
               />
             </Grid>
-          </ListItem>{' '}
+          </ListItem>
         </Grid>
       </List>
     </>
