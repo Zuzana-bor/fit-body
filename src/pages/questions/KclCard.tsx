@@ -8,8 +8,8 @@ type KclCardProps = {
 const KclCard: React.FC<KclCardProps> = ({ kcl }) => {
   return (
     <>
-      <Typography variant="body2" color="text.secondary">
-        Tvůj denní příjem kalorií by měl být{' '}
+      <Typography variant="body2" color="text.secondary" align="center">
+        Tvůj denní příjem kalorií by měl být
         <Typography variant="h2"> {kcl} kcal</Typography>
       </Typography>
     </>

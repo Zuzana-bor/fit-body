@@ -47,7 +47,7 @@ const Result: FC<ResultProps> = ({
               <Grid xs={9}>
                 <ListItemText
                   primary={
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h4" gutterBottom align="center">
                       Pohyb
                     </Typography>
                   }
@@ -70,7 +70,7 @@ const Result: FC<ResultProps> = ({
               <ListItemText
                 sx={{ backgroundColor: '#e8f5e9', m: '3' }}
                 primary={
-                  <Typography variant="h4" gutterBottom>
+                  <Typography variant="h4" gutterBottom align="center">
                     Kalorie
                   </Typography>
                 }
@@ -91,7 +91,7 @@ const Result: FC<ResultProps> = ({
             <Grid xs={9}>
               <ListItemText
                 primary={
-                  <Typography variant="h4" gutterBottom>
+                  <Typography variant="h4" gutterBottom align="center">
                     Spánek
                   </Typography>
                 }

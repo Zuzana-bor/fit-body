@@ -19,13 +19,16 @@ type PlanCardProps = {
 const PlanCard: FC<PlanCardProps> = ({ days }) => {
   return (
     <>
-      Tvůj tréninkový plán
+      <Typography variant="body1" color="text.primary" align="center">
+        {' '}
+        Tvůj tréninkový plán
+      </Typography>
       <Typography>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 70 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Den</TableCell>
+                <TableCell align="center">Den</TableCell>
                 <TableCell align="center">Trénink</TableCell>
               </TableRow>
             </TableHead>
@@ -38,11 +41,16 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
                   }}
                 >
                   <TableCell component="th" scope="row">
-                    <Typography variant="h6"> {item.day}</Typography>
+                    <Typography variant="h6" align="center">
+                      {item.day}
+                    </Typography>
                   </TableCell>
                   <TableCell align="center">
                     <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
-                      <Typography variant="h6"> {item.trainingId} </Typography>
+                      <Typography variant="h6" align="center">
+                        {' '}
+                        {item.trainingId}{' '}
+                      </Typography>
                     </Link>
                   </TableCell>
                 </TableRow>
