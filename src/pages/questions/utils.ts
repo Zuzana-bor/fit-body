@@ -15,7 +15,7 @@ export const getKoefTarget = (target: FormAnswers['target']) => {
 export const getTrainingPlanDays = (
   intensity: FormAnswers['intensity'],
 ): TrainingPlanDay[] | undefined => {
-  return trainingPlan.find((day) => day.id === 'intensity')?.days;
+  return trainingPlan.find((day) => day.id === intensity)?.days;
 };
 
 export const getSleepInfo = (sleep: FormAnswers['sleep']) => {
