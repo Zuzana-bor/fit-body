@@ -26,7 +26,7 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
             <TableHead>
               <TableRow>
                 <TableCell>Den</TableCell>
-                <TableCell align="right">Trénink</TableCell>
+                <TableCell align="center">Trénink</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -38,11 +38,11 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
                   }}
                 >
                   <TableCell component="th" scope="row">
-                    {item.day}
+                    <Typography variant="h6"> {item.day}</Typography>
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="center">
                     <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
-                      {item.trainingId}
+                      <Typography variant="h6"> {item.trainingId} </Typography>
                     </Link>
                   </TableCell>
                 </TableRow>

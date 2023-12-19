@@ -10,7 +10,7 @@ const KclCard: React.FC<KclCardProps> = ({ kcl }) => {
     <>
       <Typography variant="body2" color="text.secondary">
         Tvůj denní příjem kalorií by měl být{' '}
-        <Typography variant="h2"> {kcl}.</Typography>
+        <Typography variant="h2"> {kcl} kcal</Typography>
       </Typography>
     </>
   );
