@@ -13,7 +13,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import PlanCard from './PlanCard';
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 type ResultProps = {
   values: FormAnswers;
@@ -35,57 +35,77 @@ const Result: FC<ResultProps> = ({
     <>
       <List sx={{ mb: '2' }}>
         {trainingPlanDays ? (
-          <ListItem>
-            <Avatar
-              alt="pohyb"
-              src="/assets/info_pohyb.png"
-              sx={{ width: 100, height: 100, p: '4' }}
-            />
-
-            <ListItemText
-              disableTypography
-              primary={
-                <Typography variant="h4" gutterBottom>
-                  Pohyb
-                </Typography>
-              }
-              secondary={<PlanCard days={trainingPlanDays} />}
-            />
-          </ListItem>
+          <Grid container spacing={1}>
+            {' '}
+            <ListItem>
+              <Grid xs={3}>
+                {' '}
+                <Avatar
+                  alt="pohyb"
+                  src="/assets/info_fitness.png"
+                  sx={{ width: 200, height: 200 }}
+                />
+              </Grid>
+              <Grid xs={9}>
+                <ListItemText
+                  disableTypography
+                  primary={
+                    <Typography variant="h4" gutterBottom>
+                      Pohyb
+                    </Typography>
+                  }
+                  secondary={<PlanCard days={trainingPlanDays} />}
+                />
+              </Grid>
+            </ListItem>{' '}
+          </Grid>
         ) : null}
-        <ListItem>
-          <Avatar
-            alt="kalorie"
-            src="/assets/info_jidlo.png"
-            sx={{ width: 100, height: 100 }}
-          />
-
-          <ListItemText
-            disableTypography
-            primary={
-              <Typography variant="h4" gutterBottom>
-                Kalorie
-              </Typography>
-            }
-            secondary={<KclCard kcl={kcl} />}
-          />
-        </ListItem>
-        <ListItem>
-          <Avatar
-            alt="spánek"
-            src="/assets/info_spanek.png"
-            sx={{ width: 100, height: 100 }}
-          />
-          <ListItemText
-            disableTypography
-            primary={
-              <Typography variant="h4" gutterBottom>
-                Pohyb
-              </Typography>
-            }
-            secondary={<SleepCard sleepInfo={sleepInfo} />}
-          />
-        </ListItem>
+        <Grid container spacing={2}>
+          <ListItem>
+            <Grid xs={3}>
+              {' '}
+              <Avatar
+                alt="kalorie"
+                src="/assets/info_food.png"
+                sx={{ width: 200, height: 200 }}
+              />
+            </Grid>
+            <Grid xs={9}>
+              <ListItemText
+                sx={{ backgroundColor: '#e8f5e9', m: '3' }}
+                disableTypography
+                primary={
+                  <Typography variant="h4" gutterBottom>
+                    Kalorie
+                  </Typography>
+                }
+                secondary={<KclCard kcl={kcl} />}
+              />
+            </Grid>
+          </ListItem>
+        </Grid>
+        <Grid container spacing={2}>
+          <ListItem>
+            <Grid xs={3}>
+              <Avatar
+                alt="spánek"
+                src="/assets/info_sleep.png"
+                sx={{ width: 200, height: 200 }}
+              />
+            </Grid>{' '}
+            <Grid xs={9}>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography variant="h4" gutterBottom>
+                    Spánek
+                  </Typography>
+                }
+                secondary={<SleepCard sleepInfo={sleepInfo} />}
+              />
+            </Grid>
+          </ListItem>{' '}
+        </Grid>
       </List>
     </>
   );
