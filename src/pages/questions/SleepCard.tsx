@@ -8,20 +8,10 @@ type SleepCardProps = {
 const SleepCard: React.FC<SleepCardProps> = ({ sleepInfo }) => {
   return (
     <>
-      <Typography
-        component="div"
-        variant="body1"
-        color="text.primary"
-        align="center"
-      >
+      <Typography variant="body1" color="text.primary" align="center">
         Jak na zdravý spánek
       </Typography>
-      <Typography
-        component="div"
-        variant="body2"
-        color="text.secondary"
-        align="justify"
-      >
+      <Typography variant="body2" color="text.secondary" align="justify">
         {sleepInfo}
       </Typography>
     </>

@@ -46,6 +46,7 @@ const Result: FC<ResultProps> = ({
               </Grid>
               <Grid item={true} xs={9}>
                 <ListItemText
+                  disableTypography
                   primary={
                     <Typography
                       component="div"
@@ -73,6 +74,7 @@ const Result: FC<ResultProps> = ({
             </Grid>
             <Grid item={true} xs={9}>
               <ListItemText
+                disableTypography
                 sx={{ backgroundColor: '#e8f5e9', m: '3' }}
                 primary={
                   <Typography
@@ -100,6 +102,7 @@ const Result: FC<ResultProps> = ({
             </Grid>
             <Grid item={true} xs={9}>
               <ListItemText
+                disableTypography
                 primary={
                   <Typography
                     component="div"
