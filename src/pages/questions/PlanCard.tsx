@@ -19,46 +19,48 @@ type PlanCardProps = {
 const PlanCard: FC<PlanCardProps> = ({ days }) => {
   return (
     <>
-      <Typography variant="body1" color="text.primary" align="center">
-        {' '}
+      <Typography
+        component="div"
+        variant="body1"
+        color="text.primary"
+        align="center"
+      >
         Tvůj tréninkový plán
       </Typography>
-      <Typography>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 70 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="center">Den</TableCell>
-                <TableCell align="center">Trénink</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {days.map((item) => (
-                <TableRow
-                  key={item.day}
-                  sx={{
-                    '&:last-child td, &:last-child th': { border: 0 },
-                  }}
-                >
-                  <TableCell component="th" scope="row">
-                    <Typography variant="h6" align="center">
-                      {item.day}
+
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 70 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Den</TableCell>
+              <TableCell align="center">Trénink</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {days.map((item) => (
+              <TableRow
+                key={item.day}
+                sx={{
+                  '&:last-child td, &:last-child th': { border: 0 },
+                }}
+              >
+                <TableCell component="th" scope="row">
+                  <Typography component="span" variant="h6" align="center">
+                    {item.day}
+                  </Typography>
+                </TableCell>
+                <TableCell align="center">
+                  <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
+                    <Typography component="span" variant="h6" align="center">
+                      {item.trainingId}
                     </Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
-                      <Typography variant="h6" align="center">
-                        {' '}
-                        {item.trainingId}{' '}
-                      </Typography>
-                    </Link>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Typography>
+                  </Link>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 };

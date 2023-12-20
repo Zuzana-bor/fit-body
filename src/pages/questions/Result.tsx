@@ -35,19 +35,24 @@ const Result: FC<ResultProps> = ({
     <>
       <List sx={{ mb: '2' }}>
         {trainingPlanDays ? (
-          <Grid container spacing={1}>
+          <Grid container spacing={2}>
             <ListItem>
-              <Grid xs={3}>
+              <Grid item={true} xs={3}>
                 <Avatar
                   alt="pohyb"
                   src="/assets/info_fitness.png"
                   sx={{ width: 250, height: 250 }}
                 />
               </Grid>
-              <Grid xs={9}>
+              <Grid item={true} xs={9}>
                 <ListItemText
                   primary={
-                    <Typography variant="h4" gutterBottom align="center">
+                    <Typography
+                      component="div"
+                      variant="h4"
+                      gutterBottom
+                      align="center"
+                    >
                       Pohyb
                     </Typography>
                   }
@@ -59,18 +64,23 @@ const Result: FC<ResultProps> = ({
         ) : null}
         <Grid container spacing={2}>
           <ListItem>
-            <Grid xs={3}>
+            <Grid item={true} xs={3}>
               <Avatar
                 alt="kalorie"
                 src="/assets/info_food.png"
                 sx={{ width: 250, height: 250 }}
               />
             </Grid>
-            <Grid xs={9}>
+            <Grid item={true} xs={9}>
               <ListItemText
                 sx={{ backgroundColor: '#e8f5e9', m: '3' }}
                 primary={
-                  <Typography variant="h4" gutterBottom align="center">
+                  <Typography
+                    component="div"
+                    variant="h4"
+                    gutterBottom
+                    align="center"
+                  >
                     Kalorie
                   </Typography>
                 }
@@ -81,17 +91,22 @@ const Result: FC<ResultProps> = ({
         </Grid>
         <Grid container spacing={2}>
           <ListItem>
-            <Grid xs={3}>
+            <Grid item={true} xs={3}>
               <Avatar
                 alt="spánek"
                 src="/assets/info_sleep.png"
                 sx={{ width: 250, height: 250 }}
               />
             </Grid>
-            <Grid xs={9}>
+            <Grid item={true} xs={9}>
               <ListItemText
                 primary={
-                  <Typography variant="h4" gutterBottom align="center">
+                  <Typography
+                    component="div"
+                    variant="h4"
+                    gutterBottom
+                    align="center"
+                  >
                     Spánek
                   </Typography>
                 }
