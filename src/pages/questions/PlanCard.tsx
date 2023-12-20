@@ -28,7 +28,7 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
         Tvůj tréninkový plán
       </Typography>
 
-      <TableContainer component={Paper}>
+      <TableContainer>
         <Table sx={{ minWidth: 70 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -45,13 +45,13 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
                 }}
               >
                 <TableCell component="th" scope="row">
-                  <Typography component="span" variant="h6" align="center">
+                  <Typography component="div" variant="h6" align="center">
                     {item.day}
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
                   <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
-                    <Typography component="span" variant="h6" align="center">
+                    <Typography component="div" variant="h6" align="center">
                       {item.trainingId}
                     </Typography>
                   </Link>
