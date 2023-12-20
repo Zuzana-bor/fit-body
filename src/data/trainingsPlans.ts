@@ -8,7 +8,7 @@ export type TrainingPlan = {
   days: TrainingPlanDay[];
 };
 
-export const trainingPlan: TrainingPlan[] = [
+export const trainingPlans: TrainingPlan[] = [
   {
     id: 'intensity1',
     days: [{ day: 'pondělí', trainingId: 'Full body' }],

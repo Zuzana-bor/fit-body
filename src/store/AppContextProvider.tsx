@@ -5,7 +5,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 import { getTrainings } from '../data-mapping/trainings';
 import { trainingsData } from '../data/trainings';
 import { exercises } from '../data/exercises';
-import { trainingPlan } from '../data/trainingsPlans';
+import { trainingPlans } from '../data/trainingsPlans';
 
 type Props = {
   children: ReactNode;
@@ -17,7 +17,6 @@ export const AppContextProvider = ({ children }: Props) => {
     initialFormAnswers,
   );
   const trainings = getTrainings(trainingsData, exercises);
-  const trainingPlans = trainingPlan;
 
   return (
     <AppContext.Provider

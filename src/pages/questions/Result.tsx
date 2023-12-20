@@ -19,17 +19,17 @@ const Result: FC<ResultProps> = ({ values }) => {
   return (
     <>
       <List sx={{ mb: '2' }}>
-        {trainingPlanDays ? (
+        {trainingPlanDays && (
           <Grid container spacing={2}>
             <ListItem>
-              <Grid item={true} xs={3}>
+              <Grid item xs={3}>
                 <Avatar
                   alt="pohyb"
                   src="/assets/info_fitness.png"
                   sx={{ width: 250, height: 250 }}
                 />
               </Grid>
-              <Grid item={true} xs={9}>
+              <Grid item xs={9}>
                 <ListItemText
                   disableTypography
                   primary={
@@ -47,17 +47,17 @@ const Result: FC<ResultProps> = ({ values }) => {
               </Grid>
             </ListItem>
           </Grid>
-        ) : null}
+        )}
         <Grid container spacing={2}>
           <ListItem>
-            <Grid item={true} xs={3}>
+            <Grid item xs={3}>
               <Avatar
                 alt="kalorie"
                 src="/assets/info_food.png"
                 sx={{ width: 250, height: 250 }}
               />
             </Grid>
-            <Grid item={true} xs={9}>
+            <Grid item xs={9}>
               <ListItemText
                 disableTypography
                 sx={{ backgroundColor: '#e8f5e9', m: '3' }}
@@ -78,14 +78,14 @@ const Result: FC<ResultProps> = ({ values }) => {
         </Grid>
         <Grid container spacing={2}>
           <ListItem>
-            <Grid item={true} xs={3}>
+            <Grid item xs={3}>
               <Avatar
                 alt="spánek"
                 src="/assets/info_sleep.png"
                 sx={{ width: 250, height: 250 }}
               />
             </Grid>
-            <Grid item={true} xs={9}>
+            <Grid item xs={9}>
               <ListItemText
                 disableTypography
                 primary={

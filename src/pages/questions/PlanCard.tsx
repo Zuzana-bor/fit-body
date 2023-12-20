@@ -4,7 +4,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { kebabCase } from 'lodash';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { FC } from 'react';
@@ -28,7 +27,7 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
       </Typography>
 
       <TableContainer>
-        <Table sx={{ minWidth: 70 }} aria-label="simple table">
+        <Table sx={{ minWidth: 70 }}>
           <TableHead>
             <TableRow>
               <TableCell align="center">Den</TableCell>
@@ -36,22 +35,22 @@ const PlanCard: FC<PlanCardProps> = ({ days }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {days.map((item) => (
+            {days.map(({ day, trainingId }) => (
               <TableRow
-                key={item.day}
+                key={day}
                 sx={{
                   '&:last-child td, &:last-child th': { border: 0 },
                 }}
               >
                 <TableCell component="th" scope="row">
                   <Typography component="div" variant="h6" align="center">
-                    {item.day}
+                    {day}
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Link to={`${Urls.Plans}#${kebabCase(item.trainingId)}`}>
+                  <Link to={`${Urls.Plans}#${trainingId}`}>
                     <Typography component="div" variant="h6" align="center">
-                      {item.trainingId}
+                      {trainingId}
                     </Typography>
                   </Link>
                 </TableCell>

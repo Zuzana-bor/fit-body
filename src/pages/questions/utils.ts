@@ -1,5 +1,5 @@
 import { FormAnswers } from '../../config';
-import { TrainingPlanDay, trainingPlan } from '../../data/trainingsPlans';
+import { TrainingPlanDay, trainingPlans } from '../../data/trainingsPlans';
 
 export const getKoefTarget = (target: FormAnswers['target']) => {
   switch (target) {
@@ -15,7 +15,7 @@ export const getKoefTarget = (target: FormAnswers['target']) => {
 export const getTrainingPlanDays = (
   intensity: FormAnswers['intensity'],
 ): TrainingPlanDay[] | undefined => {
-  return trainingPlan.find((day) => day.id === intensity)?.days;
+  return trainingPlans.find((day) => day.id === intensity)?.days;
 };
 
 export const getSleepInfo = (sleep: FormAnswers['sleep']) => {
