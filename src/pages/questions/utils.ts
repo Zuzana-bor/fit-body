@@ -69,3 +69,23 @@ export const getIsFilled = ({
   !!target.length &&
   !!sleep.length &&
   !!intensity.length;
+
+export const getResult = ({
+  weight,
+  height,
+  age,
+  activity,
+  target,
+  intensity,
+  sleep,
+}: FormAnswers) => {
+  const af = getAf(activity);
+  const koefTarget = getKoefTarget(target);
+  const sleepInfo = getSleepInfo(sleep);
+  const trainingPlanDays = getTrainingPlanDays(intensity);
+
+  const bmr = 655.0955 + 9.5634 * weight + 1.8496 * height - 4.6756 * age;
+  const tdee = bmr * af;
+  const kcl = Math.round(tdee * koefTarget);
+  return { trainingPlanDays, kcl, sleepInfo };
+};

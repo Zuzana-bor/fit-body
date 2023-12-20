@@ -1,11 +1,6 @@
 import React, { FC } from 'react';
 import { FormAnswers } from '../../config';
-import {
-  getKoefTarget,
-  getAf,
-  getSleepInfo,
-  getTrainingPlanDays,
-} from './utils';
+import { getResult } from './utils';
 import SleepCard from './SleepCard';
 import KclCard from './KclCard';
 import List from '@mui/material/List';
@@ -19,18 +14,8 @@ type ResultProps = {
   values: FormAnswers;
 };
 
-const Result: FC<ResultProps> = ({
-  values: { weight, height, age, activity, target, intensity, sleep },
-}) => {
-  const af = getAf(activity);
-  const koefTarget = getKoefTarget(target);
-  const sleepInfo = getSleepInfo(sleep);
-  const trainingPlanDays = getTrainingPlanDays(intensity);
-  console.log(trainingPlanDays);
-  const bmr = 655.0955 + 9.5634 * weight + 1.8496 * height - 4.6756 * age;
-  const tdee = bmr * af;
-  const kcl = Math.round(tdee * koefTarget);
-
+const Result: FC<ResultProps> = ({ values }) => {
+  const { trainingPlanDays, kcl, sleepInfo } = getResult(values);
   return (
     <>
       <List sx={{ mb: '2' }}>
