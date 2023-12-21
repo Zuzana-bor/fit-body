@@ -5,6 +5,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 import { getTrainings } from '../data-mapping/trainings';
 import { trainingsData } from '../data/trainings';
 import { exercises } from '../data/exercises';
+import { trainingPlans } from '../data/trainingsPlans';
 
 type Props = {
   children: ReactNode;
@@ -19,7 +20,13 @@ export const AppContextProvider = ({ children }: Props) => {
 
   return (
     <AppContext.Provider
-      value={{ formAnswers, setFormAnswers, trainings, exercises }}
+      value={{
+        formAnswers,
+        setFormAnswers,
+        trainings,
+        exercises,
+        trainingPlans,
+      }}
     >
       {children}
     </AppContext.Provider>
