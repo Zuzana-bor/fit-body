@@ -10,14 +10,18 @@ import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
 import { Urls } from '../../config';
 import { Training } from '../../data-mapping/trainings';
+import PageLoader from '../../layout/PageLoader';
+import { AppContext } from '../../store/AppContext ';
 
 type TrainingTableProps = {
   training: Training;
 };
 
 const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
+  const { loading } = React.useContext(AppContext);
   return (
     <TableContainer component={Paper}>
+      {loading && <PageLoader />}
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
