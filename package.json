@@ -18,7 +18,12 @@
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@uidotdev/usehooks": "^2.4.1",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "lodash": "^4.17.21",
+    "prettier": "^3.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
@@ -35,7 +40,30 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "prettier"
+    ],
+    "plugins": [
+      "unused-imports"
+    ],
+    "overrides": [
+      {
+        "files": ["**/*.ts?(x)"],
+        "rules": {
+          "no-unused-vars": "off",
+          "@typescript-eslint/no-unused-vars": "off",
+          "unused-imports/no-unused-imports": "error",
+          "unused-imports/no-unused-vars": [
+            "warn",
+            {
+              "vars": "all",
+              "varsIgnorePattern": "^_",
+              "args": "after-used",
+              "argsIgnorePattern": "^_"
+            }
+          ]
+        }
+      }
     ]
   },
   "browserslist": {
