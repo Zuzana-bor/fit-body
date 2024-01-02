@@ -95,17 +95,17 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
             <FormControlLabel
               value="weightloss"
               control={<Radio />}
-              label="hubnutí"
+              label="Hubnutí"
             />
             <FormControlLabel
               value="maintenance"
               control={<Radio />}
-              label="udržování"
+              label="Udržování"
             />
             <FormControlLabel
               value="gaining"
               control={<Radio />}
-              label="nabírání"
+              label="Nabírání"
             />
           </RadioGroup>
         </FormControl>
@@ -119,12 +119,8 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
             onChange={handleChange}
           >
             <FormControlLabel value="5" control={<Radio />} label="6 a méně" />
-            <FormControlLabel value="6" control={<Radio />} label="6-9 hodin" />
-            <FormControlLabel
-              value="9"
-              control={<Radio />}
-              label="9 a více hodin"
-            />
+            <FormControlLabel value="6" control={<Radio />} label="6-9" />
+            <FormControlLabel value="9" control={<Radio />} label="9 a více" />
           </RadioGroup>
         </FormControl>
 
@@ -141,22 +137,22 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           </MenuItem>
           <MenuItem value="activLevel2">
             Sedavé zaměstnání + trénink vyšší intenzity (posilování, funkční
-            trénink, kruhový trénink, běh, plavání apod.) 2x týdně, případně
+            trénink, kruhový trénink, běh, plavání apod.); 2x týdně, případně
             vícekrát týdně o nižší intenzitě (jóga, pilates)
           </MenuItem>
           <MenuItem value="activLevel3">
             Sedavé zaměstnání + trénink vyšší intenzity 3x- 4x týdně; nebo
-            manuální těžké zaměstnání,
+            manuální těžké zaměstnání
           </MenuItem>
           <MenuItem value="activLevel4">
             Sedavé zaměstnání + trénink vyšší intenzity 6x týdně a více; nebo
             manuální těžké zaměstnání + trénink vyšší intenzity 2x týdně
           </MenuItem>
           <MenuItem value="activLevel5">
-            Manuální těžké zaměstnání + trénink vyšší intenzity 3x – 4x týdně
+            Manuální těžké zaměstnání + trénink vyšší intenzity 3x-4x týdně
           </MenuItem>
           <MenuItem value="activLevel6">
-            Manuální těžké zaměstnání ě trénink vyšší intenzity 6x týdně a více
+            Manuální těžké zaměstnání + trénink vyšší intenzity 6x týdně a více
             (profesionální sportovci, trenéři a podobně)
           </MenuItem>
         </TextField>
@@ -169,13 +165,13 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           defaultValue=""
           onChange={handleChange}
         >
-          <MenuItem value="intensity1">1</MenuItem>
-          <MenuItem value="intensity2">2</MenuItem>
-          <MenuItem value="intensity3">3</MenuItem>
-          <MenuItem value="intensity4">4</MenuItem>
-          <MenuItem value="intensity5">5</MenuItem>
-          <MenuItem value="intensity6">6</MenuItem>
-          <MenuItem value="intensity7">7</MenuItem>
+          <MenuItem value="intensity1">1x týdně</MenuItem>
+          <MenuItem value="intensity2">2x týdně</MenuItem>
+          <MenuItem value="intensity3">3x týdně</MenuItem>
+          <MenuItem value="intensity4">4x týdně</MenuItem>
+          <MenuItem value="intensity5">5x týdně</MenuItem>
+          <MenuItem value="intensity6">6x týdně</MenuItem>
+          <MenuItem value="intensity7">7x týdně</MenuItem>
         </TextField>
       </Stack>
     </Box>

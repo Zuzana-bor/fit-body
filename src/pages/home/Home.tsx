@@ -80,7 +80,7 @@ const Home = () => {
             })}
           >
             <Typography>
-              Cvič tam, kde ti to vyhovuje a co tvé tělo potřebuje. Stravuj se
+              Cvič tam, kde Ti to vyhovuje a co tvé tělo potřebuje. Stravuj se
               tak, aby Ti tvé tělo bylo vděčné a dosáhla jsi svých cílů. Vyplň
               krátký dotazník a zjisti, jak na to.
             </Typography>
