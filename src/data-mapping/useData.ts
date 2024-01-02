@@ -10,7 +10,7 @@ const useData = () => {
   const [exercises, setExercises] = useState<Exercise[]>();
 
   const fetchExercises = async () => {
-    const exercisesResponse = await fetch(`${ApiUrls.Exercises}?delay=5`);
+    const exercisesResponse = await fetch(`${ApiUrls.Exercises}?delay=0`);
 
     if (exercisesResponse.ok) {
       const exercisesResult = await exercisesResponse.json();
@@ -23,7 +23,7 @@ const useData = () => {
   const [trainingsData, setTrainingsData] = useState<TrainingsData>();
 
   const fetchTrainings = async () => {
-    const response = await fetch(`${ApiUrls.Trainings}?delay=1`);
+    const response = await fetch(`${ApiUrls.Trainings}?delay=0`);
 
     if (response.ok) {
       const result = await response.json();
