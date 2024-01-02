@@ -1,6 +1,6 @@
 # Fit body
 
-Aplikace nejen pro ženy na mateřské, která sestaví tréninkový plán. Stačí vyplnit krátký dotazník a zjistit, který trénink kdy cvičit, jak se stravovat a jak změnit životní styl.
+Aplikace nejen pro ženy na mateřské, která sestaví tréninkový plán. Stačí vyplnit krátký dotazník a zjistit, který trénink kdy cvičit, jak se stravovat a jak změnit životní styl. Vyzkoušet můžete zde https://bodyf.netlify.app/
 
 ## Built with
 
