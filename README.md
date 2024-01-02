@@ -39,5 +39,5 @@ You will also see any lint errors in the console.
 
 - React hook form
 - Form validation
-- Localication
+- Localization
 - Responsive design
