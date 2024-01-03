@@ -21,11 +21,11 @@ export const getTrainingPlanDays = (
 export const getSleepInfo = (sleep: FormAnswers['sleep']) => {
   switch (sleep) {
     case '5':
-      return 'Pozor na nezdravý spánek.  Dlouhodobá spánková deprivace významně zvyšuje riziko vážných chronických onemocnění. Jedná se například o kardiovaskulární potíže, hormonální nerovnováhu, cukrovku, vysoký krevní tlak, demenci, Alzheimerovu chorobu a další.Lidem, kteří spí méně než 6 hodin, jde hubnutí o poznání hůře. Spánek má totiž vliv na metabolismus. V případě nedostatečného odpočinku organismus daleko hůř hospodaří s bílkovinami. Dochází také ke snížení hladiny leptinu, což má za následek to, že máme pocit hladu. Ideální doba spánku je okolo 8 hodin.';
+      return 'Pozor na nezdravý spánek. Dlouhodobá spánková deprivace významně zvyšuje riziko vážných chronických onemocnění. Jedná se například o kardiovaskulární potíže, hormonální nerovnováhu, cukrovku, vysoký krevní tlak, demenci, Alzheimerovu chorobu a další. Lidem, kteří spí méně než 6 hodin, jde hubnutí o poznání hůře. Spánek má totiž vliv na metabolismus. V případě nedostatečného odpočinku organismus daleko hůř hospodaří s bílkovinami. Dochází také ke snížení hladiny leptinu, což má za následek to, že máme pocit hladu. Ideální doba spánku je okolo 8 hodin.';
     case '6':
-      return 'Tvůj spánek je zdravý ';
+      return 'Tvůj spánek je zdravý.';
     default:
-      return 'Pozor na nezdravý spánek. Lidé, kteří denně spí víc než 9 hodin, můžou být více ohroženi onemocněním srdce a cév a předčasným úmrtím. Ideální doba spánku je okolo 8 hodin. ';
+      return 'Pozor na nezdravý spánek. Lidé, kteří denně spí víc než 9 hodin, můžou být více ohroženi onemocněním srdce a cév a předčasným úmrtím. Ideální doba spánku je okolo 8 hodin.';
   }
 };
 
