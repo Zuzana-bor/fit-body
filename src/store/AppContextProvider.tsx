@@ -14,7 +14,7 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const { exercises, trainings, loading } = useData();
+  const { exercises, trainings, loading, trainingPlans } = useData();
 
   return (
     <AppContext.Provider

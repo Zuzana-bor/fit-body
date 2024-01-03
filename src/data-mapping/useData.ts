@@ -3,6 +3,7 @@ import { ApiUrls } from '../config';
 import { Exercise } from '../data/exercises';
 import { getTrainings } from './trainings';
 import { TrainingsData } from '../data/trainings';
+import { TrainingPlan } from '../data/trainingsPlans';
 
 const useData = () => {
   const [loading, setLoading] = useState(false);
@@ -34,6 +35,22 @@ const useData = () => {
     }
   };
 
+  const [trainingPlans, setTrainingPlans] = useState<TrainingPlan[]>();
+
+  const fetchTrainingPlans = async () => {
+    const trainingPlansResponse = await fetch(
+      `${ApiUrls.TrainingPlans}?delay=0`,
+    );
+
+    if (trainingPlansResponse.ok) {
+      const trainingPlansResult = await trainingPlansResponse.json();
+
+      setTrainingPlans(trainingPlansResult);
+    } else {
+      console.error('Response cannot be parsed', trainingPlansResponse);
+    }
+  };
+
   const trainings =
     exercises && trainingsData
       ? getTrainings(trainingsData, exercises)
@@ -41,7 +58,7 @@ const useData = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    await Promise.all([fetchExercises(), fetchTrainings()]);
+    await Promise.all([fetchExercises(), fetchTrainings(), fetchTrainingPlans]);
     setLoading(false);
   };
 
@@ -49,7 +66,7 @@ const useData = () => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return { exercises, trainings, loading };
+  return { exercises, trainings, loading, trainingPlans };
 };
 
 export default useData;
