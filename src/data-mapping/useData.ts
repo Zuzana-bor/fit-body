@@ -58,7 +58,11 @@ const useData = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    await Promise.all([fetchExercises(), fetchTrainings(), fetchTrainingPlans]);
+    await Promise.all([
+      fetchExercises(),
+      fetchTrainings(),
+      fetchTrainingPlans(),
+    ]);
     setLoading(false);
   };
 

@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { AppContext } from './AppContext ';
 import { FormAnswers, initialFormAnswers } from '../config';
 import { useLocalStorage } from '@uidotdev/usehooks';
-import { trainingPlans } from '../data/trainingsPlans';
 import useData from '../data-mapping/useData';
 
 type Props = {
