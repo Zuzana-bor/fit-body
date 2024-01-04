@@ -10,7 +10,7 @@ import { Link as RouterLink } from 'react-router-dom';
 const TopMenu = () => {
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container>
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {(Object.entries(Pages) as [keyof typeof Urls, string][]).map(

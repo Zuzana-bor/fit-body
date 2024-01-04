@@ -11,9 +11,10 @@ import { getPlansTabs } from './utils';
 import { PlansTabsPart, plansTabsConfig } from './config';
 import TrainingTable from './TrainingTable';
 import { AppContext } from '../../store/AppContext ';
+import PageLoader from '../../layout/PageLoader';
 
 const Plans = () => {
-  const { trainings } = React.useContext(AppContext);
+  const { trainings, loading } = React.useContext(AppContext);
   const [plansTabs, setPlansTabs] = useState<PlansTabsPart[]>();
   const [activeTab, setActiveTab] = useState<string>();
 
@@ -35,6 +36,7 @@ const Plans = () => {
 
   return (
     <Container sx={{ mb: 10 }}>
+      {loading && <PageLoader />}
       <Box pt={4}>
         <Stack direction="row">
           <Grid container spacing={2}>

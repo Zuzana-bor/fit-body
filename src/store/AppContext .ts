@@ -10,10 +10,12 @@ export type AppState = {
   exercises?: Exercise[];
   trainings?: Trainings;
   trainingPlans?: TrainingPlan[];
+  loading: boolean;
 };
 
 export const initialState: AppState = {
   formAnswers: initialFormAnswers,
   setFormAnswers: () => undefined,
+  loading: false,
 };
 export const AppContext = createContext(initialState);

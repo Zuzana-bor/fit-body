@@ -4,13 +4,15 @@ import { groupBy } from 'lodash';
 import ExerciseCard from './ExerciseCard';
 import Grid from '@mui/material/Grid';
 import { AppContext } from '../../store/AppContext ';
+import PageLoader from '../../layout/PageLoader';
 
 const Exercise = () => {
-  const { exercises } = React.useContext(AppContext);
+  const { exercises, loading } = React.useContext(AppContext);
   const groupItems = groupBy(exercises, 'category');
 
   return (
     <Container sx={{ mb: 10 }}>
+      {loading && <PageLoader />}
       {Object.entries(groupItems).map(([category, exercises]) => (
         <Box key={category} sx={{ flexGrow: 1 }}>
           <Typography my={4} variant="h4">

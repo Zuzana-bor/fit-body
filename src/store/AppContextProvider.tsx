@@ -2,10 +2,7 @@ import { ReactNode } from 'react';
 import { AppContext } from './AppContext ';
 import { FormAnswers, initialFormAnswers } from '../config';
 import { useLocalStorage } from '@uidotdev/usehooks';
-import { getTrainings } from '../data-mapping/trainings';
-import { trainingsData } from '../data/trainings';
-import { exercises } from '../data/exercises';
-import { trainingPlans } from '../data/trainingsPlans';
+import useData from '../data-mapping/useData';
 
 type Props = {
   children: ReactNode;
@@ -16,7 +13,7 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const trainings = getTrainings(trainingsData, exercises);
+  const { exercises, trainings, loading, trainingPlans } = useData();
 
   return (
     <AppContext.Provider
@@ -26,6 +23,7 @@ export const AppContextProvider = ({ children }: Props) => {
         trainings,
         exercises,
         trainingPlans,
+        loading,
       }}
     >
       {children}
