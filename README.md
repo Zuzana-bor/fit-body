@@ -1,39 +1,27 @@
 # Fit body
 
-Aplikace nejen pro ženy na mateřské, která sestaví tréninkový plán. Stačí vyplnit krátký dotazník a zjistit, který trénink kdy cvičit, jak se stravovat a jak změnit životní styl. Vyzkoušet můžete zde https://bodyf.netlify.app/
+This application, which is not only for women on maternity leave, will compile a training plan for you. Just fill out a short questionnaire and find out which training to do when, how to eat and how to change your lifestyle. You can try it here https://bodyf.netlify.app/
 
 ## Built with
 
-- CRA, Typescript
-- MUI, React router
-- Lodash, Usehooks
-- Netlify functions
+- CRA, TypeScript
+- MUI, React Router
+- Lodash, UseHooks
+- Netlify Functions
 
 ## Features
 
-- Dotazník ukládající odpovědi s možností odpověď změnit
-- Vyhodnocení dotazníku v přehledném výsledku obsahující nastavení tréninkového programu a doporučení pro změnu životního stylu
-- Databáze cviků rozdělena dle svalových partií
-- Graficky znázorněny a popsány cviky
-- Tréninkové plány přehledně rozděleny na horní a dolní část těla a kardio
+- A questionnaire which saves answers with the option to change the answer at a later stage;
+- Evaluation of the questionnaire giving you a clear result containing the settings of the training program and recommendations for lifestyle changes;
+- A database of exercises divided by muscle groups
+- A graphic representation and description of the exercises and;
+- Training plans clearly divided into upper and lower body and cardio
 
 ## About
 
-Nejsem certifikovaný fitness trenér, ale leta jsem navštěvovala posilovny. Na mateřské jsem však byla nucena začít cvičit sama doma. A tu vznikl nápad na tuto aplikaci. Nemusíte vyhledávat na YouTube tréninky, nemusíte si je sami sestavovat a uvažovat nad vhodným nastavením. Tato aplikace to udělá na míru za Vás.
+I'm not a certified fitness trainer, but I used to go to the gym myself. However, while on maternity leave, I was forced to start exercising alone from home, which is where the idea for this app came from. If you look for training sessions on YouTube, you don't have to compile them yourself and think about suitable settings. This application will tailor everything for you.
 
-Jako něco navíc se dozvíte i pro Vás nejvhodnější denní kalorický příjem, dle vašich cílů. Výpočet kalorií využívá Harris-Benedictovu metodu. V závěru dostanete i doporučení k Vašemu spánku.
-
-In the project directory, you can run:
-
-## Installing
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+As an added bonus, you will also find out your daily caloric intake, based on your goals. Calorie calculation uses the Harris-Benedict method. And you will also get advice for better sleep at the end.
 
 ## Future plans
 
