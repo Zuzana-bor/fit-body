@@ -8,10 +8,16 @@ export enum Urls {
   Home = '/',
 }
 
+export enum ApiUrls {
+  Exercises = '/.netlify/functions/api-exercises',
+  Trainings = '/.netlify/functions/api-trainings',
+  TrainingPlans = '/.netlify/functions/api-trainingsPlans',
+}
+
 export const Pages: Record<keyof typeof Urls, string> = {
   Home: 'home',
-  Plans: 'tréningové plány',
   Questions: 'dotazník',
+  Plans: 'tréningové plány',
   Exercise: 'databáze cviků',
 };
 
