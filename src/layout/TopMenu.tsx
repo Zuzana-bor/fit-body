@@ -17,10 +17,11 @@ const TopMenu = () => {
 
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
-  const [state, setState] = React.useState(false);
+  const [state, setState] = React.useState({ left: false });
 
   const toggleDrawer =
-    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    (anchor: 'left', open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event.type === 'keydown' &&
         ((event as React.KeyboardEvent).key === 'Tab' ||
@@ -29,7 +30,7 @@ const TopMenu = () => {
         return;
       }
 
-      setState(true);
+      setState({ ...state, [anchor]: open });
     };
 
   return (
@@ -54,13 +55,13 @@ const TopMenu = () => {
           ) : (
             <div>
               <React.Fragment>
-                <IconButton onClick={toggleDrawer(true)}>
+                <IconButton onClick={toggleDrawer('left', true)}>
                   <MenuIcon />
                 </IconButton>
                 <Drawer
                   anchor="left"
-                  open={state}
-                  onClose={toggleDrawer(false)}
+                  open={state['left']}
+                  onClose={toggleDrawer('left', false)}
                 >
                   <List>
                     {(
