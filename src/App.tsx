@@ -13,18 +13,19 @@ import Home from './pages/home/Home';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Urls } from './config';
-import { Stack, Box } from '@mui/material';
+import { Stack, Box, responsiveFontSizes } from '@mui/material';
 import Footer from './layout/Footer';
 import { AppContextProvider } from './store/AppContextProvider';
 import ScrollToHashElement from './layout/ScrollToHashElement';
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: green[300],
     },
   },
 });
+theme = responsiveFontSizes(theme);
 
 function App() {
   return (
