@@ -26,7 +26,20 @@ const Result: FC<ResultProps> = ({ values }) => {
                 <Avatar
                   alt="pohyb"
                   src="/assets/info_fitness.png"
-                  sx={{ width: 250, height: 250 }}
+                  sx={{
+                    width: {
+                      xs: 100,
+                      sm: 200,
+                      md: 250,
+                      lg: 250,
+                    },
+                    height: {
+                      xs: 100,
+                      sm: 200,
+                      md: 250,
+                      lg: 250,
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={9}>
@@ -54,7 +67,20 @@ const Result: FC<ResultProps> = ({ values }) => {
               <Avatar
                 alt="kalorie"
                 src="/assets/info_food.png"
-                sx={{ width: 250, height: 250 }}
+                sx={{
+                  width: {
+                    xs: 100,
+                    sm: 200,
+                    md: 250,
+                    lg: 250,
+                  },
+                  height: {
+                    xs: 100,
+                    sm: 200,
+                    md: 250,
+                    lg: 250,
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={9}>
@@ -82,7 +108,20 @@ const Result: FC<ResultProps> = ({ values }) => {
               <Avatar
                 alt="spánek"
                 src="/assets/info_sleep.png"
-                sx={{ width: 250, height: 250 }}
+                sx={{
+                  width: {
+                    xs: 100,
+                    sm: 200,
+                    md: 250,
+                    lg: 250,
+                  },
+                  height: {
+                    xs: 100,
+                    sm: 200,
+                    md: 250,
+                    lg: 250,
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={9}>
