@@ -14,7 +14,6 @@ import { Link as RouterLink } from 'react-router-dom';
 const Home = () => {
   return (
     <>
-      {' '}
       <Box
         sx={{
           overflow: 'hidden',
@@ -143,7 +142,7 @@ const Home = () => {
             Dotazník
           </Button>
         </Stack>
-      </Container>{' '}
+      </Container>
     </>
   );
 };

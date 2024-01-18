@@ -10,7 +10,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import { Drawer, IconButton, Link, List, ListItemButton } from '@mui/material';
+import { Drawer, IconButton, List, ListItemButton } from '@mui/material';
 
 const TopMenu = () => {
   const theme = useTheme();
