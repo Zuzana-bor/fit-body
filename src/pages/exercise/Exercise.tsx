@@ -18,9 +18,9 @@ const Exercise = () => {
           <Typography my={4} variant="h4">
             {category}
           </Typography>
-          <Grid container spacing={4}>
+          <Grid container spacing={{ xs: 1, sm: 2, md: 4 }}>
             {exercises.map((item) => (
-              <Grid item xs={4}>
+              <Grid item xs={6} md={4}>
                 <ExerciseCard item={item} />
               </Grid>
             ))}
