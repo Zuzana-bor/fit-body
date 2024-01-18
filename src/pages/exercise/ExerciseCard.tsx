@@ -16,7 +16,15 @@ const ExerciseCard: FC<ExerciseCardProps> = ({
     <Card sx={{ height: '100%' }} id={id}>
       <CardContent>
         <CardMedia
-          sx={{ height: 250, objectFit: 'contain' }}
+          sx={{
+            height: {
+              xs: 100,
+              sm: 200,
+              md: 250,
+              lg: 250,
+            },
+            objectFit: 'contain',
+          }}
           component="img"
           image={media}
           title={name}
