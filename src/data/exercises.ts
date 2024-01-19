@@ -235,7 +235,7 @@ export const exercises: Exercise[] = [
       'Postavte se na švihadlo s chodidlama vedle sebe. Chytněte rukojeti, narovnejte se a vytáhněte jej podél těla až do výše vašich ramen. Délka lanka švihadla by měla dosahovat až do výše vaší podpažní jamky. V základním postoji zůstávají záda v přirozeném zakřivení, což znamená, že se během skákání nezakláníte dozadu ani neprohýbáte dopředu.Soustřeďte se na to, že pohyb vychází zejména z kotníků a zápěstí. Nadloktí držte těsně vedle těla a paže pokrčte v loktech. Při skákání nezapomínejte na aktivaci středu těla. Dýchejte. Doskakujte zejména na špičky.    Snažte se skákat v pravidelném rytmu. Skákejte jen několik centimetrů nad zem.',
     media: '/assets/jump-rope.gif',
     category: 'cardio',
-    mainMuscleGroupe: '',
+    mainMuscleGroupe: 'kardio',
   },
   {
     id: 'burpee ',
@@ -244,7 +244,7 @@ export const exercises: Exercise[] = [
       'Začněte ve stoje. Nohy na šířku ramen. Jděte do dřepu. Ve spodní poloze dřepu jdete rukama před tělo a následně na zem. Dlaně dejte na zem a nohy přemístěte dozadu. Poloha vzporu. Udělejte klik. Hrudník se dotýká země. Při návratu do vrchní polohy cviku přemístěte nohy pod sebe a přejděte do výskoku. Výskok je dynamický. Ruce jdou nad hlavu.',
     media: '/assets/Burpees.gif',
     category: 'cardio',
-    mainMuscleGroupe: '',
+    mainMuscleGroupe: 'kardio',
   },
   {
     id: 'jumping-jack',
@@ -253,6 +253,6 @@ export const exercises: Exercise[] = [
       'Výchozí pozice je vzpřímený postoj s nohama u sebe a rukama podél těla. Mírně povyskočte, nohy jdou od sebe. Naskakujte na špičky. Při dopadu na špičky mějte kolena mírně pokrčená. Kolena celou dobu směřují před sebe. současně s pohybem nohou zvedejte ruce z výchozí polohy do polohy nad hlavou. Ruce nad hlavou se jemně dotýkají. Ruce nejsou úplně narovnané, ale lehce pokrčené v loktech. Po celou dobu pohybu mějte zatnuté břicho. Pohyb opakujte tam a zpět.',
     media: '/assets/jumping-jacks.gif',
     category: 'cardio',
-    mainMuscleGroupe: '',
+    mainMuscleGroupe: 'kardio',
   },
 ];
