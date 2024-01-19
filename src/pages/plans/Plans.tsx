@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Stack } from '@mui/material';
+import { Button, Link, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -17,6 +17,8 @@ const Plans = () => {
   const { trainings, loading } = React.useContext(AppContext);
   const [plansTabs, setPlansTabs] = useState<PlansTabsPart[]>();
   const [activeTab, setActiveTab] = useState<string>();
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
   const activeTraining = plansTabs?.find(
     (item) => item.id === activeTab,
@@ -38,32 +40,49 @@ const Plans = () => {
     <Container sx={{ mb: 10 }}>
       {loading && <PageLoader />}
       <Box pt={4}>
-        <Stack direction="row">
-          <Grid container spacing={2}>
-            <Grid item xs={3}>
-              <List>
-                {plansTabs?.map(({ name, icon: Icon, id }) => {
-                  return (
-                    <ListItem disablePadding key={id}>
-                      <ListItemButton
-                        selected={id === activeTab}
-                        onClick={() => handleClick(id)}
-                      >
-                        <ListItemIcon>
-                          <Icon />
-                        </ListItemIcon>
-                        {name}
-                      </ListItemButton>
-                    </ListItem>
-                  );
-                })}
-              </List>
+        <Grid container spacing={2} direction={{ xs: 'column', sm: 'row' }}>
+          {!isMatch ? (
+            <List>
+              {plansTabs?.map(({ name, icon: Icon, id }) => {
+                return (
+                  <ListItem disablePadding key={id}>
+                    <ListItemButton
+                      selected={id === activeTab}
+                      onClick={() => handleClick(id)}
+                    >
+                      <ListItemIcon>
+                        <Icon />
+                      </ListItemIcon>
+                      {name}
+                    </ListItemButton>
+                  </ListItem>
+                );
+              })}
+            </List>
+          ) : (
+            <Grid container spacing={2} direction="row" sx={{ m: 1 }}>
+              {plansTabs?.map(({ name, icon: Icon, id }) => {
+                return (
+                  <Grid xs={6}>
+                    <ListItemButton
+                      selected={id === activeTab}
+                      onClick={() => handleClick(id)}
+                      key={id}
+                    >
+                      <ListItemIcon>
+                        <Icon />
+                      </ListItemIcon>
+                      {name}
+                    </ListItemButton>
+                  </Grid>
+                );
+              })}
             </Grid>
-            <Grid item xs={9}>
-              {activeTraining && <TrainingTable training={activeTraining} />}
-            </Grid>
+          )}
+          <Grid item xs={9}>
+            {activeTraining && <TrainingTable training={activeTraining} />}
           </Grid>
-        </Stack>
+        </Grid>
       </Box>
     </Container>
   );
