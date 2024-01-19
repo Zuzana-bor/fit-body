@@ -132,26 +132,26 @@ const QuestionsForm: FC<QuestionsFormProps> = ({
           defaultValue=""
           onChange={handleChange}
         >
-          <MenuItem value="activLevel1">
+          <MenuItem value="activLevel1" sx={{ whiteSpace: 'normal' }}>
             Sedavé zaměstnání + žádný trénink
           </MenuItem>
-          <MenuItem value="activLevel2">
+          <MenuItem value="activLevel2" sx={{ whiteSpace: 'normal' }}>
             Sedavé zaměstnání + trénink vyšší intenzity (posilování, funkční
             trénink, kruhový trénink, běh, plavání apod.); 2x týdně, případně
             vícekrát týdně o nižší intenzitě (jóga, pilates)
           </MenuItem>
-          <MenuItem value="activLevel3">
+          <MenuItem value="activLevel3" sx={{ whiteSpace: 'normal' }}>
             Sedavé zaměstnání + trénink vyšší intenzity 3x- 4x týdně; nebo
             manuální těžké zaměstnání
           </MenuItem>
-          <MenuItem value="activLevel4">
+          <MenuItem value="activLevel4" sx={{ whiteSpace: 'normal' }}>
             Sedavé zaměstnání + trénink vyšší intenzity 6x týdně a více; nebo
             manuální těžké zaměstnání + trénink vyšší intenzity 2x týdně
           </MenuItem>
-          <MenuItem value="activLevel5">
+          <MenuItem value="activLevel5" sx={{ whiteSpace: 'normal' }}>
             Manuální těžké zaměstnání + trénink vyšší intenzity 3x-4x týdně
           </MenuItem>
-          <MenuItem value="activLevel6">
+          <MenuItem value="activLevel6" sx={{ whiteSpace: 'normal' }}>
             Manuální těžké zaměstnání + trénink vyšší intenzity 6x týdně a více
             (profesionální sportovci, trenéři a podobně)
           </MenuItem>
