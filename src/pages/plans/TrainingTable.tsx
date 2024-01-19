@@ -15,7 +15,6 @@ import { AppContext } from '../../store/AppContext ';
 
 import {
   List,
-  ListItem,
   ListItemButton,
   ListItemText,
   useMediaQuery,
