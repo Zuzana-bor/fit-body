@@ -17,6 +17,7 @@ import {
   List,
   ListItemButton,
   ListItemText,
+  Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
@@ -86,9 +87,16 @@ const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
                   />
                   <ListItemText
                     primary={<Link to={`${Urls.Exercise}#${id}`}>{name}</Link>}
-                    secondary={`počet opakování/sérií: ${number} 
-                    svalová partie: ${mainMuscleGroupe}
-                    `}
+                    secondary={
+                      <>
+                        <Typography>
+                          počet opakování/sérií: {number}{' '}
+                        </Typography>
+                        <Typography>
+                          svalová partie: {mainMuscleGroupe}
+                        </Typography>
+                      </>
+                    }
                   />
                 </ListItemButton>
               ),
