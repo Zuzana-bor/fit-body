@@ -7,6 +7,8 @@ import {
   Button,
 } from '@mui/material';
 import { AppContext } from '../store/AppContext ';
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 type LoginFormProps = {
   open: boolean;
@@ -16,12 +18,20 @@ type LoginFormProps = {
 const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signIn } = React.useContext(AppContext);
+  const { signIn, signByGoogle, signByFB } = React.useContext(AppContext);
 
   const handleLogin = () => {
     signIn(email, password);
     console.log('Logging in with:', email, password);
     onClose();
+  };
+
+  const handleLoginByGoogle = () => {
+    signByGoogle();
+  };
+
+  const handleLoginByFB = () => {
+    signByFB();
   };
 
   return (
@@ -45,7 +55,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button variant="contained" color="primary" onClick={handleLogin}>
-            Login
+            Přihlásit
+          </Button>
+          <Button onClick={handleLoginByGoogle}>
+            <GoogleIcon fontSize="large" />
+          </Button>
+          <Button onClick={handleLoginByFB}>
+            <FacebookIcon fontSize="large" />
           </Button>
         </form>
       </DialogContent>

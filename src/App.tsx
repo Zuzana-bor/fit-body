@@ -1,4 +1,3 @@
-import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import TopMenu from './layout/TopMenu';
 import '@fontsource/roboto/300.css';
