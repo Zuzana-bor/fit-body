@@ -60,7 +60,7 @@ const Home = () => {
             }}
           >
             <Typography variant="h3" color="white">
-              Mysli na sebe i na mateřské dovolené.
+              Mysli na sebe.
             </Typography>
             <Typography variant="h3" color="white">
               Buď v kondici.
