@@ -112,6 +112,32 @@ const TopMenu = () => {
                       </ListItemButton>
                     ))}
                   </List>
+
+                  <Button
+                    sx={{ my: 2, display: 'block' }}
+                    color="primary"
+                    onClick={handleOpenLoginDialog}
+                  >
+                    Přihlášení
+                  </Button>
+
+                  <LoginForm
+                    open={loginDialogOpen}
+                    onClose={handleCloseLoginDialog}
+                  />
+
+                  <Button
+                    sx={{ my: 2, display: 'block' }}
+                    color="primary"
+                    onClick={handleOpenLoginDialog}
+                  >
+                    Registrace
+                  </Button>
+
+                  <RegistrationForm
+                    open={loginDialogOpen}
+                    onClose={handleCloseLoginDialog}
+                  />
                 </Drawer>
               </React.Fragment>
             </div>
