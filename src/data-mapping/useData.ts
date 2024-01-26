@@ -5,8 +5,8 @@ import { getTrainings } from './trainings';
 import { TrainingsData } from '../data/trainings';
 import { TrainingPlan } from '../data/trainingsPlans';
 import { fetchApiData } from './utils';
-
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../store/firebase';
 
 const useData = () => {
   const [loading, setLoading] = useState(false);
@@ -33,26 +33,19 @@ const useData = () => {
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const auth = getAuth();
-    onAuthStateChanged(
-      auth,
-      (authUser) =>
-        (authUser: { uid: string; displayName: string; email: string }) => {
-          if (authUser) {
-            setUser({
-              uid: authUser.uid,
-              displayName: authUser.displayName,
-              email: authUser.email,
-            });
-          } else {
-            setUser({
-              uid: '',
-              displayName: '',
-              email: '',
-            });
-          }
-        },
-    );
+
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        setUser({
+          uid: authUser.uid,
+          displayName: authUser.displayName || '',
+          email: authUser.email || '',
+        });
+      } else {
+        setUser(undefined);
+      }
+    });
+    return () => unsubscribe();
   }, []);
   return { exercises, trainings, loading, trainingPlans, user };
 };

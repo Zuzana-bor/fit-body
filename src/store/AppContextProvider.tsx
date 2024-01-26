@@ -4,6 +4,7 @@ import {
   FirebaseUser,
   FormAnswers,
   initialFormAnswers,
+  registration,
   signIn,
 } from '../config';
 import { useLocalStorage } from '@uidotdev/usehooks';
@@ -12,12 +13,6 @@ import { signOut } from 'firebase/auth';
 
 type Props = {
   children: ReactNode;
-};
-
-export type FirebaseType = {
-  user: FirebaseUser | null;
-  signIn: (email: string, password: string) => Promise<void>;
-  signOut: () => Promise<void>;
 };
 
 export const AppContextProvider = ({ children }: Props) => {
@@ -39,6 +34,7 @@ export const AppContextProvider = ({ children }: Props) => {
         user,
         signOut,
         signIn,
+        registration,
       }}
     >
       {children}

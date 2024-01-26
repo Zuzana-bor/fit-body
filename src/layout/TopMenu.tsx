@@ -9,18 +9,10 @@ import { Link as RouterLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Drawer,
-  IconButton,
-  List,
-  ListItemButton,
-  TextField,
-} from '@mui/material';
+import { Drawer, IconButton, List, ListItemButton } from '@mui/material';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
+import RegistrationForm from './RegistrationForm';
 
 const TopMenu = () => {
   const theme = useTheme();
@@ -28,8 +20,6 @@ const TopMenu = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
   const [state, setState] = React.useState({ left: false });
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
 
   const toggleDrawer =
@@ -81,6 +71,19 @@ const TopMenu = () => {
               </Button>
 
               <LoginForm
+                open={loginDialogOpen}
+                onClose={handleCloseLoginDialog}
+              />
+
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                color="primary"
+                onClick={handleOpenLoginDialog}
+              >
+                Registrace
+              </Button>
+
+              <RegistrationForm
                 open={loginDialogOpen}
                 onClose={handleCloseLoginDialog}
               />

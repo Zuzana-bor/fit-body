@@ -13,14 +13,14 @@ type LoginFormProps = {
   onClose: () => void;
 };
 
-const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
+const RegistrationForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signIn } = React.useContext(AppContext);
+  const { registration } = React.useContext(AppContext);
 
   const handleLogin = () => {
-    signIn(email, password);
-    console.log('Logging in with:', email, password);
+    registration(email, password);
+    console.log('reg con in with:', email, password);
     onClose();
   };
 
@@ -45,7 +45,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button variant="contained" color="primary" onClick={handleLogin}>
-            Login
+            Registrovat
           </Button>
         </form>
       </DialogContent>
@@ -53,4 +53,4 @@ const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;

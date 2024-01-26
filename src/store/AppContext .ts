@@ -9,7 +9,11 @@ import {
 import { Exercise } from '../data/exercises';
 import { Trainings } from '../data-mapping/trainings';
 import { TrainingPlan } from '../data/trainingsPlans';
-import { Auth, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 import { auth } from './firebase';
 
 export type AppState = {
@@ -22,6 +26,7 @@ export type AppState = {
   user?: FirebaseUser;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: (auth: Auth) => Promise<void>;
+  registration: (email: string, password: string) => Promise<void>;
 };
 
 export const initialState: AppState = {
@@ -34,6 +39,9 @@ export const initialState: AppState = {
   },
   signOut: async () => {
     await signOut();
+  },
+  registration: async (email: string, password: string) => {
+    await createUserWithEmailAndPassword(auth, email, password);
   },
 };
 export const AppContext = createContext(initialState);

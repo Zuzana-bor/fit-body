@@ -1,6 +1,9 @@
 import { SvgIconTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/types';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 import { auth } from './store/firebase';
 
 export enum Urls {
@@ -50,9 +53,9 @@ export type FormAnswers = {
 };
 
 export const initialUser: FirebaseUser = {
-  uid: '0',
-  displayName: 'Jan',
-  email: 'z@gmail.com',
+  uid: '',
+  displayName: '',
+  email: '',
 };
 
 export type FirebaseUser = {
@@ -62,10 +65,25 @@ export type FirebaseUser = {
 };
 
 export const signIn = async (email: string, password: string) => {
-  await signInWithEmailAndPassword(auth, email, password);
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    console.log('Přihlášení bylo úspěšné.');
+  } catch (error) {
+    console.error('Chyba při přihlašování:', error);
+  }
 };
 
-// Funkce pro odhlášení
 export const signOut = async () => {
   await signOut();
+};
+
+export const registration = async (email: string, password: string) => {
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+
+    console.log('registrace byla uspěšná');
+  } catch (error) {
+    const errorMessage = error;
+    console.log('registrace neproběhla', errorMessage);
+  }
 };
