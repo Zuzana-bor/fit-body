@@ -4,6 +4,8 @@ import {
   FormAnswers,
   initialFormAnswers,
   registration,
+  signByFB,
+  signByGoogle,
   signIn,
 } from '../config';
 import { useLocalStorage } from '@uidotdev/usehooks';
@@ -34,6 +36,8 @@ export const AppContextProvider = ({ children }: Props) => {
         signOut,
         signIn,
         registration,
+        signByGoogle,
+        signByFB,
       }}
     >
       {children}

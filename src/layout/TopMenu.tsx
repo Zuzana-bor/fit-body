@@ -21,6 +21,7 @@ const TopMenu = () => {
 
   const [state, setState] = React.useState({ left: false });
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
+  const [registrationDialogOpen, setRegistrationDialogOpen] = useState(false);
 
   const toggleDrawer =
     (anchor: 'left', open: boolean) =>
@@ -44,6 +45,14 @@ const TopMenu = () => {
     setLoginDialogOpen(false);
   };
 
+  const handleOpenRegistrationDialog = () => {
+    setRegistrationDialogOpen(true);
+  };
+
+  const handleCloseRegistrationDialog = () => {
+    setRegistrationDialogOpen(false);
+  };
+
   return (
     <AppBar position="static">
       <Container>
@@ -64,7 +73,7 @@ const TopMenu = () => {
               )}
               <Button
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                color="primary"
+                color="secondary"
                 onClick={handleOpenLoginDialog}
               >
                 Přihlášení
@@ -77,15 +86,15 @@ const TopMenu = () => {
 
               <Button
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                color="primary"
-                onClick={handleOpenLoginDialog}
+                color="secondary"
+                onClick={handleOpenRegistrationDialog}
               >
                 Registrace
               </Button>
 
               <RegistrationForm
-                open={loginDialogOpen}
-                onClose={handleCloseLoginDialog}
+                open={registrationDialogOpen}
+                onClose={handleCloseRegistrationDialog}
               />
             </Box>
           ) : (
@@ -115,7 +124,6 @@ const TopMenu = () => {
 
                   <Button
                     sx={{ my: 2, display: 'block' }}
-                    color="primary"
                     onClick={handleOpenLoginDialog}
                   >
                     Přihlášení
@@ -129,14 +137,14 @@ const TopMenu = () => {
                   <Button
                     sx={{ my: 2, display: 'block' }}
                     color="primary"
-                    onClick={handleOpenLoginDialog}
+                    onClick={handleOpenRegistrationDialog}
                   >
                     Registrace
                   </Button>
 
                   <RegistrationForm
-                    open={loginDialogOpen}
-                    onClose={handleCloseLoginDialog}
+                    open={registrationDialogOpen}
+                    onClose={handleCloseRegistrationDialog}
                   />
                 </Drawer>
               </React.Fragment>

@@ -3,8 +3,9 @@ import { OverridableComponent } from '@mui/types';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from 'firebase/auth';
-import { auth } from './store/firebase';
+import { auth, provider, providerFB } from './store/firebase';
 
 export enum Urls {
   Plans = '/plans',
@@ -86,4 +87,17 @@ export const registration = async (email: string, password: string) => {
     const errorMessage = error;
     console.log('registrace neproběhla', errorMessage);
   }
+};
+
+export const signByGoogle = async () => {
+  try {
+    await signInWithPopup(auth, provider);
+    console.log('uspěšně přihlášen přes google');
+  } catch (error) {
+    console.log('nepodařilo se');
+  }
+};
+
+export const signByFB = async () => {
+  await signInWithPopup(auth, providerFB);
 };
