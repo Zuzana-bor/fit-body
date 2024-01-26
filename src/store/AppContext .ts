@@ -1,8 +1,20 @@
 import { createContext } from 'react';
-import { FormAnswers, initialFormAnswers } from '../config';
+import {
+  FirebaseUser,
+  FormAnswers,
+  initialFormAnswers,
+  initialUser,
+  signOut,
+} from '../config';
 import { Exercise } from '../data/exercises';
 import { Trainings } from '../data-mapping/trainings';
 import { TrainingPlan } from '../data/trainingsPlans';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+import { auth } from './firebase';
 
 export type AppState = {
   formAnswers: FormAnswers;
@@ -11,11 +23,25 @@ export type AppState = {
   trainings?: Trainings;
   trainingPlans?: TrainingPlan[];
   loading: boolean;
+  user?: FirebaseUser;
+  signIn: (email: string, password: string) => Promise<void>;
+  signOut: (auth: Auth) => Promise<void>;
+  registration: (email: string, password: string) => Promise<void>;
 };
 
 export const initialState: AppState = {
   formAnswers: initialFormAnswers,
   setFormAnswers: () => undefined,
+  user: initialUser,
   loading: false,
+  signIn: async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  },
+  signOut: async () => {
+    await signOut();
+  },
+  registration: async (email: string, password: string) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+  },
 };
 export const AppContext = createContext(initialState);

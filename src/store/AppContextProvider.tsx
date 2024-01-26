@@ -1,8 +1,15 @@
 import { ReactNode } from 'react';
 import { AppContext } from './AppContext ';
-import { FormAnswers, initialFormAnswers } from '../config';
+import {
+  FirebaseUser,
+  FormAnswers,
+  initialFormAnswers,
+  registration,
+  signIn,
+} from '../config';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import useData from '../data-mapping/useData';
+import { signOut } from 'firebase/auth';
 
 type Props = {
   children: ReactNode;
@@ -13,7 +20,7 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const { exercises, trainings, loading, trainingPlans } = useData();
+  const { exercises, trainings, loading, trainingPlans, user } = useData();
 
   return (
     <AppContext.Provider
@@ -24,6 +31,10 @@ export const AppContextProvider = ({ children }: Props) => {
         exercises,
         trainingPlans,
         loading,
+        user,
+        signOut,
+        signIn,
+        registration,
       }}
     >
       {children}

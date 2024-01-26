@@ -8,9 +8,11 @@ import { Pages, Urls } from '../config';
 import { Link as RouterLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-
 import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer, IconButton, List, ListItemButton } from '@mui/material';
+import { useState } from 'react';
+import LoginForm from './LoginForm';
+import RegistrationForm from './RegistrationForm';
 
 const TopMenu = () => {
   const theme = useTheme();
@@ -18,6 +20,7 @@ const TopMenu = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
   const [state, setState] = React.useState({ left: false });
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
 
   const toggleDrawer =
     (anchor: 'left', open: boolean) =>
@@ -32,6 +35,14 @@ const TopMenu = () => {
 
       setState({ ...state, [anchor]: open });
     };
+
+  const handleOpenLoginDialog = () => {
+    setLoginDialogOpen(true);
+  };
+
+  const handleCloseLoginDialog = () => {
+    setLoginDialogOpen(false);
+  };
 
   return (
     <AppBar position="static">
@@ -51,6 +62,31 @@ const TopMenu = () => {
                   </Button>
                 ),
               )}
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                color="primary"
+                onClick={handleOpenLoginDialog}
+              >
+                Přihlášení
+              </Button>
+
+              <LoginForm
+                open={loginDialogOpen}
+                onClose={handleCloseLoginDialog}
+              />
+
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                color="primary"
+                onClick={handleOpenLoginDialog}
+              >
+                Registrace
+              </Button>
+
+              <RegistrationForm
+                open={loginDialogOpen}
+                onClose={handleCloseLoginDialog}
+              />
             </Box>
           ) : (
             <div>
@@ -76,6 +112,32 @@ const TopMenu = () => {
                       </ListItemButton>
                     ))}
                   </List>
+
+                  <Button
+                    sx={{ my: 2, display: 'block' }}
+                    color="primary"
+                    onClick={handleOpenLoginDialog}
+                  >
+                    Přihlášení
+                  </Button>
+
+                  <LoginForm
+                    open={loginDialogOpen}
+                    onClose={handleCloseLoginDialog}
+                  />
+
+                  <Button
+                    sx={{ my: 2, display: 'block' }}
+                    color="primary"
+                    onClick={handleOpenLoginDialog}
+                  >
+                    Registrace
+                  </Button>
+
+                  <RegistrationForm
+                    open={loginDialogOpen}
+                    onClose={handleCloseLoginDialog}
+                  />
                 </Drawer>
               </React.Fragment>
             </div>
