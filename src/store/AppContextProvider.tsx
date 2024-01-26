@@ -1,11 +1,23 @@
 import { ReactNode } from 'react';
 import { AppContext } from './AppContext ';
-import { FormAnswers, initialFormAnswers } from '../config';
+import {
+  FirebaseUser,
+  FormAnswers,
+  initialFormAnswers,
+  signIn,
+} from '../config';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import useData from '../data-mapping/useData';
+import { signOut } from 'firebase/auth';
 
 type Props = {
   children: ReactNode;
+};
+
+export type FirebaseType = {
+  user: FirebaseUser | null;
+  signIn: (email: string, password: string) => Promise<void>;
+  signOut: () => Promise<void>;
 };
 
 export const AppContextProvider = ({ children }: Props) => {
@@ -13,7 +25,7 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const { exercises, trainings, loading, trainingPlans } = useData();
+  const { exercises, trainings, loading, trainingPlans, user } = useData();
 
   return (
     <AppContext.Provider
@@ -24,6 +36,9 @@ export const AppContextProvider = ({ children }: Props) => {
         exercises,
         trainingPlans,
         loading,
+        user,
+        signOut,
+        signIn,
       }}
     >
       {children}
