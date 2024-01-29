@@ -8,6 +8,7 @@ import {
 import { auth, provider, providerFB } from './store/firebase';
 
 export enum Urls {
+  Profile = '/profile',
   Plans = '/plans',
   Questions = '/questions',
   Exercise = '/exercise',
@@ -25,6 +26,7 @@ export const Pages: Record<keyof typeof Urls, string> = {
   Questions: 'dotazník',
   Plans: 'tréningové plány',
   Exercise: 'databáze cviků',
+  Profile: 'Můj profil',
 };
 
 export type SvgIcon = OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
