@@ -6,7 +6,8 @@ import { TrainingsData } from '../data/trainings';
 import { TrainingPlan } from '../data/trainingsPlans';
 import { fetchApiData } from './utils';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../store/firebase';
+import { auth, db } from '../store/firebase';
+import { DocumentData, collection, getDocs } from 'firebase/firestore';
 
 const useData = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,7 @@ const useData = () => {
   const [trainingsData, setTrainingsData] = useState<TrainingsData>();
   const [trainingPlans, setTrainingPlans] = useState<TrainingPlan[]>();
   const [user, setUser] = useState<FirebaseUser | undefined>();
+  const [notes, setNotes] = useState<DocumentData>();
 
   const trainings =
     exercises && trainingsData
@@ -34,20 +36,40 @@ const useData = () => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
-    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
       if (authUser) {
         setUser({
           uid: authUser.uid,
           displayName: authUser.displayName || '',
           email: authUser.email || '',
         });
-      } else {
-        setUser(undefined);
+
+        const userNotesSnapshot = await getDocs(
+          collection(db, 'notes', authUser.uid, 'userNotes'),
+        );
+        if (!userNotesSnapshot.empty) {
+          const userNotes = userNotesSnapshot.docs.map(
+            (doc) => doc.data().note,
+          );
+          setNotes(userNotes);
+        } else {
+          setUser(undefined);
+          setNotes(undefined);
+        }
       }
     });
     return () => unsubscribe();
   }, []);
-  return { exercises, trainings, loading, trainingPlans, user };
+
+  return {
+    exercises,
+    trainings,
+    loading,
+    trainingPlans,
+    user,
+    notes,
+    setNotes,
+  };
 };
 
 export default useData;

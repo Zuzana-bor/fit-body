@@ -3,6 +3,7 @@ import {
   FirebaseUser,
   FormAnswers,
   initialFormAnswers,
+  initialNotes,
   initialUser,
   signOut,
 } from '../config';
@@ -16,6 +17,7 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import { auth, provider, providerFB } from './firebase';
+import { DocumentData } from 'firebase/firestore';
 
 export type AppState = {
   formAnswers: FormAnswers;
@@ -30,6 +32,10 @@ export type AppState = {
   registration: (email: string, password: string) => Promise<void>;
   signByGoogle: () => Promise<void>;
   signByFB: () => Promise<void>;
+  notes?: DocumentData;
+  setNotes: React.Dispatch<React.SetStateAction<DocumentData>>;
+  newNote?: DocumentData;
+  setNewNote: React.Dispatch<React.SetStateAction<DocumentData>>;
 };
 
 export const initialState: AppState = {
@@ -52,5 +58,9 @@ export const initialState: AppState = {
   signByFB: async () => {
     await signInWithPopup(auth, providerFB);
   },
+  notes: initialNotes,
+  setNotes: () => undefined,
+  newNote: initialNotes,
+  setNewNote: () => undefined,
 };
 export const AppContext = createContext(initialState);

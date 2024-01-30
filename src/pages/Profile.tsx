@@ -1,12 +1,15 @@
 import { Paper, Stack } from '@mui/material';
 import Typography from '@mui/joy/Typography';
+import React from 'react';
+import { AppContext } from '../store/AppContext ';
 
 const Profile = () => {
+  const { user, notes } = React.useContext(AppContext);
   return (
     <Stack m={4}>
-      <Typography level="h1">Ahoj Jano,</Typography>
+      <Typography level="h1">Ahoj {user?.displayName},</Typography>
       <Paper>
-        <Typography>tento týden jsi spálila 0 kcl</Typography>
+        <Typography>tento týden jsi spálila {notes?.burned} kcl</Typography>
       </Paper>
       <Typography>tvé oblíbené tréninky</Typography>
       <Typography>tvé oblíbené cviky</Typography>

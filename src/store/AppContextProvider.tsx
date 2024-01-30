@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { AppContext } from './AppContext ';
 import {
   FormAnswers,
@@ -11,6 +11,7 @@ import {
 import { useLocalStorage } from '@uidotdev/usehooks';
 import useData from '../data-mapping/useData';
 import { signOut } from 'firebase/auth';
+import { DocumentData } from 'firebase/firestore';
 
 type Props = {
   children: ReactNode;
@@ -21,7 +22,17 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const { exercises, trainings, loading, trainingPlans, user } = useData();
+  const [newNote, setNewNote] = useState<DocumentData>();
+
+  const {
+    exercises,
+    trainings,
+    loading,
+    trainingPlans,
+    user,
+    notes,
+    setNotes,
+  } = useData();
 
   return (
     <AppContext.Provider
@@ -38,6 +49,10 @@ export const AppContextProvider = ({ children }: Props) => {
         registration,
         signByGoogle,
         signByFB,
+        notes,
+        setNotes,
+        newNote,
+        setNewNote,
       }}
     >
       {children}

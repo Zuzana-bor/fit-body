@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Button, TextField, useMediaQuery, useTheme } from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -12,9 +12,12 @@ import { PlansTabsPart, plansTabsConfig } from './config';
 import TrainingTable from './TrainingTable';
 import { AppContext } from '../../store/AppContext ';
 import PageLoader from '../../layout/PageLoader';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../../store/firebase';
 
 const Plans = () => {
-  const { trainings, loading } = React.useContext(AppContext);
+  const { trainings, loading, newNote, setNewNote, user, notes, setNotes } =
+    React.useContext(AppContext);
   const [plansTabs, setPlansTabs] = useState<PlansTabsPart[]>();
   const [activeTab, setActiveTab] = useState<string>();
   const theme = useTheme();
@@ -26,6 +29,23 @@ const Plans = () => {
 
   const handleClick = (tab: string) => {
     setActiveTab(tab);
+  };
+
+  const handleAddNote = async () => {
+    if (user) {
+      const docRef = await addDoc(
+        collection(db, 'notes', user.uid, 'userNotes'),
+        {
+          note: newNote,
+        },
+      );
+
+      // Update local state with the new note
+      setNotes((prevNotes) => [{ burned: newNote }]);
+
+      // Clear the input field
+      setNewNote([]);
+    }
   };
 
   useEffect(() => {
@@ -79,6 +99,17 @@ const Plans = () => {
               })}
             </Grid>
           )}
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField id="burned" label="spáleno kalirií" variant="outlined" />
+            <Button onClick={handleAddNote}>Uložit</Button>
+          </Box>
           <Grid item xs={9}>
             {activeTraining && <TrainingTable training={activeTraining} />}
           </Grid>
