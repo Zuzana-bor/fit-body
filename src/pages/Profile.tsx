@@ -9,7 +9,12 @@ const Profile = () => {
     <Stack m={4}>
       <Typography level="h1">Ahoj {user?.displayName},</Typography>
       <Paper>
-        <Typography>tento týden jsi spálila {notes?.burned} kcl</Typography>
+        <Typography>
+          {' '}
+          {notes
+            ? `tento týden jsi spálila ${notes} kcl`
+            : 'No notes available'}{' '}
+        </Typography>
       </Paper>
       <Typography>tvé oblíbené tréninky</Typography>
       <Typography>tvé oblíbené cviky</Typography>

@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react';
 import { AppContext } from './AppContext ';
 import {
   FormAnswers,
+  NotesData,
   initialFormAnswers,
   registration,
   signByFB,
@@ -11,7 +12,6 @@ import {
 import { useLocalStorage } from '@uidotdev/usehooks';
 import useData from '../data-mapping/useData';
 import { signOut } from 'firebase/auth';
-import { DocumentData } from 'firebase/firestore';
 
 type Props = {
   children: ReactNode;
@@ -22,7 +22,7 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const [newNote, setNewNote] = useState<DocumentData>();
+  const [newNote, setNewNote] = useState<NotesData | undefined>(undefined);
 
   const {
     exercises,

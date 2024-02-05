@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ApiUrls, FirebaseUser } from '../config';
+import { ApiUrls, FirebaseUser, NotesData, initialNotes } from '../config';
 import { Exercise } from '../data/exercises';
 import { getTrainings } from './trainings';
 import { TrainingsData } from '../data/trainings';
@@ -7,7 +7,7 @@ import { TrainingPlan } from '../data/trainingsPlans';
 import { fetchApiData } from './utils';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../store/firebase';
-import { DocumentData, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 
 const useData = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ const useData = () => {
   const [trainingsData, setTrainingsData] = useState<TrainingsData>();
   const [trainingPlans, setTrainingPlans] = useState<TrainingPlan[]>();
   const [user, setUser] = useState<FirebaseUser | undefined>();
-  const [notes, setNotes] = useState<DocumentData>();
+  const [notes, setNotes] = useState<NotesData | undefined>(initialNotes);
 
   const trainings =
     exercises && trainingsData
@@ -44,18 +44,13 @@ const useData = () => {
           email: authUser.email || '',
         });
 
-        const userNotesSnapshot = await getDocs(
-          collection(db, 'notes', authUser.uid, 'userNotes'),
-        );
-        if (!userNotesSnapshot.empty) {
-          const userNotes = userNotesSnapshot.docs.map(
-            (doc) => doc.data().note,
-          );
-          setNotes(userNotes);
-        } else {
-          setUser(undefined);
-          setNotes(undefined);
-        }
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`);
+        });
+      } else {
+        setUser(undefined);
+        console.log('no such document');
       }
     });
     return () => unsubscribe();

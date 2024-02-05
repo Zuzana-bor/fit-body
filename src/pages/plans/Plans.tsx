@@ -31,23 +31,6 @@ const Plans = () => {
     setActiveTab(tab);
   };
 
-  const handleAddNote = async () => {
-    if (user) {
-      const docRef = await addDoc(
-        collection(db, 'notes', user.uid, 'userNotes'),
-        {
-          note: newNote,
-        },
-      );
-
-      // Update local state with the new note
-      setNotes((prevNotes) => [{ burned: newNote }]);
-
-      // Clear the input field
-      setNewNote([]);
-    }
-  };
-
   useEffect(() => {
     if (trainings) {
       const plansTabs = getPlansTabs(plansTabsConfig, trainings);
@@ -107,8 +90,13 @@ const Plans = () => {
             noValidate
             autoComplete="off"
           >
-            <TextField id="burned" label="spáleno kalirií" variant="outlined" />
-            <Button onClick={handleAddNote}>Uložit</Button>
+            <TextField
+              id="burned"
+              label="spáleno kalirií"
+              type="number"
+              variant="outlined"
+            />
+            <Button>Uložit</Button>
           </Box>
           <Grid item xs={9}>
             {activeTraining && <TrainingTable training={activeTraining} />}

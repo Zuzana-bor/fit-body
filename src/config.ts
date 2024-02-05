@@ -6,7 +6,6 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import { auth, provider, providerFB } from './store/firebase';
-import { DocumentData } from 'firebase/firestore';
 
 export enum Urls {
   Profile = '/profile',
@@ -68,13 +67,22 @@ export type FirebaseUser = {
   email?: string | null;
 };
 
-export const initialNotes: DocumentData[] = [
+export type NotesData = [
   {
+    user: string;
+    burned: number;
+  },
+];
+
+export const initialNotes: NotesData = [
+  {
+    user: '',
     burned: 0,
+
     // other properties...
   },
-  // additional objects if needed...
 ];
+// additional objects if needed...
 
 export const signIn = async (email: string, password: string) => {
   try {
