@@ -10,10 +10,9 @@ const Profile = () => {
       <Typography level="h1">Ahoj {user?.displayName},</Typography>
       <Paper>
         <Typography>
-          {' '}
           {notes
             ? `tento týden jsi spálila ${notes} kcl`
-            : 'No notes available'}{' '}
+            : 'No notes available'}
         </Typography>
       </Paper>
       <Typography>tvé oblíbené tréninky</Typography>

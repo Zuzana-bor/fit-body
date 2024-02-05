@@ -12,14 +12,14 @@ import { PlansTabsPart, plansTabsConfig } from './config';
 import TrainingTable from './TrainingTable';
 import { AppContext } from '../../store/AppContext ';
 import PageLoader from '../../layout/PageLoader';
-import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../../store/firebase';
+
+import { addBurned } from '../../config';
 
 const Plans = () => {
-  const { trainings, loading, newNote, setNewNote, user, notes, setNotes } =
-    React.useContext(AppContext);
+  const { trainings, loading, user } = React.useContext(AppContext);
   const [plansTabs, setPlansTabs] = useState<PlansTabsPart[]>();
   const [activeTab, setActiveTab] = useState<string>();
+  const [burned, setBurned] = useState<number>(0);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -29,6 +29,14 @@ const Plans = () => {
 
   const handleClick = (tab: string) => {
     setActiveTab(tab);
+  };
+
+  const handleBurned = () => {
+    if (user?.weeks !== null && user?.weeks !== undefined) {
+      addBurned(burned, user);
+    } else {
+      console.error('hodnota neni definována');
+    }
   };
 
   useEffect(() => {
@@ -92,11 +100,12 @@ const Plans = () => {
           >
             <TextField
               id="burned"
-              label="spáleno kalirií"
+              label="spáleno kalorií"
               type="number"
               variant="outlined"
+              onChange={(e) => setBurned(parseInt(e.target.value, 10))}
             />
-            <Button>Uložit</Button>
+            <Button onClick={handleBurned}>Uložit</Button>
           </Box>
           <Grid item xs={9}>
             {activeTraining && <TrainingTable training={activeTraining} />}

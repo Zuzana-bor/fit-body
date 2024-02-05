@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react';
 import { AppContext } from './AppContext ';
 import {
   FormAnswers,
-  NotesData,
+  addBurned,
   initialFormAnswers,
   registration,
   signByFB,
@@ -22,7 +22,7 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const [newNote, setNewNote] = useState<NotesData | undefined>(undefined);
+  const [newNote, setNewNote] = useState<number | undefined>(0);
 
   const {
     exercises,
@@ -49,6 +49,7 @@ export const AppContextProvider = ({ children }: Props) => {
         registration,
         signByGoogle,
         signByFB,
+        addBurned,
         notes,
         setNotes,
         newNote,

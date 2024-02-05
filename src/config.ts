@@ -5,7 +5,12 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth, provider, providerFB } from './store/firebase';
+import { auth, db, provider, providerFB } from './store/firebase';
+import { DocumentData, addDoc, collection } from 'firebase/firestore';
+import { getISOWeek } from 'date-fns';
+
+const currentWeekNumber: number = getISOWeek(new Date());
+console.log(currentWeekNumber);
 
 export enum Urls {
   Profile = '/profile',
@@ -59,22 +64,17 @@ export const initialUser: FirebaseUser = {
   uid: '',
   displayName: '',
   email: '',
+  weeks: { 1: { burned: 0 } },
 };
 
 export type FirebaseUser = {
   uid: string;
   displayName?: string | null;
   email?: string | null;
+  weeks: { [weekNumber: string]: { burned: number } };
 };
 
-export type NotesData = [
-  {
-    user: string;
-    burned: number;
-  },
-];
-
-export const initialNotes: NotesData = [
+export const initialNotes: DocumentData = [
   {
     user: '',
     burned: 0,
@@ -114,6 +114,25 @@ export const signByGoogle = async () => {
     console.log('uspěšně přihlášen přes google');
   } catch (error) {
     console.log('nepodařilo se');
+  }
+};
+
+export const addBurned = async (burned: number, user: FirebaseUser) => {
+  try {
+    if (user) {
+      await addDoc(collection(db, 'users'), {
+        uid: user?.uid,
+        displayName: user?.displayName,
+        email: user?.email,
+        weeks: { [currentWeekNumber]: { burned: burned } },
+      });
+
+      console.log('Document written with ID: ', burned);
+    } else {
+      console.error('User is undefined.');
+    }
+  } catch (e) {
+    console.error('Error adding document: ', e);
   }
 };
 
