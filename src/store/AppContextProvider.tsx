@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { AppContext } from './AppContext ';
 import {
   FormAnswers,
+  addBurned,
   initialFormAnswers,
   registration,
   signByFB,
@@ -21,7 +22,17 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
-  const { exercises, trainings, loading, trainingPlans, user } = useData();
+  const [newNote, setNewNote] = useState<number | undefined>(0);
+
+  const {
+    exercises,
+    trainings,
+    loading,
+    trainingPlans,
+    user,
+    notes,
+    setNotes,
+  } = useData();
 
   return (
     <AppContext.Provider
@@ -38,6 +49,11 @@ export const AppContextProvider = ({ children }: Props) => {
         registration,
         signByGoogle,
         signByFB,
+        addBurned,
+        notes,
+        setNotes,
+        newNote,
+        setNewNote,
       }}
     >
       {children}

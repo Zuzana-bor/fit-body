@@ -15,7 +15,12 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth, provider, providerFB } from './firebase';
+import { auth, db, provider, providerFB } from './firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import { getISOWeek } from 'date-fns';
+
+const currentWeekNumber: number = getISOWeek(new Date());
+console.log(currentWeekNumber);
 
 export type AppState = {
   formAnswers: FormAnswers;
@@ -30,6 +35,11 @@ export type AppState = {
   registration: (email: string, password: string) => Promise<void>;
   signByGoogle: () => Promise<void>;
   signByFB: () => Promise<void>;
+  addBurned: (burned: number, user: FirebaseUser) => Promise<void>;
+  notes?: number;
+  setNotes: React.Dispatch<React.SetStateAction<number | undefined>>;
+  newNote?: number;
+  setNewNote: React.Dispatch<React.SetStateAction<number | undefined>>;
 };
 
 export const initialState: AppState = {
@@ -52,5 +62,11 @@ export const initialState: AppState = {
   signByFB: async () => {
     await signInWithPopup(auth, providerFB);
   },
+  addBurned: async (burned: number, user: FirebaseUser) => {
+    await addDoc(collection(db, 'user'), { initialUser });
+  },
+  setNotes: () => undefined,
+  newNote: 0,
+  setNewNote: () => undefined,
 };
 export const AppContext = createContext(initialState);

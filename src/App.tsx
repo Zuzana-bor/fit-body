@@ -16,6 +16,7 @@ import { Stack, Box, responsiveFontSizes } from '@mui/material';
 import Footer from './layout/Footer';
 import { AppContextProvider } from './store/AppContextProvider';
 import ScrollToHashElement from './layout/ScrollToHashElement';
+import Profile from './pages/Profile';
 
 let theme = createTheme({
   palette: {
@@ -41,6 +42,7 @@ function App() {
                 <Route path={Urls.Questions} element={<Questions />} />
                 <Route path={Urls.Exercise} element={<Exercise />} />
                 <Route path={Urls.Home} element={<Home />} />
+                <Route path={Urls.Profile} element={<Profile />} />
               </Routes>
             </Box>
             <Footer />

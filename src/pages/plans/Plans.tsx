@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Button, TextField, useMediaQuery, useTheme } from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -13,10 +13,13 @@ import TrainingTable from './TrainingTable';
 import { AppContext } from '../../store/AppContext ';
 import PageLoader from '../../layout/PageLoader';
 
+import { addBurned } from '../../config';
+
 const Plans = () => {
-  const { trainings, loading } = React.useContext(AppContext);
+  const { trainings, loading, user } = React.useContext(AppContext);
   const [plansTabs, setPlansTabs] = useState<PlansTabsPart[]>();
   const [activeTab, setActiveTab] = useState<string>();
+  const [burned, setBurned] = useState<number>(0);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -26,6 +29,14 @@ const Plans = () => {
 
   const handleClick = (tab: string) => {
     setActiveTab(tab);
+  };
+
+  const handleBurned = () => {
+    if (user?.weeks !== null && user?.weeks !== undefined) {
+      addBurned(burned, user);
+    } else {
+      console.error('hodnota neni definována');
+    }
   };
 
   useEffect(() => {
@@ -79,6 +90,23 @@ const Plans = () => {
               })}
             </Grid>
           )}
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              id="burned"
+              label="spáleno kalorií"
+              type="number"
+              variant="outlined"
+              onChange={(e) => setBurned(parseInt(e.target.value, 10))}
+            />
+            <Button onClick={handleBurned}>Uložit</Button>
+          </Box>
           <Grid item xs={9}>
             {activeTraining && <TrainingTable training={activeTraining} />}
           </Grid>
