@@ -6,7 +6,7 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import { auth, db, provider, providerFB } from './store/firebase';
-import { DocumentData, addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { getISOWeek } from 'date-fns';
 
 const currentWeekNumber: number = getISOWeek(new Date());
@@ -73,16 +73,6 @@ export type FirebaseUser = {
   email?: string | null;
   weeks: { [weekNumber: string]: { burned: number } };
 };
-
-export const initialNotes: DocumentData = [
-  {
-    user: '',
-    burned: 0,
-
-    // other properties...
-  },
-];
-// additional objects if needed...
 
 export const signIn = async (email: string, password: string) => {
   try {
