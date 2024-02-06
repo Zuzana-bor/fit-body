@@ -3,7 +3,6 @@ import {
   FirebaseUser,
   FormAnswers,
   initialFormAnswers,
-  initialNotes,
   initialUser,
   signOut,
 } from '../config';
@@ -17,7 +16,7 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import { auth, db, provider, providerFB } from './firebase';
-import { DocumentData, addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { getISOWeek } from 'date-fns';
 
 const currentWeekNumber: number = getISOWeek(new Date());
@@ -36,7 +35,7 @@ export type AppState = {
   registration: (email: string, password: string) => Promise<void>;
   signByGoogle: () => Promise<void>;
   signByFB: () => Promise<void>;
-  addBurned: () => Promise<void>;
+  addBurned: (burned: number, user: FirebaseUser) => Promise<void>;
   notes?: number;
   setNotes: React.Dispatch<React.SetStateAction<number | undefined>>;
   newNote?: number;
@@ -63,11 +62,9 @@ export const initialState: AppState = {
   signByFB: async () => {
     await signInWithPopup(auth, providerFB);
   },
-  addBurned: async () => {
-    await addDoc(collection(db, 'users'), {});
+  addBurned: async (burned: number, user: FirebaseUser) => {
+    await addDoc(collection(db, 'user'), { initialUser });
   },
-
-  notes: 0,
   setNotes: () => undefined,
   newNote: 0,
   setNewNote: () => undefined,

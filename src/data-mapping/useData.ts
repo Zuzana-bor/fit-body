@@ -85,3 +85,5 @@ const useData = () => {
     setNotes,
   };
 };
+
+export default useData;
