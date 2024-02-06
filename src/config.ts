@@ -64,7 +64,7 @@ export const initialUser: FirebaseUser = {
   uid: '',
   displayName: '',
   email: '',
-  weeks: { 1: { burned: 0 } },
+  weeks: { '': { burned: 0 } },
 };
 
 export type FirebaseUser = {

@@ -15,12 +15,13 @@ type LoginFormProps = {
 
 const RegistrationForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const { registration } = React.useContext(AppContext);
 
   const handleLogin = () => {
     registration(email, password);
-    console.log('reg con in with:', email, password);
+    console.log('reg con in with:', email, password, name);
     onClose();
   };
 
@@ -29,6 +30,13 @@ const RegistrationForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
       <DialogTitle>Login</DialogTitle>
       <DialogContent>
         <form>
+          <TextField
+            label="DisplayName"
+            variant="outlined"
+            fullWidth
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <TextField
             label="Email"
             variant="outlined"

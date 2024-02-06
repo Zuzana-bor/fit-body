@@ -7,7 +7,7 @@ import { TrainingPlan } from '../data/trainingsPlans';
 import { fetchApiData } from './utils';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../store/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, doc, getDocs, query, where } from 'firebase/firestore';
 import { getISOWeek } from 'date-fns';
 
 const useData = () => {
@@ -44,14 +44,15 @@ const useData = () => {
 
     const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
       if (authUser) {
+        const currentUserRef = doc(db, 'users', authUser.uid);
         setUser({
           uid: authUser.uid,
-          displayName: authUser.displayName || '',
+          displayName: authUser.displayName || authUser.uid,
           email: authUser.email || '',
-          weeks: { 1: { burned: 0 } },
+          weeks: { currentWeek: { burned: 0 } },
         });
         const currentWeek = getCurrentWeekNumber();
-        console.log(currentWeek);
+
         const querySnapshot = await getDocs(
           query(
             collection(db, 'users'),
@@ -59,13 +60,12 @@ const useData = () => {
           ),
         );
 
-        let totalBurned = 0;
         querySnapshot.forEach((doc) => {
-          const userData = doc.data().burned as FirebaseUser;
-          totalBurned += userData.weeks[currentWeek]?.burned || 0;
+          const userData = doc.data();
 
-          setNotes(totalBurned);
-          console.log(totalBurned);
+          setNotes(
+            (prevNotes) => prevNotes + userData.weeks[currentWeek].burned,
+          );
         });
       } else {
         setUser(undefined);
@@ -74,7 +74,6 @@ const useData = () => {
     });
     return () => unsubscribe();
   }, []);
-
   return {
     exercises,
     trainings,
