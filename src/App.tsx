@@ -16,7 +16,7 @@ import { Stack, Box, responsiveFontSizes } from '@mui/material';
 import Footer from './layout/Footer';
 import { AppContextProvider } from './store/AppContextProvider';
 import ScrollToHashElement from './layout/ScrollToHashElement';
-import Profile from './pages/Profile';
+import Profile from './pages/profile/Profile';
 
 let theme = createTheme({
   palette: {
