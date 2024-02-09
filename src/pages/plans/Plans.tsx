@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, TextField, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Button,
+  Stack,
+  TextField,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -51,66 +57,89 @@ const Plans = () => {
     <Container sx={{ mb: 10 }}>
       {loading && <PageLoader />}
       <Box pt={4}>
-        <Grid container spacing={2} direction={{ xs: 'column', sm: 'row' }}>
-          {!isMatch ? (
-            <List>
-              {plansTabs?.map(({ name, icon: Icon, id }) => {
-                return (
-                  <ListItem disablePadding key={id}>
-                    <ListItemButton
-                      selected={id === activeTab}
-                      onClick={() => handleClick(id)}
-                    >
-                      <ListItemIcon>
-                        <Icon />
-                      </ListItemIcon>
-                      {name}
-                    </ListItemButton>
-                  </ListItem>
-                );
-              })}
-            </List>
-          ) : (
-            <Grid container spacing={2} direction="row" sx={{ m: 1 }}>
-              {plansTabs?.map(({ name, icon: Icon, id }) => {
-                return (
-                  <Grid xs={6}>
-                    <ListItemButton
-                      selected={id === activeTab}
-                      onClick={() => handleClick(id)}
-                      key={id}
-                    >
-                      <ListItemIcon>
-                        <Icon />
-                      </ListItemIcon>
-                      {name}
-                    </ListItemButton>
-                  </Grid>
-                );
-              })}
+        {!isMatch ? (
+          <>
+            <Stack direction="row" my={8} spacing={25}>
+              <List>
+                {plansTabs?.map(({ name, icon: Icon, id }) => {
+                  return (
+                    <ListItem disablePadding key={id}>
+                      <ListItemButton
+                        selected={id === activeTab}
+                        onClick={() => handleClick(id)}
+                      >
+                        <ListItemIcon>
+                          <Icon />
+                        </ListItemIcon>
+                        {name}
+                      </ListItemButton>
+                    </ListItem>
+                  );
+                })}
+              </List>
+              <Stack>
+                {' '}
+                <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <TextField
+                    id="burned"
+                    label="spáleno kalorií"
+                    type="number"
+                    variant="outlined"
+                    onChange={(e) => setBurned(parseInt(e.target.value, 10))}
+                  />
+                  <Button onClick={handleBurned}>Uložit</Button>
+                </Box>
+                {activeTraining && <TrainingTable training={activeTraining} />}
+              </Stack>
+            </Stack>
+          </>
+        ) : (
+          <Grid container spacing={2} direction="row" sx={{ m: 1 }}>
+            {plansTabs?.map(({ name, icon: Icon, id }) => {
+              return (
+                <Grid item xs={6}>
+                  <ListItemButton
+                    selected={id === activeTab}
+                    onClick={() => handleClick(id)}
+                    key={id}
+                  >
+                    <ListItemIcon>
+                      <Icon />
+                    </ListItemIcon>
+                    {name}
+                  </ListItemButton>
+                </Grid>
+              );
+            })}
+            <Box
+              component="form"
+              sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="burned"
+                label="spáleno kalorií"
+                type="number"
+                variant="outlined"
+                onChange={(e) => setBurned(parseInt(e.target.value, 10))}
+              />
+              <Button onClick={handleBurned}>Uložit</Button>
+            </Box>
+            <Grid item xs={9}>
+              {activeTraining && <TrainingTable training={activeTraining} />}
             </Grid>
-          )}
-          <Box
-            component="form"
-            sx={{
-              '& > :not(style)': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              id="burned"
-              label="spáleno kalorií"
-              type="number"
-              variant="outlined"
-              onChange={(e) => setBurned(parseInt(e.target.value, 10))}
-            />
-            <Button onClick={handleBurned}>Uložit</Button>
-          </Box>
-          <Grid item xs={9}>
-            {activeTraining && <TrainingTable training={activeTraining} />}
           </Grid>
-        </Grid>
+        )}
       </Box>
     </Container>
   );

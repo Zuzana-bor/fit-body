@@ -1,4 +1,4 @@
-import { Paper, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import Typography from '@mui/joy/Typography';
 import React, { useEffect } from 'react';
 import { AppContext } from '../../store/AppContext ';
@@ -9,7 +9,7 @@ import { getISOWeek } from 'date-fns';
 import BurnnedKcl from './BurnedKcl';
 
 const Profile = () => {
-  const { user, notes, setNotes } = React.useContext(AppContext);
+  const { user, setNotes } = React.useContext(AppContext);
   const getCurrentWeekNumber = (): number => {
     const currentDate = new Date();
     return getISOWeek(currentDate);
@@ -47,7 +47,7 @@ const Profile = () => {
   return (
     <Stack m={4}>
       <Typography level="h1">Ahoj {user?.displayName},</Typography>
-      <BurnnedKcl notes={notes} />
+      <BurnnedKcl />
 
       <Typography>tvé oblíbené tréninky</Typography>
       <Typography>tvé oblíbené cviky</Typography>
