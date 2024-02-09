@@ -7,6 +7,7 @@ import { FirebaseUser } from '../../config';
 import { db } from '../../store/firebase';
 import { getISOWeek } from 'date-fns';
 import BurnnedKcl from './BurnedKcl';
+import FavTrainings from './FavTrainings';
 
 const Profile = () => {
   const { user, setNotes } = React.useContext(AppContext);
@@ -48,8 +49,8 @@ const Profile = () => {
     <Stack m={4}>
       <Typography level="h1">Ahoj {user?.displayName},</Typography>
       <BurnnedKcl />
+      <FavTrainings />
 
-      <Typography>tvé oblíbené tréninky</Typography>
       <Typography>tvé oblíbené cviky</Typography>
       <Typography>tvé fotky</Typography>
     </Stack>

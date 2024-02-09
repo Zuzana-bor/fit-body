@@ -12,8 +12,10 @@ import { Urls } from '../../config';
 import { Training } from '../../data-mapping/trainings';
 import PageLoader from '../../layout/PageLoader';
 import { AppContext } from '../../store/AppContext ';
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import {
+  CardActions,
+  IconButton,
   List,
   ListItemButton,
   ListItemText,
@@ -24,12 +26,18 @@ import {
 
 type TrainingTableProps = {
   training: Training;
+  activeTab: string;
 };
 
-const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
-  const { loading } = React.useContext(AppContext);
+const TrainingTable: FC<TrainingTableProps> = ({ training, activeTab }) => {
+  const { loading, setLikePlan } = React.useContext(AppContext);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleClick = () => {
+    setLikePlan(activeTab);
+  };
+
   return (
     <>
       {!isMatch ? (
@@ -42,6 +50,16 @@ const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
                 <TableCell align="right">Počet opakování/ sérií</TableCell>
                 <TableCell align="right">Svalová partie</TableCell>
                 <TableCell align="right">Jak na to</TableCell>
+                <TableCell align="right">
+                  <CardActions disableSpacing>
+                    <IconButton
+                      aria-label="add to favorites"
+                      onClick={handleClick}
+                    >
+                      <FavoriteIcon />
+                    </IconButton>
+                  </CardActions>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

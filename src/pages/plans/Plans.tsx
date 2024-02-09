@@ -96,7 +96,12 @@ const Plans = () => {
                   />
                   <Button onClick={handleBurned}>Uložit</Button>
                 </Box>
-                {activeTraining && <TrainingTable training={activeTraining} />}
+                {activeTraining && activeTab && (
+                  <TrainingTable
+                    training={activeTraining}
+                    activeTab={activeTab}
+                  />
+                )}
               </Stack>
             </Stack>
           </>
@@ -136,7 +141,12 @@ const Plans = () => {
               <Button onClick={handleBurned}>Uložit</Button>
             </Box>
             <Grid item xs={9}>
-              {activeTraining && <TrainingTable training={activeTraining} />}
+              {activeTraining && activeTab && (
+                <TrainingTable
+                  training={activeTraining}
+                  activeTab={activeTab}
+                />
+              )}
             </Grid>
           </Grid>
         )}

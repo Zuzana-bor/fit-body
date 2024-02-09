@@ -1,6 +1,10 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Link, Typography } from '@mui/material';
+import { AppContext } from '../../store/AppContext ';
+import React from 'react';
+import { Urls } from '../../config';
 
 const FavTrainings = () => {
+  const { likePlan } = React.useContext(AppContext);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -18,8 +22,14 @@ const FavTrainings = () => {
         }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h6"></Typography>
-        <Typography variant="h1" color="text.secondary"></Typography>
+        <Typography gutterBottom variant="h6">
+          Tvé oblíbené tréninky
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <Link component="a" href={`${Urls.Plans}#${likePlan}`}>
+            {likePlan}
+          </Link>
+        </Typography>
       </CardContent>
     </Card>
   );
