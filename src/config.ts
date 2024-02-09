@@ -71,7 +71,7 @@ export type FirebaseUser = {
   uid: string;
   displayName?: string | null;
   email?: string | null;
-  weeks: { [weekNumber: string]: { burned: number } };
+  weeks: { [weekNumber: number]: { burned: number } };
 };
 
 export const signIn = async (email: string, password: string) => {
