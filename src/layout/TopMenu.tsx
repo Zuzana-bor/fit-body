@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { Pages, Urls } from '../config';
+import { Pages, Urls, signOut } from '../config';
 import { Link as RouterLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
@@ -53,6 +53,11 @@ const TopMenu = () => {
     setRegistrationDialogOpen(false);
   };
 
+  const handleSignOut = () => {
+    signOut();
+    console.log('uživatel odhlášen');
+  };
+
   return (
     <AppBar position="static">
       <Container>
@@ -96,6 +101,13 @@ const TopMenu = () => {
                 open={registrationDialogOpen}
                 onClose={handleCloseRegistrationDialog}
               />
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                color="secondary"
+                onClick={handleSignOut}
+              >
+                Odhlásit se
+              </Button>
             </Box>
           ) : (
             <div>

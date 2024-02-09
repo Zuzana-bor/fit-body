@@ -6,9 +6,7 @@ import { TrainingsData } from '../data/trainings';
 import { TrainingPlan } from '../data/trainingsPlans';
 import { fetchApiData } from './utils';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../store/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { getISOWeek } from 'date-fns';
+import { auth } from '../store/firebase';
 
 const useData = () => {
   const [loading, setLoading] = useState(false);
@@ -16,12 +14,6 @@ const useData = () => {
   const [trainingsData, setTrainingsData] = useState<TrainingsData>();
   const [trainingPlans, setTrainingPlans] = useState<TrainingPlan[]>();
   const [user, setUser] = useState<FirebaseUser>();
-  const [notes, setNotes] = useState<number | undefined>(0);
-
-  const getCurrentWeekNumber = (): number => {
-    const currentDate = new Date();
-    return getISOWeek(currentDate);
-  };
 
   const trainings =
     exercises && trainingsData
@@ -40,7 +32,6 @@ const useData = () => {
 
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
 
     const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
       if (authUser) {
@@ -49,23 +40,6 @@ const useData = () => {
           displayName: authUser.displayName || '',
           email: authUser.email || '',
           weeks: { 1: { burned: 0 } },
-        });
-        const currentWeek = getCurrentWeekNumber();
-        console.log(currentWeek);
-        const querySnapshot = await getDocs(
-          query(
-            collection(db, 'users'),
-            where(`weeks.${currentWeek}.burned`, `>`, 0),
-          ),
-        );
-
-        let totalBurned = 0;
-        querySnapshot.forEach((doc) => {
-          const userData = doc.data().burned as FirebaseUser;
-          totalBurned += userData.weeks[currentWeek]?.burned || 0;
-
-          setNotes(totalBurned);
-          console.log(totalBurned);
         });
       } else {
         setUser(undefined);
@@ -81,8 +55,6 @@ const useData = () => {
     loading,
     trainingPlans,
     user,
-    notes,
-    setNotes,
   };
 };
 
