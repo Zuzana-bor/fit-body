@@ -41,7 +41,7 @@ const Profile = () => {
     };
 
     fetchData();
-  }, []);
+  }, [setNotes]);
 
   return (
     <Stack m={4}>

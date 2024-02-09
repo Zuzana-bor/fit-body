@@ -22,17 +22,10 @@ export const AppContextProvider = ({ children }: Props) => {
     'formAnswers',
     initialFormAnswers,
   );
+  const [notes, setNotes] = useState<number | undefined>(0);
   const [newNote, setNewNote] = useState<number | undefined>(0);
 
-  const {
-    exercises,
-    trainings,
-    loading,
-    trainingPlans,
-    user,
-    notes,
-    setNotes,
-  } = useData();
+  const { exercises, trainings, loading, trainingPlans, user } = useData();
 
   return (
     <AppContext.Provider
