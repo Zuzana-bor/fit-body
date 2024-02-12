@@ -8,14 +8,14 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
-import { Urls } from '../../config';
+import { Urls, addLikePlan } from '../../config';
 import { Training } from '../../data-mapping/trainings';
 import PageLoader from '../../layout/PageLoader';
 import { AppContext } from '../../store/AppContext ';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddIcon from '@mui/icons-material/Add';
 import {
-  CardActions,
-  IconButton,
+  Button,
+  Fab,
   List,
   ListItemButton,
   ListItemText,
@@ -30,12 +30,17 @@ type TrainingTableProps = {
 };
 
 const TrainingTable: FC<TrainingTableProps> = ({ training, activeTab }) => {
-  const { loading, setLikePlan } = React.useContext(AppContext);
+  const { loading, user } = React.useContext(AppContext);
+
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleClick = () => {
-    setLikePlan(activeTab);
+  const handleLikePlan = () => {
+    if (user !== null && user !== undefined) {
+      addLikePlan(activeTab, user);
+    } else {
+      console.error('oblíbený plán neni definován');
+    }
   };
 
   return (
@@ -51,14 +56,11 @@ const TrainingTable: FC<TrainingTableProps> = ({ training, activeTab }) => {
                 <TableCell align="right">Svalová partie</TableCell>
                 <TableCell align="right">Jak na to</TableCell>
                 <TableCell align="right">
-                  <CardActions disableSpacing>
-                    <IconButton
-                      aria-label="add to favorites"
-                      onClick={handleClick}
-                    >
-                      <FavoriteIcon />
-                    </IconButton>
-                  </CardActions>
+                  <Button onClick={handleLikePlan}>
+                    <Fab color="secondary" aria-label="add">
+                      <AddIcon />
+                    </Fab>
+                  </Button>
                 </TableCell>
               </TableRow>
             </TableHead>

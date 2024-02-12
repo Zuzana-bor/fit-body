@@ -1,16 +1,22 @@
-import { Stack } from '@mui/material';
+import { Paper, Stack } from '@mui/material';
 import Typography from '@mui/joy/Typography';
 import React, { useEffect } from 'react';
+import {
+  getDocs,
+  query,
+  collection,
+  where,
+  doc,
+  getDoc,
+} from 'firebase/firestore';
+import { getISOWeek } from 'date-fns';
 import { AppContext } from '../../store/AppContext ';
-import { getDocs, query, collection, where } from 'firebase/firestore';
 import { FirebaseUser } from '../../config';
 import { db } from '../../store/firebase';
-import { getISOWeek } from 'date-fns';
-import BurnnedKcl from './BurnedKcl';
 import FavTrainings from './FavTrainings';
 
 const Profile = () => {
-  const { user, setNotes } = React.useContext(AppContext);
+  const { user, notes, setNotes, setLikePlan } = React.useContext(AppContext);
   const getCurrentWeekNumber = (): number => {
     const currentDate = new Date();
     return getISOWeek(currentDate);
@@ -37,7 +43,7 @@ const Profile = () => {
         if (userData.weeks[currentWeek]) {
           totalBurned += userData.weeks[currentWeek].burned || 0;
         }
-
+        console.log('tolik spáleno', totalBurned);
         setNotes(totalBurned);
       });
     };
@@ -45,12 +51,36 @@ const Profile = () => {
     fetchData();
   }, [setNotes]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, 'users', 'likePlan');
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log('liky jsou', docSnap.data());
+        setLikePlan(docSnap.data().likePlan || []);
+      } else {
+        console.log('nic není likované');
+      }
+    };
+
+    fetchData();
+  }, [setLikePlan]);
+
   return (
     <Stack m={4}>
       <Typography level="h1">Ahoj {user?.displayName},</Typography>
-      <BurnnedKcl />
-      <FavTrainings />
-
+      <Paper>
+        <Typography>
+          {notes
+            ? `tento týden jsi spálila ${notes} kcl`
+            : 'No notes available'}
+        </Typography>
+      </Paper>
+      <Typography>
+        <FavTrainings />
+        {user?.likePlan}
+      </Typography>
       <Typography>tvé oblíbené cviky</Typography>
       <Typography>tvé fotky</Typography>
     </Stack>

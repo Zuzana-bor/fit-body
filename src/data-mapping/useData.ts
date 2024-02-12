@@ -40,6 +40,7 @@ const useData = () => {
           displayName: authUser.displayName || '',
           email: authUser.email || '',
           weeks: { 1: { burned: 0 } },
+          likePlan: [''],
         });
       } else {
         setUser(undefined);

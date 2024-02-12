@@ -40,8 +40,8 @@ export type AppState = {
   setNotes: React.Dispatch<React.SetStateAction<number | undefined>>;
   newNote?: number;
   setNewNote: React.Dispatch<React.SetStateAction<number | undefined>>;
-  likePlan?: string;
-  setLikePlan: React.Dispatch<React.SetStateAction<string | undefined>>;
+  likePlan?: string[];
+  setLikePlan: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 export const initialState: AppState = {
@@ -70,7 +70,7 @@ export const initialState: AppState = {
   setNotes: () => undefined,
   newNote: 0,
   setNewNote: () => undefined,
-  likePlan: '',
+  likePlan: [''],
   setLikePlan: () => undefined,
 };
 export const AppContext = createContext(initialState);

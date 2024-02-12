@@ -65,6 +65,7 @@ export const initialUser: FirebaseUser = {
   displayName: '',
   email: '',
   weeks: { 1: { burned: 0 } },
+  likePlan: [''],
 };
 
 export type FirebaseUser = {
@@ -72,6 +73,7 @@ export type FirebaseUser = {
   displayName?: string | null;
   email?: string | null;
   weeks: { [weekNumber: number]: { burned: number } };
+  likePlan: string[];
 };
 
 export const signIn = async (email: string, password: string) => {
@@ -118,11 +120,25 @@ export const addBurned = async (burned: number, user: FirebaseUser) => {
       });
 
       console.log('Document written with ID: ', burned);
-    } else {
-      console.error('User is undefined.');
     }
   } catch (e) {
     console.error('Error adding document: ', e);
+  }
+};
+
+export const addLikePlan = async (likePlan: string, user: FirebaseUser) => {
+  try {
+    if (user) {
+      await addDoc(collection(db, 'users'), {
+        uid: user?.uid,
+        displayName: user?.displayName,
+        email: user?.email,
+        likePlan: [likePlan],
+      });
+      console.log('Document about favorite Plans ');
+    }
+  } catch (e) {
+    console.error('error addind favorte plan', e);
   }
 };
 
