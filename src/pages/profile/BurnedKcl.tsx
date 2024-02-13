@@ -7,20 +7,6 @@ const BurnnedKcl = () => {
   const { notes } = React.useContext(AppContext);
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        image="/assets/burnedKcl.png"
-        title="spálené kalorie"
-        component="img"
-        sx={{
-          height: {
-            xs: 100,
-            sm: 200,
-            md: 250,
-            lg: 250,
-          },
-          objectFit: 'contain',
-        }}
-      />
       <CardContent>
         <Typography gutterBottom variant="h6">
           Tento týden jsi spálila

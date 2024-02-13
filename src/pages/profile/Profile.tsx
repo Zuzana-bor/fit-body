@@ -1,4 +1,4 @@
-import { Paper, Stack } from '@mui/material';
+import { Container, Paper, Stack } from '@mui/material';
 import Typography from '@mui/joy/Typography';
 import React, { useEffect } from 'react';
 import {
@@ -14,6 +14,7 @@ import { AppContext } from '../../store/AppContext ';
 import { FirebaseUser } from '../../config';
 import { db } from '../../store/firebase';
 import FavTrainings from './FavTrainings';
+import BurnnedKcl from './BurnedKcl';
 
 const Profile = () => {
   const { user, notes, setNotes, setLikePlan } = React.useContext(AppContext);
@@ -72,22 +73,22 @@ const Profile = () => {
   }, [setLikePlan]);
 
   return (
-    <Stack m={4}>
-      <Typography level="h1">Ahoj {user?.displayName},</Typography>
-      <Paper>
-        <Typography>
-          {notes
-            ? `tento týden jsi spálila ${notes} kcl`
-            : 'No notes available'}
-        </Typography>
-      </Paper>
-      <Typography>
+    <Container sx={{ mt: 10 }}>
+      <Typography level="h1">Ahoj {user?.displayName}</Typography>
+      <Stack
+        spacing={{ xs: 1, sm: 2 }}
+        direction="row"
+        useFlexGap
+        flexWrap="wrap"
+      >
+        <BurnnedKcl />
+
         <FavTrainings />
-        {user?.likePlan}
-      </Typography>
-      <Typography>tvé oblíbené cviky</Typography>
-      <Typography>tvé fotky</Typography>
-    </Stack>
+
+        <Typography>tvé oblíbené cviky</Typography>
+        <Typography>tvé fotky</Typography>
+      </Stack>
+    </Container>
   );
 };
 
