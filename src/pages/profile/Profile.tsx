@@ -53,15 +53,19 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, 'users', 'likePlan');
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        console.log('liky jsou', docSnap.data());
-        setLikePlan(docSnap.data().likePlan || []);
-      } else {
-        console.log('nic není likované');
-      }
+      const querySnapshot = await getDocs(
+        query(collection(db, 'users'), where('likePlan', '!=', [])),
+      );
+      querySnapshot.forEach((doc) => {
+        const userData = doc.data();
+        if (userData) {
+          setLikePlan((prevLikePlan) => {
+            const existingLikePlan = userData.likePlan || [];
+            return [...prevLikePlan, ...existingLikePlan];
+          });
+          console.log(userData);
+        }
+      });
     };
 
     fetchData();
