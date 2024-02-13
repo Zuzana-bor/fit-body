@@ -86,7 +86,7 @@ export const signIn = async (email: string, password: string) => {
 };
 
 export const signOut = async () => {
-  await signOut();
+  await signOut;
 };
 
 export const registration = async (email: string, password: string) => {
