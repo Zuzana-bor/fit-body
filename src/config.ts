@@ -64,7 +64,7 @@ export type FirebaseUser = {
   uid: string;
   displayName?: string | null;
   email?: string | null;
-  weeks: { weekNumber: number; burned: number }[];
+  weeks: [{ weekNumber: number; burned: number }];
   likePlan: string[];
 };
 

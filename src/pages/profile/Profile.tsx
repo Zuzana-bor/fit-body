@@ -32,22 +32,23 @@ const Profile = () => {
       const userId = user.uid;
 
       const querySnapshot = await getDocs(
-        query(
-          collection(db, 'users'),
-          where('uid', '==', userId),
-          where(`weeks.${currentWeek}.burned`, '>', 0),
-        ),
+        query(collection(db, 'users'), where('uid', '==', userId)),
       );
 
       let totalBurned = 0;
       querySnapshot.forEach((doc) => {
         const userData = doc.data() as FirebaseUser;
-        if (userData.weeks[currentWeek]) {
-          totalBurned += userData.weeks[currentWeek].burned || 0;
+        if (userData.weeks && Array.isArray(userData.weeks)) {
+          userData.weeks.forEach((week) => {
+            if (week.weekNumber === currentWeek) {
+              totalBurned += week.burned || 0;
+            }
+          });
         }
-        console.log('tolik spáleno', totalBurned);
-        setNotes(totalBurned);
       });
+
+      console.log('tolik spáleno', totalBurned);
+      setNotes(totalBurned);
     };
 
     fetchData();
