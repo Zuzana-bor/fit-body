@@ -20,6 +20,7 @@ import { AppContext } from '../../store/AppContext ';
 import PageLoader from '../../layout/PageLoader';
 
 import { addBurned } from '../../config';
+import { getISOWeek } from 'date-fns';
 
 const Plans = () => {
   const { trainings, loading, user } = React.useContext(AppContext);
@@ -28,6 +29,11 @@ const Plans = () => {
   const [burned, setBurned] = useState<number>(0);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+
+  const getCurrentWeekNumber = (): number => {
+    const currentDate = new Date();
+    return getISOWeek(currentDate);
+  };
 
   const activeTraining = plansTabs?.find(
     (item) => item.id === activeTab,
@@ -38,8 +44,9 @@ const Plans = () => {
   };
 
   const handleBurned = () => {
+    const weekNumber = getCurrentWeekNumber();
     if (user?.weeks !== null && user?.weeks !== undefined) {
-      addBurned(burned, user);
+      addBurned(burned, user, weekNumber);
     } else {
       console.error('hodnota neni definována');
     }

@@ -60,20 +60,20 @@ export type FormAnswers = {
   intensity: string;
 };
 
-export const initialUser: FirebaseUser = {
-  uid: '',
-  displayName: '',
-  email: '',
-  weeks: { 1: { burned: 0 } },
-  likePlan: [''],
-};
-
 export type FirebaseUser = {
   uid: string;
   displayName?: string | null;
   email?: string | null;
-  weeks: { [weekNumber: number]: { burned: number } };
+  weeks: { weekNumber: number; burned: number }[];
   likePlan: string[];
+};
+
+export const initialUser: FirebaseUser = {
+  uid: '',
+  displayName: '',
+  email: '',
+  weeks: [{ weekNumber: 7, burned: 0 }],
+  likePlan: [''],
 };
 
 export const signIn = async (email: string, password: string) => {
@@ -109,14 +109,19 @@ export const signByGoogle = async () => {
   }
 };
 
-export const addBurned = async (burned: number, user: FirebaseUser) => {
+export const addBurned = async (
+  burned: number,
+  user: FirebaseUser,
+  weekNumber: number,
+) => {
   try {
     if (user) {
       await addDoc(collection(db, 'users'), {
-        uid: user?.uid,
-        displayName: user?.displayName,
-        email: user?.email,
-        weeks: { [currentWeekNumber]: { burned: burned } },
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+
+        weeks: [{ weekNumber: weekNumber, burned: burned }],
       });
 
       console.log('Document written with ID: ', burned);

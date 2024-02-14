@@ -35,7 +35,11 @@ export type AppState = {
   registration: (email: string, password: string) => Promise<void>;
   signByGoogle: () => Promise<void>;
   signByFB: () => Promise<void>;
-  addBurned: (burned: number, user: FirebaseUser) => Promise<void>;
+  addBurned: (
+    burned: number,
+    user: FirebaseUser,
+    weekNumber: number,
+  ) => Promise<void>;
   notes?: number;
   setNotes: React.Dispatch<React.SetStateAction<number | undefined>>;
   newNote?: number;
