@@ -1,27 +1,21 @@
-import { Container, Paper, Stack } from '@mui/material';
+import { Container, Stack } from '@mui/material';
 import Typography from '@mui/joy/Typography';
 import React, { useEffect } from 'react';
-import {
-  getDocs,
-  query,
-  collection,
-  where,
-  doc,
-  getDoc,
-} from 'firebase/firestore';
+import { getDocs, query, collection, where } from 'firebase/firestore';
 import { getISOWeek } from 'date-fns';
 import { AppContext } from '../../store/AppContext ';
 import { FirebaseUser } from '../../config';
-import { db } from '../../store/firebase';
+import { auth, db } from '../../store/firebase';
 import FavTrainings from './FavTrainings';
 import BurnnedKcl from './BurnedKcl';
 
 const Profile = () => {
-  const { user, notes, setNotes, setLikePlan } = React.useContext(AppContext);
+  const { user, setNotes, setLikePlan } = React.useContext(AppContext);
   const getCurrentWeekNumber = (): number => {
     const currentDate = new Date();
     return getISOWeek(currentDate);
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const currentWeek = getCurrentWeekNumber();
@@ -31,10 +25,17 @@ const Profile = () => {
         );
         return;
       }
+
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const userId = user.uid;
+
       const querySnapshot = await getDocs(
         query(
           collection(db, 'users'),
-          where(`weeks.${currentWeek}.burned`, `>`, 0),
+          where('uid', '==', userId),
+          where(`weeks.${currentWeek}.burned`, '>', 0),
         ),
       );
 
@@ -54,9 +55,15 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const userId = user.uid;
+
       const querySnapshot = await getDocs(
-        query(collection(db, 'users'), where('likePlan', '!=', [])),
+        query(collection(db, 'users'), where('uid', '==', userId)),
       );
+
       querySnapshot.forEach((doc) => {
         const userData = doc.data();
         if (userData) {
@@ -64,7 +71,6 @@ const Profile = () => {
             const existingLikePlan = userData.likePlan || [];
             return [...prevLikePlan, ...existingLikePlan];
           });
-          console.log(userData);
         }
       });
     };

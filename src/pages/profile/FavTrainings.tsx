@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardMedia,
   Link,
   List,
   ListItem,
@@ -12,6 +11,7 @@ import React from 'react';
 
 const FavTrainings = () => {
   const { likePlan } = React.useContext(AppContext);
+  console.log(likePlan);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
