@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { AppContext } from '../../store/AppContext ';
 import React from 'react';
+import { Urls } from '../../config';
 
 const FavTrainings = () => {
   const { likePlan } = React.useContext(AppContext);
@@ -27,7 +28,9 @@ const FavTrainings = () => {
               ) // Odstranění duplikátů
               ?.map((plan: string) => (
                 <ListItem key={plan}>
-                  <Link>{plan}</Link>
+                  <Link component="a" href={`${Urls.Plans}#${likePlan}`}>
+                    {plan}
+                  </Link>
                 </ListItem>
               ))}
           </List>
