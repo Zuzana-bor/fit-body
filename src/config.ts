@@ -60,18 +60,20 @@ export type FormAnswers = {
   intensity: string;
 };
 
-export const initialUser: FirebaseUser = {
-  uid: '',
-  displayName: '',
-  email: '',
-  weeks: { 1: { burned: 0 } },
-};
-
 export type FirebaseUser = {
   uid: string;
   displayName?: string | null;
   email?: string | null;
-  weeks: { [weekNumber: number]: { burned: number } };
+  weeks: [{ weekNumber: number; burned: number }];
+  likePlan: string[];
+};
+
+export const initialUser: FirebaseUser = {
+  uid: '',
+  displayName: '',
+  email: '',
+  weeks: [{ weekNumber: 7, burned: 0 }],
+  likePlan: [''],
 };
 
 export const signIn = async (email: string, password: string) => {
@@ -84,7 +86,7 @@ export const signIn = async (email: string, password: string) => {
 };
 
 export const signOut = async () => {
-  await signOut();
+  await signOut;
 };
 
 export const registration = async (email: string, password: string) => {
@@ -107,22 +109,41 @@ export const signByGoogle = async () => {
   }
 };
 
-export const addBurned = async (burned: number, user: FirebaseUser) => {
+export const addBurned = async (
+  burned: number,
+  user: FirebaseUser,
+  weekNumber: number,
+) => {
+  try {
+    if (user) {
+      await addDoc(collection(db, 'users'), {
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+
+        weeks: [{ weekNumber: weekNumber, burned: burned }],
+      });
+
+      console.log('Document written with ID: ', burned);
+    }
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+};
+
+export const addLikePlan = async (likePlan: string, user: FirebaseUser) => {
   try {
     if (user) {
       await addDoc(collection(db, 'users'), {
         uid: user?.uid,
         displayName: user?.displayName,
         email: user?.email,
-        weeks: { [currentWeekNumber]: { burned: burned } },
+        likePlan: [likePlan],
       });
-
-      console.log('Document written with ID: ', burned);
-    } else {
-      console.error('User is undefined.');
+      console.log('Document about favorite Plans ');
     }
   } catch (e) {
-    console.error('Error adding document: ', e);
+    console.error('error addind favorte plan', e);
   }
 };
 

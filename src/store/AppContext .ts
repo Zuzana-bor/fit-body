@@ -35,11 +35,17 @@ export type AppState = {
   registration: (email: string, password: string) => Promise<void>;
   signByGoogle: () => Promise<void>;
   signByFB: () => Promise<void>;
-  addBurned: (burned: number, user: FirebaseUser) => Promise<void>;
+  addBurned: (
+    burned: number,
+    user: FirebaseUser,
+    weekNumber: number,
+  ) => Promise<void>;
   notes?: number;
   setNotes: React.Dispatch<React.SetStateAction<number | undefined>>;
   newNote?: number;
   setNewNote: React.Dispatch<React.SetStateAction<number | undefined>>;
+  likePlan?: string[];
+  setLikePlan: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 export const initialState: AppState = {
@@ -68,5 +74,7 @@ export const initialState: AppState = {
   setNotes: () => undefined,
   newNote: 0,
   setNewNote: () => undefined,
+  likePlan: [''],
+  setLikePlan: () => undefined,
 };
 export const AppContext = createContext(initialState);

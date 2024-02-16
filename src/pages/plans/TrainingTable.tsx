@@ -8,12 +8,14 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
-import { Urls } from '../../config';
+import { Urls, addLikePlan } from '../../config';
 import { Training } from '../../data-mapping/trainings';
 import PageLoader from '../../layout/PageLoader';
 import { AppContext } from '../../store/AppContext ';
-
+import AddIcon from '@mui/icons-material/Add';
 import {
+  Button,
+  Fab,
   List,
   ListItemButton,
   ListItemText,
@@ -24,12 +26,23 @@ import {
 
 type TrainingTableProps = {
   training: Training;
+  activeTab: string;
 };
 
-const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
-  const { loading } = React.useContext(AppContext);
+const TrainingTable: FC<TrainingTableProps> = ({ training, activeTab }) => {
+  const { loading, user } = React.useContext(AppContext);
+
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleLikePlan = () => {
+    if (user !== null && user !== undefined) {
+      addLikePlan(activeTab, user);
+    } else {
+      console.error('oblíbený plán neni definován');
+    }
+  };
+
   return (
     <>
       {!isMatch ? (
@@ -42,6 +55,13 @@ const TrainingTable: FC<TrainingTableProps> = ({ training }) => {
                 <TableCell align="right">Počet opakování/ sérií</TableCell>
                 <TableCell align="right">Svalová partie</TableCell>
                 <TableCell align="right">Jak na to</TableCell>
+                <TableCell align="right">
+                  <Button onClick={handleLikePlan}>
+                    <Fab color="secondary" aria-label="add">
+                      <AddIcon />
+                    </Fab>
+                  </Button>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
