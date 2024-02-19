@@ -62,6 +62,7 @@ export type FormAnswers = {
 
 export type FirebaseUser = {
   uid: string;
+  name: string;
   displayName?: string | null;
   email?: string | null;
   weeks: [{ weekNumber: number; burned: number }];
@@ -70,6 +71,7 @@ export type FirebaseUser = {
 
 export const initialUser: FirebaseUser = {
   uid: '',
+  name: '',
   displayName: '',
   email: '',
   weeks: [{ weekNumber: 7, burned: 0 }],

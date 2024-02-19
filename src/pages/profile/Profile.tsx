@@ -10,7 +10,7 @@ import FavTrainings from './FavTrainings';
 import BurnnedKcl from './BurnedKcl';
 
 const Profile = () => {
-  const { user, setNotes, setLikePlan } = React.useContext(AppContext);
+  const { user, setNotes, setLikePlan, name } = React.useContext(AppContext);
   const getCurrentWeekNumber = (): number => {
     const currentDate = new Date();
     return getISOWeek(currentDate);
@@ -83,7 +83,7 @@ const Profile = () => {
       sx={{ bgcolor: '#e8f5e9', minWidth: '100vw', minHeight: '100vh' }}
     >
       <Typography level="h1" textAlign={'center'} pt={10}>
-        Ahoj {user?.displayName}
+        Ahoj {user?.displayName ? user?.displayName : name}
       </Typography>
       <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }} p={3}>
         <BurnnedKcl />
