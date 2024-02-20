@@ -18,11 +18,14 @@ type LoginFormProps = {
 const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signIn, signByGoogle, signByFB } = React.useContext(AppContext);
+
+  const { signIn, signByGoogle, signByFB, setSign } =
+    React.useContext(AppContext);
 
   const handleLogin = () => {
     signIn(email, password);
     console.log('Logging in with:', email, password);
+    setSign(true);
     onClose();
   };
 

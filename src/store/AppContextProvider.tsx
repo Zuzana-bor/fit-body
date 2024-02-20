@@ -26,6 +26,7 @@ export const AppContextProvider = ({ children }: Props) => {
   const [newNote, setNewNote] = useState<number | undefined>(0);
   const [likePlan, setLikePlan] = useState<string[]>([]);
   const [name, setName] = useState<string>('');
+  const [sign, setSign] = useState<boolean>(false);
 
   const { exercises, trainings, loading, trainingPlans, user } = useData();
 
@@ -53,6 +54,8 @@ export const AppContextProvider = ({ children }: Props) => {
         setLikePlan,
         name,
         setName,
+        sign,
+        setSign,
       }}
     >
       {children}

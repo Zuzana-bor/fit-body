@@ -48,6 +48,8 @@ export type AppState = {
   setLikePlan: React.Dispatch<React.SetStateAction<string[]>>;
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
+  sign: boolean;
+  setSign: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const initialState: AppState = {
@@ -80,5 +82,7 @@ export const initialState: AppState = {
   setLikePlan: () => undefined,
   name: '',
   setName: () => undefined,
+  sign: false,
+  setSign: () => {},
 };
 export const AppContext = createContext(initialState);

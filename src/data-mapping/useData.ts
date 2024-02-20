@@ -55,7 +55,7 @@ const useData = () => {
         console.log('no such document');
       }
     });
-    console.log(user);
+
     return () => unsubscribe();
   }, []);
 
