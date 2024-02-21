@@ -1,6 +1,6 @@
 # Fit body
 
-This application, which is not only for women on maternity leave, will compile a training plan for you. Just fill out a short questionnaire and find out which training to do when, how to eat and how to change your lifestyle. You can try it here https://bodyf.netlify.app/
+This application will compile a training plan for you. Just fill out a short questionnaire and find out which training to do when, how to eat and how to change your lifestyle. You can try it here https://bodyf.netlify.app/
 
 ## Built with
 
