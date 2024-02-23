@@ -3,23 +3,23 @@ import { AppContext } from '../../store/AppContext ';
 import React from 'react';
 import { Urls } from '../../config';
 
-const FavTrainings = () => {
-  const { likePlan } = React.useContext(AppContext);
+const FavExercises = () => {
+  const { likeExercise } = React.useContext(AppContext);
 
   return (
     <Box p={5} sx={{ borderRadius: 8, bgcolor: 'white' }}>
-      <Typography variant="h6">Tvé oblíbené tréninky</Typography>
+      <Typography variant="h6">Tvé oblíbené cviky</Typography>
       <Typography variant="h4" color="text.primary">
         <List>
-          {likePlan
+          {likeExercise
             ?.filter(
               (value: string, index: number, self: string[]) =>
                 self.indexOf(value) === index,
             )
-            ?.map((plan: string) => (
-              <ListItem key={plan}>
-                <Link component="a" href={`${Urls.Plans}#${likePlan}`}>
-                  {plan}
+            ?.map((exercise: string) => (
+              <ListItem key={exercise}>
+                <Link component="a" href={`${Urls.Exercise}#${likeExercise}`}>
+                  {exercise}
                 </Link>
               </ListItem>
             ))}
@@ -29,4 +29,4 @@ const FavTrainings = () => {
   );
 };
 
-export default FavTrainings;
+export default FavExercises;

@@ -8,9 +8,11 @@ import { FirebaseUser } from '../../config';
 import { auth, db } from '../../store/firebase';
 import FavTrainings from './FavTrainings';
 import BurnnedKcl from './BurnedKcl';
+import FavExercises from './FavExercises';
 
 const Profile = () => {
-  const { user, setNotes, setLikePlan, name } = React.useContext(AppContext);
+  const { user, setNotes, setLikePlan, setLikeExercise, name } =
+    React.useContext(AppContext);
   const getCurrentWeekNumber = (): number => {
     const currentDate = new Date();
     return getISOWeek(currentDate);
@@ -71,12 +73,16 @@ const Profile = () => {
             const existingLikePlan = userData.likePlan || [];
             return [...prevLikePlan, ...existingLikePlan];
           });
+          setLikeExercise((prevLikeExercise) => {
+            const existingLikeExercise = userData.likeExercise || [];
+            return [...prevLikeExercise, ...existingLikeExercise];
+          });
         }
       });
     };
 
     fetchData();
-  }, [setLikePlan]);
+  }, [setLikeExercise, setLikePlan]);
 
   return (
     <Container
@@ -90,7 +96,8 @@ const Profile = () => {
 
         <FavTrainings />
 
-        <Typography>tvé oblíbené cviky</Typography>
+        <FavExercises />
+
         <Typography>tvé fotky</Typography>
       </Stack>
     </Container>

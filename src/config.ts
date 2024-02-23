@@ -149,6 +149,25 @@ export const addLikePlan = async (likePlan: string, user: FirebaseUser) => {
   }
 };
 
+export const addLikeExercise = async (
+  likeExercise: string,
+  user: FirebaseUser,
+) => {
+  try {
+    if (user) {
+      await addDoc(collection(db, 'users'), {
+        uid: user?.uid,
+        displayName: user?.displayName,
+        email: user?.email,
+        likeExercise: [likeExercise],
+      });
+      console.log('Document about favorite exercise ');
+    }
+  } catch (e) {
+    console.error('error addind favorte exercise', e);
+  }
+};
+
 export const signByFB = async () => {
   await signInWithPopup(auth, providerFB);
 };

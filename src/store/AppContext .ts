@@ -46,6 +46,8 @@ export type AppState = {
   setNewNote: React.Dispatch<React.SetStateAction<number | undefined>>;
   likePlan?: string[];
   setLikePlan: React.Dispatch<React.SetStateAction<string[]>>;
+  likeExercise?: string[];
+  setLikeExercise: React.Dispatch<React.SetStateAction<string[]>>;
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
   sign: boolean;
@@ -80,6 +82,8 @@ export const initialState: AppState = {
   setNewNote: () => undefined,
   likePlan: [''],
   setLikePlan: () => undefined,
+  likeExercise: [''],
+  setLikeExercise: () => undefined,
   name: '',
   setName: () => undefined,
   sign: false,
