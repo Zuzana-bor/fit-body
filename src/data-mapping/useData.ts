@@ -44,6 +44,7 @@ const useData = () => {
       if (authUser) {
         setUser({
           uid: authUser.uid,
+          name: '',
           displayName: authUser.displayName || '',
           email: authUser.email || '',
           weeks: [{ weekNumber: weekNumber, burned: 0 }],
@@ -54,6 +55,7 @@ const useData = () => {
         console.log('no such document');
       }
     });
+
     return () => unsubscribe();
   }, []);
 

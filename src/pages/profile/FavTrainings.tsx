@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Link,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material';
+import { Box, Link, List, ListItem, Typography } from '@mui/material';
 import { AppContext } from '../../store/AppContext ';
 import React from 'react';
 import { Urls } from '../../config';
@@ -14,29 +7,25 @@ const FavTrainings = () => {
   const { likePlan } = React.useContext(AppContext);
   console.log(likePlan);
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <Typography gutterBottom variant="h6">
-          Tvé oblíbené tréninky
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <List>
-            {likePlan
-              ?.filter(
-                (value: string, index: number, self: string[]) =>
-                  self.indexOf(value) === index,
-              ) // Odstranění duplikátů
-              ?.map((plan: string) => (
-                <ListItem key={plan}>
-                  <Link component="a" href={`${Urls.Plans}#${likePlan}`}>
-                    {plan}
-                  </Link>
-                </ListItem>
-              ))}
-          </List>
-        </Typography>
-      </CardContent>
-    </Card>
+    <Box p={5} sx={{ borderRadius: 8, bgcolor: 'white' }}>
+      <Typography variant="h6">Tvé oblíbené tréninky</Typography>
+      <Typography variant="h4" color="text.primary">
+        <List>
+          {likePlan
+            ?.filter(
+              (value: string, index: number, self: string[]) =>
+                self.indexOf(value) === index,
+            )
+            ?.map((plan: string) => (
+              <ListItem key={plan}>
+                <Link component="a" href={`${Urls.Plans}#${likePlan}`}>
+                  {plan}
+                </Link>
+              </ListItem>
+            ))}
+        </List>
+      </Typography>
+    </Box>
   );
 };
 

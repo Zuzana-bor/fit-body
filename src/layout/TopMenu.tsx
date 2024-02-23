@@ -13,6 +13,7 @@ import { Drawer, IconButton, List, ListItemButton } from '@mui/material';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
+import { AppContext } from '../store/AppContext ';
 
 const TopMenu = () => {
   const theme = useTheme();
@@ -22,6 +23,7 @@ const TopMenu = () => {
   const [state, setState] = React.useState({ left: false });
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
   const [registrationDialogOpen, setRegistrationDialogOpen] = useState(false);
+  const { sign } = React.useContext(AppContext);
 
   const toggleDrawer =
     (anchor: 'left', open: boolean) =>
@@ -58,11 +60,13 @@ const TopMenu = () => {
     console.log('uživatel odhlášen');
   };
 
+  console.log(sign);
+
   return (
     <AppBar position="static">
       <Container>
         <Toolbar disableGutters>
-          {isMatch === false ? (
+          {isMatch === false && (
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {(Object.entries(Pages) as [keyof typeof Urls, string][]).map(
                 ([url, name]) => (
@@ -76,54 +80,55 @@ const TopMenu = () => {
                   </Button>
                 ),
               )}
-              <Button
-                sx={{ my: 2, color: 'white', display: 'block' }}
-                color="secondary"
-                onClick={handleOpenLoginDialog}
-              >
-                Přihlášení
-              </Button>
-
-              <LoginForm
-                open={loginDialogOpen}
-                onClose={handleCloseLoginDialog}
-              />
-
-              <Button
-                sx={{ my: 2, color: 'white', display: 'block' }}
-                color="secondary"
-                onClick={handleOpenRegistrationDialog}
-              >
-                Registrace
-              </Button>
-
-              <RegistrationForm
-                open={registrationDialogOpen}
-                onClose={handleCloseRegistrationDialog}
-              />
-              <Button
-                sx={{ my: 2, color: 'white', display: 'block' }}
-                color="secondary"
-                onClick={handleSignOut}
-              >
-                Odhlásit se
-              </Button>
-            </Box>
-          ) : (
-            <div>
-              <React.Fragment>
-                <IconButton onClick={toggleDrawer('left', true)}>
-                  <MenuIcon />
-                </IconButton>
-                <Drawer
-                  anchor="left"
-                  open={state['left']}
-                  onClose={toggleDrawer('left', false)}
+              {sign ? (
+                <Button
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  color="secondary"
+                  onClick={handleSignOut}
                 >
-                  <List>
-                    {(
-                      Object.entries(Pages) as [keyof typeof Urls, string][]
-                    ).map(([url, name]) => (
+                  Odhlásit se
+                </Button>
+              ) : (
+                <React.Fragment>
+                  <Button
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                    color="secondary"
+                    onClick={handleOpenLoginDialog}
+                  >
+                    Přihlášení
+                  </Button>
+                  <LoginForm
+                    open={loginDialogOpen}
+                    onClose={handleCloseLoginDialog}
+                  />
+                  <Button
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                    color="secondary"
+                    onClick={handleOpenRegistrationDialog}
+                  >
+                    Registrace
+                  </Button>
+                  <RegistrationForm
+                    open={registrationDialogOpen}
+                    onClose={handleCloseRegistrationDialog}
+                  />
+                </React.Fragment>
+              )}
+            </Box>
+          )}
+          {isMatch && (
+            <React.Fragment>
+              <IconButton onClick={toggleDrawer('left', true)}>
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                anchor="left"
+                open={state['left']}
+                onClose={toggleDrawer('left', false)}
+              >
+                <List>
+                  {(Object.entries(Pages) as [keyof typeof Urls, string][]).map(
+                    ([url, name]) => (
                       <ListItemButton
                         component={RouterLink}
                         to={Urls[url]}
@@ -131,36 +136,28 @@ const TopMenu = () => {
                       >
                         {name}
                       </ListItemButton>
-                    ))}
-                  </List>
-
-                  <Button
-                    sx={{ my: 2, display: 'block' }}
-                    onClick={handleOpenLoginDialog}
-                  >
-                    Přihlášení
-                  </Button>
-
-                  <LoginForm
-                    open={loginDialogOpen}
-                    onClose={handleCloseLoginDialog}
-                  />
-
-                  <Button
-                    sx={{ my: 2, display: 'block' }}
-                    color="primary"
-                    onClick={handleOpenRegistrationDialog}
-                  >
-                    Registrace
-                  </Button>
-
-                  <RegistrationForm
-                    open={registrationDialogOpen}
-                    onClose={handleCloseRegistrationDialog}
-                  />
-                </Drawer>
-              </React.Fragment>
-            </div>
+                    ),
+                  )}
+                </List>
+                {!sign && (
+                  <React.Fragment>
+                    <Button
+                      sx={{ my: 2, display: 'block' }}
+                      onClick={handleOpenLoginDialog}
+                    >
+                      Přihlášení
+                    </Button>
+                    <Button
+                      sx={{ my: 2, display: 'block' }}
+                      color="primary"
+                      onClick={handleOpenRegistrationDialog}
+                    >
+                      Registrace
+                    </Button>
+                  </React.Fragment>
+                )}
+              </Drawer>
+            </React.Fragment>
           )}
         </Toolbar>
       </Container>
