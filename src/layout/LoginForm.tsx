@@ -31,10 +31,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ open, onClose }) => {
 
   const handleLoginByGoogle = () => {
     signByGoogle();
+    setSign(true);
   };
 
   const handleLoginByFB = () => {
     signByFB();
+    setSign(true);
   };
 
   return (
