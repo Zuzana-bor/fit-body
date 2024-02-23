@@ -8,6 +8,7 @@ import { Button, Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { addLikeExercise } from '../../config';
 import { AppContext } from '../../store/AppContext ';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 type ExerciseCardProps = {
   item: Exercise;
@@ -28,6 +29,11 @@ const ExerciseCard: FC<ExerciseCardProps> = ({
 
   return (
     <Card sx={{ height: '100%' }} id={id}>
+      <Button onClick={handleLikeExercise}>
+        <Fab color="secondary" aria-label="add">
+          <FavoriteIcon />
+        </Fab>
+      </Button>
       <CardContent>
         <CardMedia
           sx={{
@@ -51,11 +57,6 @@ const ExerciseCard: FC<ExerciseCardProps> = ({
         <Typography variant="body2" color="text.secondary">
           {description}
         </Typography>
-        <Button onClick={handleLikeExercise}>
-          <Fab color="secondary" aria-label="add">
-            <AddIcon />
-          </Fab>
-        </Button>
       </CardContent>
     </Card>
   );

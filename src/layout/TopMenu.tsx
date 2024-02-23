@@ -23,7 +23,7 @@ const TopMenu = () => {
   const [state, setState] = React.useState({ left: false });
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
   const [registrationDialogOpen, setRegistrationDialogOpen] = useState(false);
-  const { sign } = React.useContext(AppContext);
+  const { sign, user } = React.useContext(AppContext);
 
   const toggleDrawer =
     (anchor: 'left', open: boolean) =>
@@ -60,7 +60,7 @@ const TopMenu = () => {
     console.log('uživatel odhlášen');
   };
 
-  console.log(sign);
+  console.log(user);
 
   return (
     <AppBar position="static">
@@ -80,7 +80,7 @@ const TopMenu = () => {
                   </Button>
                 ),
               )}
-              {sign ? (
+              {user ? (
                 <Button
                   sx={{ my: 2, color: 'white', display: 'block' }}
                   color="secondary"
@@ -139,7 +139,7 @@ const TopMenu = () => {
                     ),
                   )}
                 </List>
-                {!sign && (
+                {!user && (
                   <React.Fragment>
                     <Button
                       sx={{ my: 2, display: 'block' }}
